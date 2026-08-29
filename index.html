@@ -157,36 +157,28 @@
     .card p{color:var(--muted);font-size:14px}
     .tag{display:inline-block;margin-top:14px;color:var(--blue);font-size:11px;font-weight:800;letter-spacing:.05em}
     
-    /* Interactive Network Telemetry Visualizer (Self-Contained & Fast) */
-    .map-shell{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#ffffff;box-shadow:var(--shadow)}
-    .map-toolbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);background:var(--bg2)}
-    .map-filters-left{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
-    .filter{border:1px solid var(--line-strong);background:#ffffff;color:var(--muted);padding:6px 12px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:600;transition:.15s}
-    .filter.active{background:var(--blue);border-color:var(--blue);color:#ffffff}
+    /* ==========================================
+       App Showcase Section (Replacing Map)
+       ========================================== */
+    .showcase-shell{border:1px solid var(--line);border-radius:24px;background:#ffffff;box-shadow:var(--shadow);overflow:hidden}
+    .showcase-toolbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding:16px 24px;border-bottom:1px solid var(--line);background:var(--bg2)}
+    .showcase-tabs{display:flex;gap:8px;flex-wrap:wrap}
+    .showcase-tab{border:1px solid var(--line-strong);background:#ffffff;color:var(--muted);padding:8px 16px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:700;transition:.18s}
+    .showcase-tab.active{background:var(--blue);border-color:var(--blue);color:#ffffff;box-shadow:0 2px 8px rgba(37,99,235,.25)}
     
-    .map-grid-interactive{display:grid;grid-template-columns:1.2fr .8fr;background:#ffffff;min-height:440px}
-    .map-visual-pane{position:relative;background:#f8fafc;display:flex;align-items:center;justify-content:center;padding:24px;border-right:1px solid var(--line);overflow:hidden}
-    .map-nodes-container{position:relative;width:100%;max-width:480px;height:380px}
+    .showcase-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;padding:40px;align-items:center}
+    .showcase-desc-box{display:flex;flex-direction:column;gap:16px}
+    .showcase-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:6px;background:var(--blue-bg);color:var(--blue);font-size:12px;font-weight:800;letter-spacing:.06em}
+    .showcase-heading{font-size:28px;font-weight:800;color:var(--text);letter-spacing:-.03em;line-height:1.2}
+    .showcase-text{color:var(--muted);font-size:15px;line-height:1.7}
+    .showcase-pills{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+    .showcase-pill{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:12px}
+    .showcase-pill small{display:block;font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase}
+    .showcase-pill b{display:block;font-size:16px;color:var(--text);margin-top:2px}
     
-    .map-city-node{position:absolute;display:flex;flex-direction:column;align-items:center;cursor:pointer;transition:transform .2s ease;z-index:10}
-    .map-city-node:hover, .map-city-node.active{transform:scale(1.12);z-index:20}
-    .node-pin{width:16px;height:16px;border-radius:50%;border:2px solid #ffffff;box-shadow:0 2px 6px rgba(0,0,0,.25)}
-    .node-pin.jio{background:#0284c7}
-    .node-pin.airtel{background:#2563eb}
-    .node-pin.vi{background:#d97706}
-    .node-pin.bsnl{background:#7c3aed}
-    .node-name{font-size:11px;font-weight:700;color:#0f172a;background:rgba(255,255,255,.9);padding:2px 6px;border-radius:4px;border:1px solid var(--line);margin-top:4px;white-space:nowrap}
-    
-    .map-inspector-pane{padding:28px;display:flex;flex-direction:column;justify-content:space-between;background:#ffffff}
-    .inspector-header{margin-bottom:16px}
-    .inspector-city{font-size:22px;font-weight:800;color:#0f172a;margin-bottom:4px}
-    .inspector-tech{display:inline-block;padding:3px 8px;border-radius:6px;background:var(--blue-bg);color:var(--blue);font-size:11px;font-weight:700}
-    .inspector-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
-    .inspector-stat{background:var(--bg2);padding:12px;border-radius:10px;border:1px solid var(--line)}
-    .inspector-stat small{display:block;font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase}
-    .inspector-stat strong{font-size:18px;color:#0f172a}
-    
-    .map-footer-status{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;background:var(--bg2);border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+    .showcase-phone-frame{position:relative;width:100%;max-width:340px;margin:0 auto;background:#ffffff;border:8px solid #0f172a;border-radius:36px;box-shadow:0 20px 50px rgba(0,0,0,.15);overflow:hidden}
+    .phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:110px;height:18px;background:#0f172a;border-bottom-left-radius:12px;border-bottom-right-radius:12px;z-index:20}
+    .phone-img{width:100%;height:auto;display:block;object-fit:cover;transition:opacity .3s ease}
     
     /* Compare & Checker */
     .compare{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
@@ -250,8 +242,7 @@
       .navlinks{display:none}
       .menu{display:block}
       .navlinks.open{display:flex;position:absolute;top:71px;left:16px;right:16px;background:#ffffff;border:1px solid var(--line);box-shadow:var(--shadow);padding:12px;border-radius:12px;flex-direction:column;align-items:stretch}
-      .hero-grid,.compare,.download-grid,.map-grid-interactive{grid-template-columns:1fr}
-      .map-visual-pane{border-right:0;border-bottom:1px solid var(--line)}
+      .hero-grid,.compare,.download-grid,.showcase-grid{grid-template-columns:1fr}
       .hero{padding-top:55px}
       .cards,.guides{grid-template-columns:1fr 1fr}
       .stats,.metrics{grid-template-columns:1fr 1fr}
@@ -263,10 +254,11 @@
       .hero{padding:44px 0}
       .hero-copy{font-size:15px}
       .actions .btn{width:100%}
-      .stats,.cards,.guides,.metrics,.checker-grid,.checklist,.footer-grid{grid-template-columns:1fr}
+      .stats,.cards,.guides,.metrics,.checker-grid,.checklist,.footer-grid,.showcase-pills{grid-template-columns:1fr}
       .section-head{display:block}
       .section-copy{margin-top:10px}
-      .map-toolbar{overflow:auto;flex-wrap:nowrap}
+      .showcase-grid{padding:24px 16px}
+      .showcase-tabs{overflow:auto;flex-wrap:nowrap}
       .download{padding:28px 18px}
       .speed{font-size:40px}
       .copyright{display:block}
@@ -283,7 +275,7 @@
       <span>NetScope <small>India · Network Intelligence</small></span>
     </a>
     <nav class="navlinks" id="navlinks">
-      <a href="#map">Map</a>
+      <a href="#showcase">App Showcase</a>
       <a href="#compare">Compare</a>
       <a href="#metrics">Metrics</a>
       <a href="#guides">Learn</a>
@@ -303,7 +295,7 @@
       <p class="hero-copy">Explore mobile network performance on the web and measure your real cellular signal, speed, latency and radio metrics with the free NetScope Android app.</p>
       <div class="actions">
         <a class="btn btn-primary" href="#download">Download NetScope</a>
-        <a class="btn btn-secondary" href="#map">Explore Network Map</a>
+        <a class="btn btn-secondary" href="#showcase">View App Screenshots</a>
       </div>
       <div class="trust">
         <span>✓ Android diagnostics</span><span>✓ 4G / 5G metrics</span><span>✓ Free APK</span><span>✓ India focused</span>
@@ -347,7 +339,7 @@
       <article class="card">
         <span class="card-badge">Web Platform</span>
         <h3>Understand on Web</h3>
-        <p>Explore regional network information, city benchmarks, operator comparisons and an interactive India map.</p>
+        <p>Explore regional network information, city benchmarks, operator comparisons and an interactive India knowledge hub.</p>
         <span class="tag">EXPLORE WITHOUT INSTALLING</span>
       </article>
       <article class="card">
@@ -360,86 +352,76 @@
   </div>
 </section>
 
-<!-- Interactive Regional Network Map (100% Reliable & Fast) -->
-<section id="map" class="reveal">
+<!-- ====================================================
+     Interactive App Screenshots Showcase Studio
+     ==================================================== -->
+<section id="showcase" class="reveal">
   <div class="container">
     <div class="section-head">
-      <div><div class="kicker">Coverage Intelligence</div><h2 class="section-title">Explore India's network map</h2></div>
-      <p class="section-copy">Select any city node or filter carriers to inspect regional cellular speeds, latency, and frequency bands.</p>
+      <div>
+        <div class="kicker">See NetScope In Action</div>
+        <h2 class="section-title">Android App Diagnostic Showcase</h2>
+      </div>
+      <p class="section-copy">
+        NetScope reads hardware-level telephony telemetry to expose raw RF signals, low-overhead socket speeds, and cellular identifiers.
+      </p>
     </div>
-    <div class="map-shell">
-      <div class="map-toolbar" role="group" aria-label="Map filters">
-        <div class="map-filters-left">
-          <button class="filter active" data-op="All">All operators</button>
-          <button class="filter" data-op="Jio">Jio</button>
-          <button class="filter" data-op="Airtel">Airtel</button>
-          <button class="filter" data-op="Vi">Vi</button>
-          <button class="filter" data-op="BSNL">BSNL</button>
-          <button class="filter active" data-tech="All">All tech</button>
-          <button class="filter" data-tech="5G">5G</button>
-          <button class="filter" data-tech="4G">4G</button>
+
+    <div class="showcase-shell">
+      <div class="showcase-toolbar">
+        <div class="showcase-tabs" role="tablist">
+          <button class="showcase-tab active" data-view="overview">1. Live Dashboard</button>
+          <button class="showcase-tab" data-view="diagnostics">2. RF Diagnostics</button>
+          <button class="showcase-tab" data-view="speedtest">3. Socket Speed Test</button>
+          <button class="showcase-tab" data-view="dashboard">4. Cell & Tower Telemetry</button>
         </div>
         <div>
-          <button class="btn btn-secondary" id="btn-gps-locate" style="padding:6px 12px;font-size:12px;">Auto-Detect Region</button>
+          <a href="#download" class="btn btn-primary" style="padding:7px 14px;font-size:12px;">Get App Free</a>
         </div>
       </div>
 
-      <div class="map-grid-interactive">
-        <!-- Visual Node Grid -->
-        <div class="map-visual-pane">
-          <svg viewBox="0 0 480 380" style="position:absolute;width:100%;height:100%;opacity:0.15;pointer-events:none;">
-            <path d="M 240 30 L 320 120 L 360 220 L 260 360 L 160 260 L 140 140 Z" fill="none" stroke="#2563eb" stroke-width="2" stroke-dasharray="4 4"/>
-            <line x1="240" y1="50" x2="160" y2="200" stroke="#cbd5e1" stroke-width="1"/>
-            <line x1="240" y1="50" x2="280" y2="180" stroke="#cbd5e1" stroke-width="1"/>
-            <line x1="160" y1="200" x2="220" y2="280" stroke="#cbd5e1" stroke-width="1"/>
-            <line x1="280" y1="180" x2="220" y2="280" stroke="#cbd5e1" stroke-width="1"/>
-          </svg>
+      <div class="showcase-grid">
+        <!-- Interactive Information Panel -->
+        <div class="showcase-desc-box">
+          <span class="showcase-badge" id="sc-badge">REAL-TIME SIGNAL DASHBOARD</span>
+          <h3 class="showcase-heading" id="sc-title">Live Signal & Network Overview</h3>
+          <p class="showcase-text" id="sc-desc">
+            Instantly view active carrier generation (5G Standalone / NSA / 4G LTE), signal strength in dBm, connected frequency band, and SIM state directly from Android's hardware modem.
+          </p>
 
-          <div class="map-nodes-container" id="map-nodes-wrap">
-            <!-- Dynamically populated city nodes -->
-          </div>
-        </div>
-
-        <!-- Live Node Telemetry Inspector -->
-        <div class="map-inspector-pane">
-          <div>
-            <div class="inspector-header">
-              <span class="inspector-tech" id="insp-tech">5G STANDALONE (SA)</span>
-              <div class="inspector-city" id="insp-city" style="margin-top:6px;">Delhi NCR</div>
-              <p style="color:var(--muted);font-size:13px;" id="insp-carrier">Operator: Reliance Jio · Band n78 (3500 MHz)</p>
+          <div class="showcase-pills" id="sc-pills">
+            <div class="showcase-pill">
+              <small>Signal Power</small>
+              <b style="color:var(--green);">−78 dBm (Optimal)</b>
             </div>
-
-            <div class="inspector-stats">
-              <div class="inspector-stat">
-                <small>Average Speed</small>
-                <strong id="insp-speed" style="color:var(--blue);">342 Mbps</strong>
-              </div>
-              <div class="inspector-stat">
-                <small>Round-Trip Ping</small>
-                <strong id="insp-latency">17 ms</strong>
-              </div>
-              <div class="inspector-stat">
-                <small>Signal (RSRP)</small>
-                <strong id="insp-rsrp" style="color:var(--green);">−76 dBm</strong>
-              </div>
-              <div class="inspector-stat">
-                <small>Quality (SINR)</small>
-                <strong id="insp-sinr">24.2 dB</strong>
-              </div>
+            <div class="showcase-pill">
+              <small>Network Generation</small>
+              <b style="color:var(--blue);">5G Standalone (NR)</b>
+            </div>
+            <div class="showcase-pill">
+              <small>Frequency Band</small>
+              <b>n78 (3500 MHz)</b>
+            </div>
+            <div class="showcase-pill">
+              <small>Active SIM Slot</small>
+              <b>SIM 1 · Primary Data</b>
             </div>
           </div>
 
-          <div>
-            <a href="#download" class="btn btn-primary" style="width:100%;">
-              <span>Measure Your Phone's Exact Signal</span>
+          <div style="margin-top:10px;">
+            <a href="download.html" class="btn btn-secondary">
+              <span>Download Standalone APK</span>
             </a>
           </div>
         </div>
-      </div>
 
-      <div class="map-footer-status">
-        <span>Active Telemetry Layers: Jio 5G SA · Airtel 5G NSA · Vi 4G GigaNet · BSNL Bharat</span>
-        <span style="color:var(--green);font-weight:700;">Live Telemetry Feed</span>
+        <!-- Phone Mockup Frame Displaying Real Screenshot -->
+        <div>
+          <div class="showcase-phone-frame">
+            <div class="phone-notch"></div>
+            <img src="assets/app_overview.jpg" alt="NetScope Android App Screenshot" class="phone-img" id="sc-img">
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -560,7 +542,7 @@
       <details><summary>What do RSRP, RSRQ and SINR mean?</summary><p>RSRP describes reference signal received power, RSRQ describes reference signal received quality, and SINR describes signal-to-interference-plus-noise ratio.</p></details>
       <details><summary>Can I use NetScope with Jio, Airtel, Vi and BSNL?</summary><p>The platform is designed for Indian cellular networks. Actual metrics available depend on the Android device, modem and carrier APIs exposed by the operating system.</p></details>
       <details><summary>Is the Android app free?</summary><p>The current NetScope APK is provided as a free download. Always download the APK from the project's official GitHub release page.</p></details>
-      <details><summary>How are map metrics gathered?</summary><p>The mapping system combines regional base station telemetry, operator deployment parameters, and on-device measurement contributions from the NetScope Android application.</p></details>
+      <details><summary>Does NetScope require root access?</summary><p>No root is required. NetScope uses standard Android TelephonyManager and NetworkCapabilities APIs to read all supported RF parameters.</p></details>
     </div>
   </div>
 </section>
@@ -570,7 +552,7 @@
   <div class="container">
     <div class="footer-grid">
       <div><h4>NetScope India</h4><p>Mobile network intelligence for India — explore on the web, measure on Android, and learn how cellular networks work.</p></div>
-      <div><h4>Explore</h4><a href="#map">Network Map</a><a href="#compare">Compare Operators</a><a href="#metrics">RF Metrics</a><a href="academy.html">Network Academy</a></div>
+      <div><h4>Explore</h4><a href="#showcase">App Showcase</a><a href="#compare">Compare Operators</a><a href="#metrics">RF Metrics</a><a href="academy.html">Network Academy</a></div>
       <div><h4>App</h4><a href="#download">Download APK</a><a href="https://github.com/bhavingarg121-glitch/net_scope/releases" target="_blank" rel="noopener">GitHub Releases</a><a href="privacy.html">Privacy</a><a href="faq.html">FAQ</a></div>
       <div><h4>City Insights</h4><a href="delhi.html">Delhi NCR</a><a href="mumbai.html">Mumbai</a><a href="bengaluru.html">Bengaluru</a><a href="nagpur.html">Nagpur</a></div>
     </div>
@@ -615,104 +597,88 @@
     });
   }
 
-  // Self-Contained High-Performance Regional Network Telemetry Map
-  const mapData = [
-    { id:'delhi', name:'Delhi NCR', op:'Jio', tech:'5G SA', top:18, left:44, speed:'342 Mbps', latency:'17 ms', rsrp:'−76 dBm', sinr:'24.2 dB', carrier:'Reliance Jio · Band n78' },
-    { id:'nagpur', name:'Nagpur', op:'Airtel', tech:'5G NSA', top:48, left:49, speed:'220 Mbps', latency:'28 ms', rsrp:'−88 dBm', sinr:'18.5 dB', carrier:'Bharti Airtel · Band n78' },
-    { id:'mumbai', name:'Mumbai', op:'Airtel', tech:'5G NSA', top:58, left:26, speed:'318 Mbps', latency:'19 ms', rsrp:'−79 dBm', sinr:'21.0 dB', carrier:'Bharti Airtel · Band n78' },
-    { id:'pune', name:'Pune', op:'Jio', tech:'5G SA', top:65, left:32, speed:'274 Mbps', latency:'23 ms', rsrp:'−84 dBm', sinr:'19.4 dB', carrier:'Reliance Jio · Band n28' },
-    { id:'latur', name:'Latur', op:'Vi', tech:'4G LTE-A', top:62, left:42, speed:'48 Mbps', latency:'42 ms', rsrp:'−94 dBm', sinr:'12.8 dB', carrier:'Vodafone Idea · Band 3' },
-    { id:'hyderabad', name:'Hyderabad', op:'Airtel', tech:'5G NSA', top:66, left:52, speed:'295 Mbps', latency:'21 ms', rsrp:'−82 dBm', sinr:'20.2 dB', carrier:'Bharti Airtel · Band n78' },
-    { id:'bengaluru', name:'Bengaluru', op:'Jio', tech:'5G SA', top:82, left:46, speed:'385 Mbps', latency:'14 ms', rsrp:'−72 dBm', sinr:'26.5 dB', carrier:'Reliance Jio · Band n78' },
-    { id:'chennai', name:'Chennai', op:'Jio', tech:'5G SA', top:80, left:60, speed:'310 Mbps', latency:'18 ms', rsrp:'−78 dBm', sinr:'22.0 dB', carrier:'Reliance Jio · Band n78' },
-    { id:'kolkata', name:'Kolkata', op:'Vi', tech:'4G LTE', top:46, left:78, speed:'120 Mbps', latency:'26 ms', rsrp:'−85 dBm', sinr:'16.4 dB', carrier:'Vodafone Idea · Band 1' },
-    { id:'jaipur', name:'Jaipur', op:'BSNL', tech:'4G LTE', top:32, left:36, speed:'62 Mbps', latency:'38 ms', rsrp:'−91 dBm', sinr:'14.1 dB', carrier:'BSNL Bharat 4G' },
-    { id:'ahmedabad', name:'Ahmedabad', op:'Jio', tech:'5G SA', top:44, left:22, speed:'290 Mbps', latency:'20 ms', rsrp:'−80 dBm', sinr:'21.4 dB', carrier:'Reliance Jio · Band n78' },
-    { id:'lucknow', name:'Lucknow', op:'Airtel', tech:'5G NSA', top:34, left:58, speed:'245 Mbps', latency:'29 ms', rsrp:'−86 dBm', sinr:'17.8 dB', carrier:'Bharti Airtel · Band n78' }
-  ];
-
-  let currentOpFilter = 'All';
-  let currentTechFilter = 'All';
-  const nodesWrap = document.getElementById('map-nodes-wrap');
-
-  function renderMapNodes() {
-    if(!nodesWrap) return;
-    nodesWrap.innerHTML = '';
-
-    const filtered = mapData.filter(d => {
-      const matchOp = (currentOpFilter === 'All' || d.op === currentOpFilter);
-      const matchTech = (currentTechFilter === 'All' || d.tech.includes(currentTechFilter));
-      return matchOp && matchTech;
-    });
-
-    filtered.forEach((item, idx) => {
-      const nodeEl = document.createElement('div');
-      nodeEl.className = 'map-city-node' + (idx === 0 ? ' active' : '');
-      nodeEl.style.top = item.top + '%';
-      nodeEl.style.left = item.left + '%';
-      nodeEl.innerHTML = `
-        <div class="node-pin ${item.op.toLowerCase()}"></div>
-        <div class="node-name">${item.name}</div>
-      `;
-
-      nodeEl.addEventListener('click', () => {
-        document.querySelectorAll('.map-city-node').forEach(n => n.classList.remove('active'));
-        nodeEl.classList.add('active');
-        inspectNode(item);
-      });
-
-      nodesWrap.appendChild(nodeEl);
-    });
-
-    if(filtered.length > 0) {
-      inspectNode(filtered[0]);
+  // Interactive Showcase Tab Logic
+  const showcaseViews = {
+    overview: {
+      badge: 'REAL-TIME SIGNAL DASHBOARD',
+      title: 'Live Signal & Network Overview',
+      desc: 'Instantly view active carrier generation (5G Standalone / NSA / 4G LTE), signal strength in dBm, connected frequency band, and SIM state directly from Android\'s hardware modem.',
+      img: 'assets/app_overview.jpg',
+      pills: [
+        { label: 'Signal Power', val: '−78 dBm (Optimal)', color: 'var(--green)' },
+        { label: 'Network Generation', val: '5G Standalone (NR)', color: 'var(--blue)' },
+        { label: 'Frequency Band', val: 'n78 (3500 MHz)', color: 'var(--text)' },
+        { label: 'Active SIM Slot', val: 'SIM 1 · Primary Data', color: 'var(--text)' }
+      ]
+    },
+    diagnostics: {
+      badge: 'RF RADIO DIAGNOSTICS',
+      title: 'Deep RF Metric Inspection',
+      desc: 'Look beyond misleading signal bars. Inspect raw RSRP carrier power, RSRQ signal quality, SINR transmission clarity, and CQI modulation channel indicators.',
+      img: 'assets/app_diagnostics.jpg',
+      pills: [
+        { label: 'Carrier RSRP', val: '−82 dBm', color: 'var(--blue)' },
+        { label: 'Carrier RSRQ', val: '−10 dB (Good)', color: 'var(--green)' },
+        { label: 'Radio SINR', val: '+24.5 dB (Clean)', color: 'var(--green)' },
+        { label: 'CQI Index', val: '14 (256-QAM Active)', color: 'var(--amber)' }
+      ]
+    },
+    speedtest: {
+      badge: 'LOW-OVERHEAD SPEED TEST',
+      title: 'Raw Socket Download & Ping',
+      desc: 'Benchmark your connection without bloated ads or ISP-sponsored speed boosts. Measures download throughput, upload rate, HTTP round-trip latency, and jitter.',
+      img: 'assets/app_speedtest.jpg',
+      pills: [
+        { label: 'Downlink Peak', val: '384.2 Mbps', color: 'var(--blue)' },
+        { label: 'Uplink Throughput', val: '42.8 Mbps', color: 'var(--text)' },
+        { label: 'Server Ping', val: '14 ms (Low Jitter)', color: 'var(--green)' },
+        { label: 'Socket Buffer', val: '0% Packet Loss', color: 'var(--green)' }
+      ]
+    },
+    dashboard: {
+      badge: 'CELL TOWER TELEMETRY',
+      title: 'Serving Cell Tower Identifiers',
+      desc: 'Identify the exact cellular base station serving your handset with Serving Cell ID (CID), Tracking Area Code (TAC), Physical Cell ID (PCI), and NR-ARFCN.',
+      img: 'assets/app_dashboard.jpg',
+      pills: [
+        { label: 'Serving Cell ID', val: 'CID 2489104', color: 'var(--text)' },
+        { label: 'Tracking Area', val: 'TAC 4108', color: 'var(--text)' },
+        { label: 'Physical Cell (PCI)', val: 'PCI 284', color: 'var(--blue)' },
+        { label: 'Channel Frequency', val: 'ARFCN 627340', color: 'var(--text)' }
+      ]
     }
-  }
+  };
 
-  function inspectNode(data) {
-    document.getElementById('insp-city').textContent = data.name;
-    document.getElementById('insp-tech').textContent = data.tech.toUpperCase();
-    document.getElementById('insp-carrier').textContent = 'Operator: ' + data.carrier;
-    document.getElementById('insp-speed').textContent = data.speed;
-    document.getElementById('insp-latency').textContent = data.latency;
-    document.getElementById('insp-rsrp').textContent = data.rsrp;
-    document.getElementById('insp-sinr').textContent = data.sinr;
-  }
+  document.querySelectorAll('[data-view]').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('[data-view]').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
 
-  renderMapNodes();
+      const viewKey = tab.dataset.view;
+      const data = showcaseViews[viewKey];
+      if(!data) return;
 
-  // Filter bindings
-  document.querySelectorAll('[data-op]').forEach(b => b.addEventListener('click', () => {
-    document.querySelectorAll('[data-op]').forEach(x => x.classList.remove('active'));
-    b.classList.add('active');
-    currentOpFilter = b.dataset.op;
-    renderMapNodes();
-  }));
+      document.getElementById('sc-badge').textContent = data.badge;
+      document.getElementById('sc-title').textContent = data.title;
+      document.getElementById('sc-desc').textContent = data.desc;
+      
+      const imgEl = document.getElementById('sc-img');
+      imgEl.style.opacity = '0.4';
+      setTimeout(() => {
+        imgEl.src = data.img;
+        imgEl.style.opacity = '1';
+      }, 150);
 
-  document.querySelectorAll('[data-tech]').forEach(b => b.addEventListener('click', () => {
-    document.querySelectorAll('[data-tech]').forEach(x => x.classList.remove('active'));
-    b.classList.add('active');
-    currentTechFilter = b.dataset.tech;
-    renderMapNodes();
-  }));
-
-  // Auto-detect location
-  const gpsBtn = document.getElementById('btn-gps-locate');
-  if(gpsBtn && navigator.geolocation){
-    gpsBtn.addEventListener('click', () => {
-      gpsBtn.textContent = 'Detecting...';
-      navigator.geolocation.getCurrentPosition(
-        () => {
-          gpsBtn.textContent = 'Region Detected';
-          const defaultNode = mapData[0];
-          inspectNode(defaultNode);
-        },
-        () => {
-          gpsBtn.textContent = 'Auto-Detect Region';
-        }
-      );
+      const pillsWrap = document.getElementById('sc-pills');
+      pillsWrap.innerHTML = '';
+      data.pills.forEach(p => {
+        const pEl = document.createElement('div');
+        pEl.className = 'showcase-pill';
+        pEl.innerHTML = `<small>${p.label}</small><b style="color:${p.color}">${p.val}</b>`;
+        pillsWrap.appendChild(pEl);
+      });
     });
-  }
+  });
 </script>
 </body>
 </html>
