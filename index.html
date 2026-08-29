@@ -240,13 +240,15 @@
     .faq summary{cursor:pointer;padding:16px 18px;font-weight:700;color:var(--text);outline:none}
     .faq p{padding:0 18px 16px;color:var(--muted);font-size:14px}
     
-    /* Footer */
-    footer{padding:50px 0 24px;border-top:1px solid var(--line);background:#ffffff}
-    .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:25px}
-    .footer-grid h4{margin-bottom:12px;font-size:14px;font-weight:700;color:var(--text)}
-    .footer-grid p,.footer-grid a{color:var(--muted);font-size:13px;display:block;margin:6px 0}
-    .footer-grid a:hover{color:var(--blue)}
-    .copyright{border-top:1px solid var(--line);margin-top:28px;padding-top:16px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between}
+    /* Footer (Spacious, Clean & Non-Overlapping) */
+    footer{padding:55px 0 28px;border-top:1px solid var(--line);background:#ffffff}
+    .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:30px}
+    .footer-grid h4{margin-bottom:14px;font-size:14px;font-weight:800;color:var(--text);letter-spacing:-.01em}
+    .footer-grid p{color:var(--muted);font-size:13.5px;line-height:1.6}
+    .footer-links-list{display:flex;flex-direction:column;gap:8px}
+    .footer-links-list a{color:var(--muted);font-size:13.5px;font-weight:500;display:inline-block;transition:color .15s ease,transform .15s ease}
+    .footer-links-list a:hover{color:var(--blue);transform:translateX(2px)}
+    .copyright{border-top:1px solid var(--line);margin-top:36px;padding-top:20px;color:var(--muted);font-size:12.5px;display:flex;justify-content:space-between;align-items:center}
     
     .reveal{opacity:0;transform:translateY(14px);transition:.6s ease}
     .reveal.show{opacity:1;transform:none}
@@ -582,12 +584,44 @@
 <footer>
   <div class="container">
     <div class="footer-grid">
-      <div><h4>NetScope India</h4><p>Mobile network intelligence for India — explore on the web, measure on Android, and learn how cellular networks work.</p></div>
-      <div><h4>Explore</h4><a href="#showcase">App Showcase</a><a href="#compare">Compare Operators</a><a href="#metrics">RF Metrics</a><a href="academy.html">Network Academy</a></div>
-      <div><h4>App</h4><a href="#download">Download APK</a><a href="https://github.com/bhavingarg121-glitch/net_scope/releases" target="_blank" rel="noopener">GitHub Releases</a><a href="privacy.html">Privacy</a><a href="faq.html">FAQ</a></div>
-      <div><h4>City Insights</h4><a href="delhi.html">Delhi NCR</a><a href="mumbai.html">Mumbai</a><a href="bengaluru.html">Bengaluru</a><a href="nagpur.html">Nagpur</a></div>
+      <div>
+        <h4>NetScope India</h4>
+        <p>Mobile network intelligence for India — explore on the web, measure on Android, and learn how cellular networks work.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <div class="footer-links-list">
+          <a href="#showcase">App Showcase</a>
+          <a href="#compare">Compare Operators</a>
+          <a href="#metrics">RF Metrics</a>
+          <a href="academy.html">Network Academy</a>
+        </div>
+      </div>
+      <div>
+        <h4>App</h4>
+        <div class="footer-links-list">
+          <a href="download.html">Download APK</a>
+          <a href="https://github.com/bhavingarg121-glitch/net_scope/releases" target="_blank" rel="noopener">GitHub Releases</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <h4>City Insights</h4>
+        <div class="footer-links-list">
+          <a href="delhi.html">Delhi NCR</a>
+          <a href="mumbai.html">Mumbai</a>
+          <a href="bengaluru.html">Bengaluru</a>
+          <a href="nagpur.html">Nagpur</a>
+          <a href="latur.html">Latur</a>
+          <a href="hyderabad.html">Hyderabad</a>
+        </div>
+      </div>
     </div>
-    <div class="copyright"><span>© 2026 NetScope India</span><span>Built for network visibility across India.</span></div>
+    <div class="copyright">
+      <span>© 2026 NetScope India</span>
+      <span>Built for network visibility across India.</span>
+    </div>
   </div>
 </footer>
 
