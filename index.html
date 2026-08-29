@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NetScope India – Mobile Network Analytics, Coverage Map & Diagnostics</title>
-  <meta name="description" content="Explore India's mobile network performance on the web. Measure signal strength (dBm), 5G/4G speeds, latency, and cell tower telemetry directly with NetScope Android App.">
+  <meta name="description" content="Explore India's mobile network performance on the web. Measure signal strength (dBm/RSRP), 5G/4G speeds, latency, and cell tower telemetry directly with NetScope Android App.">
   <meta name="keywords" content="NetScope India, mobile network map India, 5G speed test, RSRP SINR analyzer, Jio 5G vs Airtel 5G, cell tower locator Android, mobile signal strength app, dead zone report India">
   <meta name="author" content="NetScope India">
   <meta name="robots" content="index, follow">
@@ -39,7 +39,7 @@
 <body>
   <div class="cyber-grid-bg"></div>
 
-  <!-- Header / Navigation -->
+  <!-- Header / Navigation (Solid, Clean, Non-Overwriting) -->
   <header class="site-header">
     <div class="container nav-container">
       <a href="index.html" class="brand-logo">
@@ -106,103 +106,171 @@
         </div>
       </div>
 
-      <!-- Dual Phone Mockup (Image 1 Style) -->
+      <!-- Dual Phone Mockup (Exact Image 1 Reproduction) -->
       <div class="hero-visual">
         <div class="dual-phone-container">
           
-          <!-- Back Phone: Cell Site Map View -->
+          <!-- Back Phone: Map & Cluster Pins View -->
           <div class="phone-back">
             <div class="phone-device">
-              <div class="phone-screen-content" style="height: 380px;">
-                <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #94a3b8; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 4px;">
-                  <span>👤 SuperUser (Senior Eng.)</span>
-                  <span>📶 5G 71%</span>
+              <div class="phone-screen-content" style="height: 420px; justify-content: space-between;">
+                
+                <!-- Status Bar -->
+                <div class="phone-status-bar">
+                  <span>8:13 💬 ⚙️</span>
+                  <span>📶 5G  🔋 71%</span>
                 </div>
-                <div class="phone-subnav">
-                  <span class="active">Home</span>
-                  <span>Operation</span>
-                  <span>Planning</span>
-                  <span>Spot Analysis</span>
-                </div>
-                <!-- Simulated Mini Map Pins -->
-                <div style="background: radial-gradient(circle, rgba(0,242,254,0.1) 0%, #060a17 80%); height: 260px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; padding: 10px;">
-                  <div style="font-size: 0.75rem; font-weight: bold; color: #00f2fe;">📍 Delhi NCR Cluster (gNodeB Mesh)</div>
-                  
-                  <div style="position: absolute; top: 40px; left: 40px; font-size: 14px;">🟢 <span style="font-size: 8px; color: #fff;">DEL-01</span></div>
-                  <div style="position: absolute; top: 70px; right: 50px; font-size: 14px;">🟢 <span style="font-size: 8px; color: #fff;">DEL-04</span></div>
-                  <div style="position: absolute; top: 130px; left: 90px; font-size: 14px;">🟡 <span style="font-size: 8px; color: #fff;">DEL-09</span></div>
-                  <div style="position: absolute; bottom: 50px; right: 70px; font-size: 14px;">🔴 <span style="font-size: 8px; color: #fff;">DEL-14</span></div>
 
-                  <div style="background: rgba(10,15,36,0.9); padding: 4px 8px; border-radius: 6px; font-size: 0.65rem; color: #94a3b8;">
-                    Projection: <span style="color: #00f5a0;">🟢 ≥100%</span> | <span style="color: #f59e0b;">🟡 90%</span> | <span style="color: #f43f5e;">🔴 &lt;90%</span>
+                <!-- User Bar -->
+                <div class="phone-user-bar">
+                  <div class="user-info-left">
+                    <div class="user-avatar">👤</div>
+                    <div class="user-name-title">
+                      <div style="font-weight: bold; color: #fff;">SuperUser</div>
+                      <div style="color: #94a3b8; font-size: 0.58rem;">Login as Senior Engineer ...</div>
+                    </div>
                   </div>
+                  <div style="display: flex; gap: 6px; font-size: 0.75rem; color: #94a3b8;">
+                    <span>🔔</span><span>📖</span><span>❓</span>
+                  </div>
+                </div>
+
+                <!-- Filter Pills -->
+                <div class="phone-top-pills">
+                  <span class="active">🏠 Home</span>
+                  <span>🎯 Operation</span>
+                  <span>🔍 Planning</span>
+                  <span>📍 Spot Ana</span>
+                </div>
+
+                <!-- Map Area -->
+                <div style="background: radial-gradient(circle at center, #132247 0%, #060a17 85%); height: 210px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); position: relative; overflow: hidden; padding: 8px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.65rem; color: #38bdf8; font-weight: bold;">🌊 Sea World Ancol / Delhi</span>
+                    <div style="display: flex; gap: 4px; font-size: 0.65rem; background: rgba(0,0,0,0.5); padding: 2px 6px; border-radius: 4px;">
+                      <span>📈</span><span>⚙️</span><span>🔍</span>
+                    </div>
+                  </div>
+
+                  <!-- Tower Markers -->
+                  <div style="position: absolute; top: 40px; left: 35px; font-size: 13px;">🟢 <span style="font-size: 7px; color: #fff;">Tower A1</span></div>
+                  <div style="position: absolute; top: 60px; right: 40px; font-size: 13px;">🟢 <span style="font-size: 7px; color: #fff;">Tower A2</span></div>
+                  <div style="position: absolute; top: 110px; left: 75px; font-size: 13px;">🟡 <span style="font-size: 7px; color: #fff;">Tower B4</span></div>
+                  <div style="position: absolute; bottom: 40px; right: 50px; font-size: 13px;">🔴 <span style="font-size: 7px; color: #fff;">Tower C9</span></div>
+
+                  <div style="position: absolute; bottom: 6px; left: 6px; right: 6px; background: rgba(10,15,36,0.92); padding: 3px 6px; border-radius: 6px; font-size: 0.58rem; color: #94a3b8; display: flex; justify-content: space-between;">
+                    <span>Projection Gross Revenue:</span>
+                    <span><span style="color: #00f5a0;">🟢 ≥100%</span> <span style="color: #f59e0b;">🟡 90%</span> <span style="color: #f43f5e;">🔴 &lt;90%</span></span>
+                  </div>
+                </div>
+
+                <!-- Bottom Bar -->
+                <div class="phone-bottom-nav">
+                  <span>📊 Market</span>
+                  <span>🎯 Tracking</span>
+                  <span>📡 Benchmark</span>
+                  <span>🏢 GraPARI</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Front Phone: Cell Site Engineering & Traffic Insights -->
+          <!-- Front Phone: Cell Site Details & MTD Traffic (Image 1 Front) -->
           <div class="phone-front">
             <div class="phone-device">
               <div class="phone-screen-content">
+                
+                <!-- Status Bar -->
+                <div class="phone-status-bar">
+                  <span>8:16 💬</span>
+                  <span>📶 5G  🔋 70%</span>
+                </div>
+
+                <!-- Site Header -->
                 <div class="phone-site-header">
                   <div>
-                    <div style="font-weight: 800; font-size: 0.95rem; display: flex; align-items: center; gap: 6px;">
-                      <span>JKU059</span>
+                    <div style="font-weight: 800; font-size: 0.92rem; display: flex; align-items: center; gap: 6px;">
+                      <span>← JKU059</span>
                       <span class="site-badge-gold">GOLD</span>
                       <span class="site-badge-up">Up</span>
                     </div>
-                    <div style="font-size: 0.68rem; color: #94a3b8;">33.44 Mio · MOM: -5.43%</div>
+                    <div style="font-size: 0.65rem; color: #94a3b8; margin-top: 2px;">
+                      <strong>33.44 Mio</strong> <span style="color: #f59e0b;">▾ -23%</span> · Last: 11/01/2026
+                    </div>
                   </div>
-                  <div style="font-size: 1.2rem;">🗼</div>
+                  <div style="font-size: 1.4rem;">🗼</div>
                 </div>
 
-                <div class="phone-subnav">
+                <!-- Site Navigation Tabs -->
+                <div class="phone-site-tabs">
                   <span class="active">Site Info</span>
                   <span>Network Insight</span>
-                  <span>Sales</span>
-                  <span>Subs</span>
+                  <span>Sales Insight</span>
+                  <span>Subs Insight</span>
                 </div>
 
-                <!-- Traffic Chart Simulation -->
+                <!-- MTD Traffic White Card -->
                 <div class="phone-chart-box">
                   <div class="phone-chart-header">
-                    <strong>MTD Traffic (Erlang)</strong>
-                    <span style="color: #00f5a0; font-size: 0.65rem;">MOM -5.43%</span>
+                    <div>
+                      <div>MTD Traffic (Erlang)</div>
+                      <div style="font-size: 0.58rem; color: #64748b;">Last update 2026-01-11</div>
+                    </div>
+                    <div style="font-size: 0.62rem; color: #f59e0b;">
+                      MOM ▾ -5.43% · -68 (Erlang)
+                    </div>
                   </div>
-                  <svg viewBox="0 0 200 65" width="100%" height="65">
-                    <line x1="10" y1="55" x2="190" y2="55" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-                    <line x1="10" y1="30" x2="190" y2="30" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-                    <!-- Trend line -->
-                    <path d="M 10 55 Q 60 40 100 25 T 190 10" fill="none" stroke="#00f2fe" stroke-width="2.5"/>
-                    <path d="M 10 55 Q 60 44 100 32 T 190 18" fill="none" stroke="#00f5a0" stroke-width="1.8" stroke-dasharray="3 3"/>
+
+                  <!-- Precise SVG Chart Curves -->
+                  <svg viewBox="0 0 200 70" width="100%" height="70" style="margin: 4px 0;">
+                    <text x="0" y="12" fill="#64748b" font-size="7">4,000</text>
+                    <text x="0" y="40" fill="#64748b" font-size="7">2,000</text>
+                    <text x="5" y="68" fill="#64748b" font-size="7">0</text>
+                    <line x1="25" y1="10" x2="195" y2="10" stroke="#e2e8f0" stroke-width="0.7"/>
+                    <line x1="25" y1="38" x2="195" y2="38" stroke="#e2e8f0" stroke-width="0.7"/>
+                    <line x1="25" y1="65" x2="195" y2="65" stroke="#cbd5e1" stroke-width="1"/>
+                    
+                    <!-- Solid Blue Line (DEC) -->
+                    <path d="M 25 65 L 195 20" fill="none" stroke="#0284c7" stroke-width="2"/>
+                    <!-- Solid Green Line (JAN) -->
+                    <path d="M 25 65 L 120 38" fill="none" stroke="#10b981" stroke-width="2"/>
+                    <!-- Dotted Markers (PRED) -->
+                    <line x1="120" y1="38" x2="195" y2="22" stroke="#64748b" stroke-width="1.8" stroke-dasharray="3 3"/>
                   </svg>
-                  <div style="display: flex; justify-content: space-between; font-size: 0.62rem; color: #64748b; margin-top: 2px;">
+                  <div style="display: flex; justify-content: space-between; font-size: 0.6rem; color: #64748b;">
                     <span>— DEC</span>
-                    <span>--- JAN</span>
-                    <span>● PRED</span>
+                    <span>— JAN</span>
+                    <span>●● PRED</span>
+                    <span>Date: 08 · 15 · 22 · 29</span>
                   </div>
                 </div>
 
-                <!-- Site Index KPI -->
-                <div class="phone-site-index">
-                  <div>
-                    <div style="color: #64748b; font-size: 0.6rem;">Site Index</div>
-                    <div style="font-weight: bold; color: #00f2fe;">0.734</div>
-                  </div>
-                  <div>
-                    <div style="color: #64748b; font-size: 0.6rem;">Radius</div>
-                    <div style="font-weight: bold; color: #f8fafc;">5.00 km</div>
-                  </div>
-                  <div>
-                    <div style="color: #64748b; font-size: 0.6rem;">Coverage</div>
-                    <div style="font-weight: bold; color: #f8fafc;">0.40 km²</div>
+                <!-- Overview Site Index Section -->
+                <div>
+                  <div style="font-size: 0.68rem; font-weight: bold; color: #94a3b8; margin-bottom: 3px;">Overview · Site Index</div>
+                  <div class="phone-site-index">
+                    <div class="site-kpi-card dark">
+                      <div style="color: #94a3b8; font-size: 0.58rem;">Site Attractive Index ⓘ</div>
+                      <div style="font-weight: 800; color: #38bdf8; font-size: 0.85rem;">0.734</div>
+                    </div>
+                    <div class="site-kpi-card">
+                      <div style="color: #64748b; font-size: 0.58rem;">Radius (km)</div>
+                      <div style="font-weight: 800; font-size: 0.85rem;">5.00</div>
+                    </div>
+                    <div class="site-kpi-card">
+                      <div style="color: #64748b; font-size: 0.58rem;">Area (km²)</div>
+                      <div style="font-weight: 800; font-size: 0.85rem;">0.40</div>
+                    </div>
                   </div>
                 </div>
 
-                <a href="#download" class="btn btn-primary btn-sm" style="padding: 6px; font-size: 0.75rem; border-radius: 8px;">
-                  ⚡ Test My Mobile Site
-                </a>
+                <!-- Android 3-button Bar -->
+                <div style="display: flex; justify-content: space-around; font-size: 0.75rem; color: #64748b; padding-top: 4px;">
+                  <span>|||</span>
+                  <span>◻</span>
+                  <span>&lt;</span>
+                </div>
+
               </div>
             </div>
           </div>
@@ -213,18 +281,18 @@
   </section>
 
   <!-- 2. The 3-Layer NetScope Architecture -->
-  <section id="architecture" style="padding: 40px 0 80px;">
+  <section id="architecture" style="padding: 20px 0 80px;">
     <div class="container">
       <div class="section-header">
-        <span class="section-badge">Platform Architecture</span>
-        <h2 class="section-title">How NetScope Works Across 3 Layers</h2>
+        <span class="section-badge">Strategic Framework</span>
+        <h2 class="section-title">How NetScope Operates Across 3 Layers</h2>
         <p class="section-subtitle">
           Bridging personal hardware diagnostic measurements on Android with national network intelligence on the web.
         </p>
       </div>
 
       <div class="strategy-grid">
-        <!-- Layer 1: App -->
+        <!-- Layer 1 -->
         <div class="strategy-card layer-app">
           <span class="strategy-badge">🟦 LAYER 1 · MEASURE</span>
           <h3 class="strategy-title">NetScope Android App</h3>
@@ -240,7 +308,7 @@
           </ul>
         </div>
 
-        <!-- Layer 2: Web -->
+        <!-- Layer 2 -->
         <div class="strategy-card layer-web">
           <span class="strategy-badge">🟩 LAYER 2 · UNDERSTAND</span>
           <h3 class="strategy-title">NetScope Web Platform</h3>
@@ -256,7 +324,7 @@
           </ul>
         </div>
 
-        <!-- Layer 3: Data -->
+        <!-- Layer 3 -->
         <div class="strategy-card layer-data">
           <span class="strategy-badge">🟧 LAYER 3 · LEARN</span>
           <h3 class="strategy-title">Crowdsourced Intelligence</h3>
@@ -355,88 +423,127 @@
     </div>
   </section>
 
-  <!-- 4. Telecom Engineering Performance Dashboard (Image 2 Style) -->
+  <!-- 4. Telecom Engineering Performance Dashboard (Exact Image 2 Reproduction) -->
   <section id="telecom-dashboard">
     <div class="container">
       <div class="section-header">
         <span class="section-badge">Engineering Telemetry</span>
-        <h2 class="section-title">📊 India Mobile Network Performance Dashboard</h2>
+        <h2 class="section-title">📊 Telecom Network Performance Dashboard</h2>
         <p class="section-subtitle">
           Real-time service availability, Mean Opinion Score (MOS) for voice calls, 24-hour latency curves, and dropped services overview.
         </p>
       </div>
 
+      <!-- White Enterprise Dashboard (Image 2 Style) -->
       <div class="telecom-dashboard-container">
-        <!-- Top Controls -->
+        
+        <!-- Top Controls Bar -->
         <div class="dashboard-top-bar">
           <div class="dash-title-group">
-            <span style="font-size: 1.4rem;">🗼</span>
-            <div>
-              <div class="dash-main-title">Network Performance Dashboard</div>
-              <div style="font-size: 0.8rem; color: #64748b;">Live Telemetry & QoS Monitoring</div>
-            </div>
+            <span>Network Performance Dashboard</span>
+            <span style="font-size: 1rem; color: #64748b; cursor: pointer;">ⓘ</span>
           </div>
 
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <label style="font-size: 0.85rem; color: #94a3b8;" for="telecom-region-select">Select Region:</label>
-            <select class="region-select" id="telecom-region-select">
-              <option value="all">🇮🇳 All India (Aggregated)</option>
-              <option value="delhi">Delhi NCR</option>
-              <option value="mumbai">Mumbai</option>
-              <option value="bengaluru">Bengaluru</option>
-              <option value="nagpur">Nagpur</option>
-              <option value="latur">Latur</option>
-            </select>
+          <div class="dash-top-actions">
+            <span>Filter Overview ⌵</span>
+            <span>🔄</span>
+            <span>🔗</span>
+            <span>⤢</span>
+            <span>⋯</span>
           </div>
         </div>
 
         <!-- Dashboard Grid Layout -->
         <div class="telecom-dash-grid">
           
-          <!-- Left Column: Gauges & Metrics -->
-          <div style="display: flex; flex-direction: column; gap: 20px;">
+          <!-- Left Column -->
+          <div style="display: flex; flex-direction: column; gap: 18px;">
             
-            <div class="dash-widget-card">
-              <div class="gauge-row-grid">
-                <!-- Gauge 1: Bandwidth -->
-                <div class="gauge-box-center">
-                  <div style="font-size: 0.78rem; color: #94a3b8;">Network Bandwidth</div>
-                  <div class="gauge-val-big text-gradient" id="dash-bandwidth-val">18.4 Mbps</div>
-                  <div style="font-size: 0.72rem; color: #64748b;">Avg Line Throughput</div>
+            <!-- Region & Server Response Time Box -->
+            <div class="dash-white-card">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <div style="font-size: 0.78rem; color: #64748b; margin-bottom: 4px;">Regions</div>
+                  <select class="region-select" id="telecom-region-select">
+                    <option value="all">Fairfield / All India</option>
+                    <option value="delhi">Delhi NCR</option>
+                    <option value="mumbai">Mumbai</option>
+                    <option value="bengaluru">Bengaluru</option>
+                    <option value="nagpur">Nagpur</option>
+                    <option value="latur">Latur</option>
+                  </select>
                 </div>
 
-                <!-- Gauge 2: Availability -->
-                <div class="gauge-box-center">
-                  <div style="font-size: 0.78rem; color: #94a3b8;">Availability Rate</div>
-                  <div class="gauge-val-big" style="color: #00f5a0;" id="dash-avail-val">97.2 %</div>
-                  <div style="font-size: 0.72rem; color: #64748b;">Uptime QoS</div>
-                </div>
-
-                <!-- Gauge 3: Server Response -->
-                <div class="gauge-box-center">
-                  <div style="font-size: 0.78rem; color: #94a3b8;">Avg Response Time</div>
-                  <div class="gauge-val-big" style="color: #38bdf8;" id="dash-resp-val">38.2 ms</div>
-                  <div style="font-size: 0.72rem; color: #64748b;">Edge Handshake</div>
-                </div>
-              </div>
-
-              <!-- Total vs Dropped Services -->
-              <div class="kpi-stat-subgrid">
-                <div class="kpi-card-mini">
-                  <div style="font-size: 0.8rem; color: #94a3b8;">Total Monitored Nodes</div>
-                  <div class="kpi-mini-num" id="dash-total-serv">184</div>
-                </div>
-                <div class="kpi-card-mini" style="border-color: rgba(244,63,94,0.3);">
-                  <div style="font-size: 0.8rem; color: #f43f5e;">Degraded / Dropped Nodes</div>
-                  <div class="kpi-mini-num" style="color: #f43f5e;" id="dash-drop-serv">8</div>
+                <div style="text-align: right;">
+                  <div style="font-size: 0.78rem; color: #64748b; margin-bottom: 2px;">Avg. Server Response Time</div>
+                  <div style="font-family: var(--font-mono); font-size: 1.5rem; font-weight: 800; color: #0f172a;" id="dash-resp-val">
+                    124.81 ms
+                  </div>
                 </div>
               </div>
             </div>
 
-            <!-- 24h Delay Timeline Chart -->
-            <div class="dash-widget-card">
-              <div class="dash-widget-title">
-                <span>📈 24-Hour Network Delay & Latency Trend (ms)</span>
+            <!-- Semi-Circle Gauges for Bandwidth & Availability -->
+            <div class="dash-white-card">
+              <div class="gauge-row-grid">
+                
+                <!-- Bandwidth Gauge -->
+                <div class="gauge-box-light">
+                  <div style="font-size: 0.78rem; color: #475569; font-weight: bold; margin-bottom: 6px;">Network Bandwidth ⓘ</div>
+                  <div class="gauge-canvas-wrap">
+                    <svg viewBox="0 0 140 75" width="140" height="75">
+                      <path d="M 15 70 A 55 55 0 0 1 125 70" fill="none" stroke="#e2e8f0" stroke-width="22" stroke-linecap="butt"/>
+                      <path d="M 15 70 A 55 55 0 0 1 70 15" fill="none" stroke="#6366f1" stroke-width="22" stroke-linecap="butt"/>
+                      <!-- Needle -->
+                      <polygon points="70,12 67,70 73,70" fill="#1e293b"/>
+                      <circle cx="70" cy="70" r="5" fill="#1e293b"/>
+                    </svg>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.65rem; color: #64748b; margin-top: 2px;">
+                    <span>0</span>
+                    <span style="font-weight: bold; color: #0f172a;" id="dash-bandwidth-val">10.28 Mbps</span>
+                    <span>20</span>
+                  </div>
+                </div>
+
+                <!-- Availability Gauge -->
+                <div class="gauge-box-light">
+                  <div style="font-size: 0.78rem; color: #475569; font-weight: bold; margin-bottom: 6px;">Network Availability Rate</div>
+                  <div class="gauge-canvas-wrap">
+                    <svg viewBox="0 0 140 75" width="140" height="75">
+                      <path d="M 15 70 A 55 55 0 0 1 125 70" fill="none" stroke="#e2e8f0" stroke-width="22" stroke-linecap="butt"/>
+                      <path d="M 15 70 A 55 55 0 0 1 120 60" fill="none" stroke="#be123c" stroke-width="22" stroke-linecap="butt"/>
+                      <!-- Needle pointing to 95% -->
+                      <polygon points="112,50 68,70 72,70" fill="#1e293b"/>
+                      <circle cx="70" cy="70" r="5" fill="#1e293b"/>
+                    </svg>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.65rem; color: #64748b; margin-top: 2px;">
+                    <span>0</span>
+                    <span style="font-weight: bold; color: #0f172a;" id="dash-avail-val">95.04 %</span>
+                    <span>100</span>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Services Count Subgrid -->
+              <div class="kpi-row-light">
+                <div class="kpi-box-light">
+                  <div style="font-size: 0.75rem; color: #64748b;">Total Services</div>
+                  <div class="kpi-num-big" id="dash-total-serv">32</div>
+                </div>
+                <div class="kpi-box-light">
+                  <div style="font-size: 0.75rem; color: #64748b;">Dropped Services</div>
+                  <div class="kpi-num-big" id="dash-drop-serv">12</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 24h Delay Timeline Chart (Image 2 Bottom Left) -->
+            <div class="dash-white-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <span style="font-size: 0.85rem; font-weight: bold; color: #0f172a;">Delay</span>
               </div>
               <div style="height: 180px; width: 100%;">
                 <canvas id="chart-latency-delay"></canvas>
@@ -445,36 +552,45 @@
 
           </div>
 
-          <!-- Right Column: MOS Voice Quality & Satisfaction -->
-          <div style="display: flex; flex-direction: column; gap: 20px;">
+          <!-- Right Column -->
+          <div style="display: flex; flex-direction: column; gap: 18px;">
             
-            <!-- MOS Donut Chart -->
-            <div class="dash-widget-card" style="height: 270px; display: flex; flex-direction: column;">
-              <div class="dash-widget-title">
-                <span>📞 Mean Opinion Score (MOS) for Voice Quality</span>
+            <!-- MOS Voice Quality Pie Chart (Image 2 Top Right) -->
+            <div class="dash-white-card" style="height: 310px; display: flex; flex-direction: column;">
+              <div style="font-size: 0.85rem; font-weight: bold; color: #0f172a; margin-bottom: 8px;">
+                Mean Opinion Score for Voice Quality
               </div>
               <div style="flex: 1; position: relative;">
                 <canvas id="chart-voice-quality"></canvas>
               </div>
             </div>
 
-            <!-- Regional Satisfaction Breakdown -->
-            <div class="dash-widget-card">
-              <div class="dash-widget-title">
-                <span>🏆 Customer Experience & Call Quality Index</span>
+            <!-- Call Quality Customer Satisfaction Bar Chart (Image 2 Bottom Right) -->
+            <div class="dash-white-card" style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+              <div style="font-size: 0.85rem; font-weight: bold; color: #0f172a; margin-bottom: 8px;">
+                Call Quality-Customer Satisfaction by Region
               </div>
-              <div style="display: flex; gap: 10px; margin-top: 10px;">
-                <div style="flex: 1; background: rgba(0,245,160,0.12); border: 1px solid rgba(0,245,160,0.3); border-radius: 8px; padding: 14px; text-align: center;">
-                  <div style="font-size: 0.78rem; color: #00f5a0; font-weight: bold;">Good Quality</div>
-                  <div style="font-size: 1.4rem; font-weight: 800; color: #fff;">74%</div>
+              
+              <div style="display: flex; align-items: flex-end; height: 160px; gap: 14px; padding: 10px 20px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end;">
+                  <div style="width: 100%; height: 85%; background: #00f2fe; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #0f172a; font-size: 0.95rem;">
+                    12
+                  </div>
+                  <span style="font-size: 0.75rem; color: #64748b; margin-top: 6px;">Bad</span>
                 </div>
-                <div style="flex: 1; background: rgba(56,189,248,0.12); border: 1px solid rgba(56,189,248,0.3); border-radius: 8px; padding: 14px; text-align: center;">
-                  <div style="font-size: 0.78rem; color: #38bdf8; font-weight: bold;">Average</div>
-                  <div style="font-size: 1.4rem; font-weight: 800; color: #fff;">19%</div>
+
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end;">
+                  <div style="width: 100%; height: 50%; background: #a5f3fc; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #0f172a; font-size: 0.95rem;">
+                    6
+                  </div>
+                  <span style="font-size: 0.75rem; color: #64748b; margin-top: 6px;">Average</span>
                 </div>
-                <div style="flex: 1; background: rgba(244,63,94,0.12); border: 1px solid rgba(244,63,94,0.3); border-radius: 8px; padding: 14px; text-align: center;">
-                  <div style="font-size: 0.78rem; color: #f43f5e; font-weight: bold;">Degraded</div>
-                  <div style="font-size: 1.4rem; font-weight: 800; color: #fff;">7%</div>
+
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end;">
+                  <div style="width: 100%; height: 95%; background: #06b6d4; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fff; font-size: 0.95rem;">
+                    14
+                  </div>
+                  <span style="font-size: 0.75rem; color: #64748b; margin-top: 6px;">Good</span>
                 </div>
               </div>
             </div>
@@ -558,7 +674,7 @@
     </div>
   </section>
 
-  <!-- 6. City Network Pages & Hub -->
+  <!-- 6. City Network Directory Hub -->
   <section id="city-networks">
     <div class="container">
       <div class="section-header">
@@ -731,55 +847,7 @@
     </div>
   </div>
 
-  <!-- 8. Network Knowledge Center & SEO Articles -->
-  <section id="knowledge">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge">Knowledge Center</span>
-        <h2 class="section-title">📚 Mobile Network Engineering Guides</h2>
-        <p class="section-subtitle">
-          Clear, educational guides explaining cellular RF physics, speed optimization, and network diagnostics.
-        </p>
-      </div>
-
-      <div class="articles-grid">
-        <div class="article-card">
-          <div>
-            <div class="article-read-time">⏱️ 4 min read · RF Fundamentals</div>
-            <h3 class="article-title">What Does dBm Mean in Cellular Signal?</h3>
-            <p class="article-excerpt">
-              Why mobile signal is measured in negative decibel-milliwatts (dBm), how to interpret -80 dBm vs -105 dBm, and why phone signal bars can be misleading.
-            </p>
-          </div>
-          <a href="features.html#dbm" class="article-cta">Read Full Article →</a>
-        </div>
-
-        <div class="article-card">
-          <div>
-            <div class="article-read-time">⏱️ 5 min read · 5G Deep Dive</div>
-            <h3 class="article-title">Why Is My 5G Slow Despite Full Signal Bars?</h3>
-            <p class="article-excerpt">
-              Understanding cell tower backhaul congestion, 5G Non-Standalone (NSA) anchor band limits, low SINR noise interference, and indoor penetration loss.
-            </p>
-          </div>
-          <a href="features.html#5g-slow" class="article-cta">Read Full Article →</a>
-        </div>
-
-        <div class="article-card">
-          <div>
-            <div class="article-read-time">⏱️ 6 min read · RF Metrics</div>
-            <h3 class="article-title">RSRP vs RSRQ vs SINR: The Telecom Trinity</h3>
-            <p class="article-excerpt">
-              How base stations evaluate signal power, signal quality, and signal-to-noise ratio to allocate modulation rates like 256-QAM.
-            </p>
-          </div>
-          <a href="features.html#rsrp-sinr" class="article-cta">Read Full Article →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 9. App Features Section -->
+  <!-- 8. App Features Section -->
   <section id="features">
     <div class="container">
       <div class="section-header">
@@ -825,7 +893,7 @@
     </div>
   </section>
 
-  <!-- 10. Download Section -->
+  <!-- 9. Download Section -->
   <section id="download">
     <div class="container">
       <div class="download-hub-card">
@@ -854,7 +922,7 @@
     </div>
   </section>
 
-  <!-- 11. FAQ Section -->
+  <!-- 10. FAQ Section -->
   <section id="faq">
     <div class="container">
       <div class="section-header">
@@ -920,56 +988,85 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- 11. Comprehensive 5-Column Footer with Quick Links & Copyright -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
+        
+        <!-- Column 1: Brand & Mission -->
         <div>
           <a href="index.html" class="brand-logo">
             <div class="brand-icon">📶</div>
             <span>NetScope<span class="text-gradient">India</span></span>
           </a>
           <p class="footer-brand-desc">
-            Explore your network on the web. Measure it with NetScope. Open-source mobile network analytics for India.
+            Your Smart Mobile Network Analytics Companion. Explore regional cellular intelligence on the web, and measure with NetScope on Android.
           </p>
+          <div style="margin-top: 14px; display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: rgba(0,245,160,0.1); border: 1px solid rgba(0,245,160,0.3); border-radius: 6px; font-size: 0.78rem; color: #00f5a0;">
+            <span class="live-indicator"></span>
+            <span>All Telemetry Systems Operational</span>
+          </div>
         </div>
 
+        <!-- Column 2: Navigation & Quick Links -->
         <div>
-          <h4 class="footer-col-title">Navigation</h4>
+          <h4 class="footer-col-title">Quick Links</h4>
           <ul class="footer-link-list">
-            <li><a href="#network-map" class="footer-link">India Network Map</a></li>
+            <li><a href="#hero" class="footer-link">Home</a></li>
+            <li><a href="#network-map" class="footer-link">India Coverage Map</a></li>
             <li><a href="#telecom-dashboard" class="footer-link">Telecom Dashboard</a></li>
             <li><a href="#metric-explorer" class="footer-link">Metric Explorer (RSRP)</a></li>
             <li><a href="#city-networks" class="footer-link">City Statistics</a></li>
+            <li><a href="#architecture" class="footer-link">3-Layer Platform</a></li>
           </ul>
         </div>
 
+        <!-- Column 3: App & Documentation -->
         <div>
-          <h4 class="footer-col-title">Resources & Legal</h4>
+          <h4 class="footer-col-title">App & Tools</h4>
           <ul class="footer-link-list">
-            <li><a href="features.html" class="footer-link">Features Guide</a></li>
+            <li><a href="#download" class="footer-link">Download Android APK</a></li>
+            <li><a href="features.html" class="footer-link">Features Deep Dive</a></li>
+            <li><a href="download.html" class="footer-link">Sideloading Guide</a></li>
+            <li><a href="#deadzone-section" class="footer-link btn-open-deadzone-modal">Report Dead Zone</a></li>
+            <li><a href="faq.html" class="footer-link">Knowledge Base FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Supported Carriers in India -->
+        <div>
+          <h4 class="footer-col-title">Indian Carriers</h4>
+          <ul class="footer-link-list">
+            <li><a href="#network-map" class="footer-link">Reliance Jio 5G SA</a></li>
+            <li><a href="#network-map" class="footer-link">Bharti Airtel 5G Plus</a></li>
+            <li><a href="#network-map" class="footer-link">Vodafone Idea (Vi) 4G</a></li>
+            <li><a href="#network-map" class="footer-link">BSNL Bharat 4G / Fiber</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 5: Legal & Trust -->
+        <div>
+          <h4 class="footer-col-title">Legal & Open Source</h4>
+          <ul class="footer-link-list">
             <li><a href="privacy.html" class="footer-link">Privacy Policy</a></li>
-            <li><a href="download.html" class="footer-link">Download APK</a></li>
-            <li><a href="faq.html" class="footer-link">FAQ & Help</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="footer-col-title">Open Source</h4>
-          <ul class="footer-link-list">
+            <li><a href="privacy.html#permissions" class="footer-link">Permissions Guide</a></li>
             <li><a href="https://github.com/bhavingarg121-glitch/NetScope" class="footer-link" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
-            <li><a href="https://github.com/bhavingarg121-glitch/net_scope/releases/tag/v1.0.0" class="footer-link" target="_blank">Releases (v1.0.0)</a></li>
+            <li><a href="https://github.com/bhavingarg121-glitch/net_scope/releases/tag/v1.0.0" class="footer-link" target="_blank" rel="noopener noreferrer">Releases (v1.0.0)</a></li>
             <li><a href="https://github.com/bhavingarg121-glitch/net_scope/releases/download/v1.0.0/app-debug.apk" class="footer-link" target="_blank">Direct APK Link</a></li>
           </ul>
         </div>
+
       </div>
 
+      <!-- Copyright Bar -->
       <div class="footer-bottom">
-        <div>© 2026 NetScope India. Open-source mobile network analytics.</div>
-        <div style="display: flex; gap: 20px;">
-          <a href="privacy.html" class="footer-link">Privacy</a>
-          <a href="download.html" class="footer-link">Download</a>
-          <a href="https://github.com/bhavingarg121-glitch/NetScope" class="footer-link" target="_blank">GitHub</a>
+        <div>
+          © 2026 NetScope India. All rights reserved. Open-source mobile network diagnostics for Indian telecom infrastructure.
+        </div>
+        <div style="display: flex; gap: 20px; align-items: center;">
+          <a href="privacy.html" class="footer-link">Privacy Policy</a>
+          <a href="download.html" class="footer-link">Download APK</a>
+          <a href="https://github.com/bhavingarg121-glitch/NetScope" class="footer-link" target="_blank" rel="noopener noreferrer">GitHub: @bhavingarg121-glitch/NetScope</a>
         </div>
       </div>
     </div>

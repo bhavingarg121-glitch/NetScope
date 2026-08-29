@@ -1,6 +1,6 @@
 /**
  * NetScope India — Complete Telecom Intelligence & Map Engine
- * Vanilla ES6+ Interactive Controls, Leaflet & Canvas Visualizations
+ * Vanilla ES6+ Interactive Controls, Leaflet & Chart.js Visualizations
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,13 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initTelecomDashboard();
   initMetricExplorer();
   initDeadZoneReporter();
-  initSpeedTestSimulator();
   initFAQAccordion();
   initFAQSearch();
 });
 
 /* ==========================================
-   1. Navbar & Mobile Menu Handling
+   1. Navbar & Mobile Menu (No Overwrite)
    ========================================== */
 function initNavbar() {
   const header = document.querySelector('.site-header');
@@ -23,7 +22,7 @@ function initNavbar() {
   const navLinks = document.querySelector('.nav-links');
 
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
+    if (window.scrollY > 30) {
       header?.classList.add('scrolled');
     } else {
       header?.classList.remove('scrolled');
@@ -65,32 +64,26 @@ const INDIA_CITY_DATA = [
   { name: 'Jaipur', lat: 26.9124, lng: 75.7873, operator: 'vi', gen: '4g', speed: 62, signal: -91, latency: 38, status: 'fair', towers: 1980 },
   { name: 'Lucknow', lat: 26.8467, lng: 80.9462, operator: 'airtel', gen: '5g', speed: 245, signal: -86, latency: 29, status: 'good', towers: 2120 },
   { name: 'Chandigarh', lat: 30.7333, lng: 76.7794, operator: 'jio', gen: '5g', speed: 330, signal: -75, latency: 16, status: 'excellent', towers: 1250 },
-  { name: 'Jammu', lat: 32.7266, lng: 74.8570, operator: 'bsnl', gen: '4g', speed: 32, signal: -99, latency: 54, status: 'fair', towers: 810 },
-  { name: 'Guwahati', lat: 26.1445, lng: 91.7362, operator: 'airtel', gen: '5g', speed: 210, signal: -89, latency: 34, status: 'good', towers: 920 },
-  { name: 'Patna', lat: 25.5941, lng: 85.1376, operator: 'jio', gen: '5g', speed: 235, signal: -87, latency: 31, status: 'good', towers: 1680 }
+  { name: 'Jammu', lat: 32.7266, lng: 74.8570, operator: 'bsnl', gen: '4g', speed: 32, signal: -99, latency: 54, status: 'fair', towers: 810 }
 ];
 
 let activeFilter = {
   operator: 'all',
-  gen: 'all',
-  metric: 'speed'
+  gen: 'all'
 };
 
 function initIndiaNetworkMap() {
   const mapElement = document.getElementById('india-network-map');
   if (!mapElement || typeof L === 'undefined') return;
 
-  // Initialize Leaflet Map centered on India
   mapInstance = L.map('india-network-map', {
     center: [22.3511, 78.6677],
     zoom: 5,
     minZoom: 4,
     maxZoom: 12,
-    zoomControl: true,
     attributionControl: false
   });
 
-  // Cyber Dark Map Tiles
   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
     maxZoom: 19,
     subdomains: 'abcd'
@@ -103,7 +96,6 @@ function initIndiaNetworkMap() {
 function renderMapMarkers() {
   if (!mapInstance || typeof L === 'undefined') return;
 
-  // Clear existing markers
   mapMarkers.forEach(m => mapInstance.removeLayer(m));
   mapMarkers = [];
 
@@ -114,32 +106,32 @@ function renderMapMarkers() {
   });
 
   filtered.forEach(city => {
-    let color = '#00f5a0'; // green
-    if (city.status === 'fair') color = '#f59e0b'; // yellow
-    if (city.status === 'poor') color = '#f43f5e'; // red
+    let color = '#00f5a0';
+    if (city.status === 'fair') color = '#f59e0b';
+    if (city.status === 'poor') color = '#f43f5e';
 
     const customIcon = L.divIcon({
       className: 'custom-map-pin',
       html: `
         <div style="
-          width: 22px;
-          height: 22px;
+          width: 24px;
+          height: 24px;
           background: ${color};
           border-radius: 50%;
           border: 3px solid #060913;
-          box-shadow: 0 0 15px ${color};
+          box-shadow: 0 0 16px ${color};
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 10px;
+          font-size: 11px;
           font-weight: bold;
           color: #000;
         ">
           📡
         </div>
       `,
-      iconSize: [22, 22],
-      iconAnchor: [11, 11]
+      iconSize: [24, 24],
+      iconAnchor: [12, 12]
     });
 
     const marker = L.marker([city.lat, city.lng], { icon: customIcon }).addTo(mapInstance);
@@ -171,11 +163,10 @@ function renderMapMarkers() {
 
 function initMapFilterControls() {
   document.querySelectorAll('[data-filter-group]').forEach(btn => {
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('click', () => {
       const group = btn.getAttribute('data-filter-group');
       const val = btn.getAttribute('data-filter-val');
 
-      // Update active state in UI
       const parentCluster = btn.closest('.filter-btn-cluster');
       parentCluster.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
@@ -193,12 +184,12 @@ let voiceQualityChart = null;
 let latencyTimelineChart = null;
 
 const REGION_STATS = {
-  all: { bw: 18.4, avail: 97.2, resp: 38.2, totalServ: 184, dropServ: 8, mos: [32, 28, 22, 12, 6], latencyTrend: [38, 42, 36, 45, 52, 68, 40, 35, 33, 36, 41, 39] },
-  delhi: { bw: 24.8, avail: 98.4, resp: 24.5, totalServ: 38, dropServ: 1, mos: [40, 32, 18, 7, 3], latencyTrend: [24, 28, 22, 31, 35, 48, 29, 23, 21, 24, 26, 25] },
-  mumbai: { bw: 22.1, avail: 97.8, resp: 28.1, totalServ: 42, dropServ: 2, mos: [38, 30, 20, 8, 4], latencyTrend: [28, 32, 26, 35, 40, 52, 33, 27, 25, 28, 30, 29] },
-  bengaluru: { bw: 26.5, avail: 98.9, resp: 21.0, totalServ: 34, dropServ: 0, mos: [45, 34, 14, 5, 2], latencyTrend: [21, 24, 19, 27, 30, 42, 25, 20, 18, 21, 23, 22] },
-  nagpur: { bw: 16.2, avail: 96.4, resp: 42.0, totalServ: 22, dropServ: 2, mos: [28, 26, 25, 14, 7], latencyTrend: [42, 46, 40, 49, 58, 72, 45, 39, 37, 40, 45, 43] },
-  latur: { bw: 10.3, avail: 95.0, resp: 58.4, totalServ: 16, dropServ: 3, mos: [20, 22, 30, 18, 10], latencyTrend: [58, 64, 55, 68, 79, 95, 62, 54, 51, 56, 61, 59] }
+  all: { bw: '10.28 Mbps', avail: '95.04 %', resp: '124.81 ms', totalServ: 32, dropServ: 12, mos: [30.84, 22.31, 20.72, 13.28, 12.85], latencyTrend: [90, 70, 210, 130, 200, 155, 190, 85, 180, 168, 182, 25, 230, 22, 35, -2, 125, 52, 218, 100, 198, 200, 42, 122, 102, 25, 18, 225, 5] },
+  delhi: { bw: '16.40 Mbps', avail: '98.20 %', resp: '28.40 ms', totalServ: 48, dropServ: 2, mos: [42.10, 28.50, 16.20, 8.40, 4.80], latencyTrend: [40, 35, 65, 45, 70, 50, 60, 35, 55, 48, 52, 20, 75, 18, 22, 10, 45, 25, 68, 38, 62, 58, 24, 42, 36, 18, 14, 70, 12] },
+  mumbai: { bw: '14.80 Mbps', avail: '97.60 %', resp: '32.10 ms', totalServ: 52, dropServ: 4, mos: [38.50, 26.40, 18.80, 10.20, 6.10], latencyTrend: [50, 42, 80, 55, 85, 62, 75, 45, 68, 60, 65, 25, 90, 22, 28, 15, 55, 32, 82, 48, 76, 72, 30, 52, 44, 22, 18, 85, 16] },
+  bengaluru: { bw: '18.90 Mbps', avail: '99.10 %', resp: '21.50 ms', totalServ: 44, dropServ: 1, mos: [48.20, 30.10, 12.40, 6.10, 3.20], latencyTrend: [30, 25, 48, 32, 52, 38, 45, 25, 40, 35, 38, 15, 55, 12, 16, 8, 32, 18, 50, 28, 46, 42, 18, 30, 25, 12, 10, 52, 8] },
+  nagpur: { bw: '12.10 Mbps', avail: '96.30 %', resp: '48.20 ms', totalServ: 26, dropServ: 3, mos: [28.40, 24.10, 24.80, 14.50, 8.20], latencyTrend: [65, 55, 110, 75, 115, 88, 102, 60, 92, 82, 88, 35, 120, 30, 38, 20, 75, 42, 112, 65, 104, 98, 40, 70, 60, 30, 24, 115, 22] },
+  latur: { bw: '8.40 Mbps', avail: '94.10 %', resp: '68.50 ms', totalServ: 18, dropServ: 6, mos: [18.50, 20.20, 32.10, 18.40, 10.80], latencyTrend: [85, 72, 150, 98, 160, 120, 140, 80, 125, 112, 120, 48, 165, 40, 52, 28, 102, 58, 155, 88, 142, 134, 55, 95, 82, 42, 32, 158, 30] }
 };
 
 function initTelecomDashboard() {
@@ -222,13 +213,12 @@ function updateTelecomUI(regionKey) {
   const totalServVal = document.getElementById('dash-total-serv');
   const dropServVal = document.getElementById('dash-drop-serv');
 
-  if (bwVal) bwVal.textContent = `${data.bw} Mbps`;
-  if (availVal) availVal.textContent = `${data.avail} %`;
-  if (respVal) respVal.textContent = `${data.resp} ms`;
+  if (bwVal) bwVal.textContent = data.bw;
+  if (availVal) availVal.textContent = data.avail;
+  if (respVal) respVal.textContent = data.resp;
   if (totalServVal) totalServVal.textContent = data.totalServ;
   if (dropServVal) dropServVal.textContent = data.dropServ;
 
-  // Update Charts
   if (voiceQualityChart) {
     voiceQualityChart.data.datasets[0].data = data.mos;
     voiceQualityChart.update();
@@ -243,55 +233,107 @@ function updateTelecomUI(regionKey) {
 function initTelecomCharts() {
   if (typeof Chart === 'undefined') return;
 
-  // 1. MOS Voice Quality Pie Chart
+  // 1. Exact 5-Slice MOS Voice Quality Pie/Donut Chart (Image 2 Top Right)
   const ctxMOS = document.getElementById('chart-voice-quality')?.getContext('2d');
   if (ctxMOS) {
     voiceQualityChart = new Chart(ctxMOS, {
-      type: 'doughnut',
+      type: 'pie',
       data: {
-        labels: ['Best', 'High', 'Medium', 'Low', 'Poor'],
+        labels: ['Best (30.84%)', 'High (22.31%)', 'Medium (20.72%)', 'Low (13.28%)', 'Poor (12.85%)'],
         datasets: [{
           data: REGION_STATS.all.mos,
-          backgroundColor: ['#6366f1', '#38bdf8', '#00f5a0', '#f59e0b', '#f43f5e'],
-          borderWidth: 2,
-          borderColor: '#0a0f24'
+          backgroundColor: [
+            '#4338ca', // Best - Dark Purple/Indigo
+            '#1e3a8a', // High - Dark Blue
+            '#06b6d4', // Medium - Bright Cyan
+            '#eab308', // Low - Amber/Gold
+            '#881337'  // Poor - Deep Burgundy
+          ],
+          borderWidth: 1.5,
+          borderColor: '#ffffff'
         }]
       },
       options: {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-          legend: { position: 'bottom', labels: { color: '#94a3b8', font: { family: 'Outfit', size: 11 } } }
+          legend: {
+            position: 'top',
+            labels: {
+              boxWidth: 10,
+              font: { family: 'Outfit', size: 10 },
+              color: '#334155'
+            }
+          }
         }
       }
     });
   }
 
-  // 2. 24-Hour Latency Delay Chart
+  // 2. Exact 24-Hour Delay Latency Timeline Chart (Image 2 Bottom Left)
   const ctxDelay = document.getElementById('chart-latency-delay')?.getContext('2d');
   if (ctxDelay) {
+    const timeLabels = [
+      '8:00 AM', '8:30 AM', '9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM', '11:00 AM', 
+      '11:30 AM', '12:00 PM', '12:30 PM', '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', 
+      '3:00 PM', '3:30 PM', '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM', 
+      '6:30 PM', '7:00 PM', '7:30 PM', '8:00 PM', '8:30 PM', '9:00 PM', '10:00 PM', '11:00 PM'
+    ];
+
     latencyTimelineChart = new Chart(ctxDelay, {
       type: 'line',
       data: {
-        labels: ['8:00 AM', '10:00 AM', '12:00 PM', '2:00 PM', '4:00 PM', '6:00 PM', '8:00 PM', '10:00 PM', '12:00 AM', '2:00 AM', '4:00 AM', '6:00 AM'],
-        datasets: [{
-          label: 'Latency (ms)',
-          data: REGION_STATS.all.latencyTrend,
-          borderColor: '#00f2fe',
-          backgroundColor: 'rgba(0, 242, 254, 0.1)',
-          fill: true,
-          tension: 0.35,
-          pointRadius: 4,
-          pointBackgroundColor: '#00f2fe'
-        }]
+        labels: timeLabels,
+        datasets: [
+          {
+            label: 'Delay (ms)',
+            data: REGION_STATS.all.latencyTrend,
+            borderColor: '#3b82f6',
+            backgroundColor: 'rgba(59, 130, 246, 0.05)',
+            fill: false,
+            tension: 0.3,
+            pointRadius: 3,
+            pointBackgroundColor: '#1e3a8a',
+            pointBorderColor: '#3b82f6',
+            borderWidth: 1.5
+          },
+          {
+            label: 'Trend Average',
+            data: new Array(timeLabels.length).fill(115),
+            borderColor: '#94a3b8',
+            borderDash: [5, 5],
+            borderWidth: 1,
+            pointRadius: 0,
+            fill: false
+          }
+        ]
       },
       options: {
         responsive: true,
         maintainAspectRatio: false,
         plugins: { legend: { display: false } },
         scales: {
-          x: { ticks: { color: '#64748b', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.04)' } },
-          y: { ticks: { color: '#64748b', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.04)' } }
+          x: {
+            ticks: {
+              color: '#64748b',
+              font: { size: 8 },
+              maxRotation: 45,
+              minRotation: 45,
+              autoSkip: true,
+              maxTicksLimit: 12
+            },
+            grid: { color: '#f1f5f9' }
+          },
+          y: {
+            min: -100,
+            max: 350,
+            ticks: {
+              stepSize: 50,
+              color: '#64748b',
+              font: { size: 9 }
+            },
+            grid: { color: '#f1f5f9' }
+          }
         }
       }
     });
@@ -384,7 +426,6 @@ function initMetricExplorer() {
     }
     if (sliderValDisplay) sliderValDisplay.textContent = `${m.defaultVal} ${m.unit}`;
 
-    // Update scale card texts
     const excEl = document.getElementById('tier-val-exc');
     const goodEl = document.getElementById('tier-val-good');
     const fairEl = document.getElementById('tier-val-fair');
@@ -413,7 +454,7 @@ function initMetricExplorer() {
 }
 
 /* ==========================================
-   5. Community Dead-Zone Reporter Modal
+   5. Dead-Zone Reporter Modal
    ========================================== */
 function initDeadZoneReporter() {
   const openBtns = document.querySelectorAll('.btn-open-deadzone-modal');
@@ -447,82 +488,7 @@ function initDeadZoneReporter() {
 }
 
 /* ==========================================
-   6. Speed Test Simulator (On-page)
-   ========================================== */
-function initSpeedTestSimulator() {
-  const startBtn = document.getElementById('btn-start-speedtest');
-  const speedNum = document.getElementById('sim-speed-val');
-  const pingVal = document.getElementById('sim-ping-val');
-  const jitterVal = document.getElementById('sim-jitter-val');
-  const uploadVal = document.getElementById('sim-upload-val');
-  const lossVal = document.getElementById('sim-loss-val');
-  const statusLabel = document.getElementById('sim-status-label');
-  const gaugePath = document.getElementById('gauge-meter-path');
-
-  if (!startBtn) return;
-
-  let isRunning = false;
-
-  startBtn.addEventListener('click', () => {
-    if (isRunning) return;
-    isRunning = true;
-    startBtn.disabled = true;
-    startBtn.textContent = 'Testing Network...';
-    if (statusLabel) statusLabel.textContent = 'Connecting to Local Indian Edge Gateway...';
-
-    if (speedNum) speedNum.textContent = '0.0';
-    if (uploadVal) uploadVal.textContent = '--';
-    if (pingVal) pingVal.textContent = '--';
-
-    setTimeout(() => {
-      const p = Math.floor(Math.random() * 10) + 15;
-      const j = Math.floor(Math.random() * 3) + 1;
-      if (pingVal) pingVal.textContent = `${p} ms`;
-      if (jitterVal) jitterVal.textContent = `${j} ms`;
-      if (lossVal) lossVal.textContent = '0.0%';
-      if (statusLabel) statusLabel.textContent = 'Measuring Download Stream (5G NR)...';
-
-      let currentSpeed = 0;
-      const targetSpeed = Math.floor(Math.random() * 120) + 260;
-      
-      const dlInterval = setInterval(() => {
-        currentSpeed += Math.floor(Math.random() * 25) + 15;
-        if (currentSpeed >= targetSpeed) {
-          currentSpeed = targetSpeed;
-          clearInterval(dlInterval);
-
-          if (statusLabel) statusLabel.textContent = 'Measuring Upload Stream...';
-          let upSpeed = 0;
-          const targetUp = Math.floor(Math.random() * 25) + 50;
-
-          const upInterval = setInterval(() => {
-            upSpeed += Math.floor(Math.random() * 8) + 4;
-            if (upSpeed >= targetUp) {
-              upSpeed = targetUp;
-              clearInterval(upInterval);
-
-              if (statusLabel) statusLabel.textContent = '✅ Analysis Complete — Optimal 5G Performance';
-              startBtn.disabled = false;
-              startBtn.textContent = 'Run Test Again';
-              isRunning = false;
-            }
-            if (uploadVal) uploadVal.textContent = `${upSpeed.toFixed(1)} Mbps`;
-          }, 70);
-        }
-
-        if (speedNum) speedNum.textContent = currentSpeed.toFixed(1);
-        if (gaugePath) {
-          const ratio = Math.min(currentSpeed / 400, 1);
-          const strokeOffset = 280 - (280 * ratio);
-          gaugePath.style.strokeDashoffset = strokeOffset;
-        }
-      }, 60);
-    }, 500);
-  });
-}
-
-/* ==========================================
-   7. FAQ Accordion & Search
+   6. FAQ Accordion & Search
    ========================================== */
 function initFAQAccordion() {
   const faqItems = document.querySelectorAll('.faq-item');
@@ -558,7 +524,7 @@ function initFAQSearch() {
 }
 
 /* ==========================================
-   8. Utility Functions & Toasts
+   7. Copy Link & Toast Utilities
    ========================================== */
 window.copyDownloadLink = function() {
   const apkUrl = 'https://github.com/bhavingarg121-glitch/net_scope/releases/download/v1.0.0/app-debug.apk';
@@ -578,7 +544,7 @@ function showToast(message) {
       position: fixed;
       bottom: 24px;
       right: 24px;
-      background: rgba(10, 15, 36, 0.95);
+      background: rgba(10, 15, 36, 0.96);
       border: 1px solid #00f2fe;
       color: #f8fafc;
       padding: 12px 22px;
