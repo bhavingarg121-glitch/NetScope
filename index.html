@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NetScope India – Mobile Network Analytics, Coverage Map & Diagnostics</title>
+  <meta name="description" content="Explore India's mobile network performance on the web. Measure signal strength (dBm), 5G/4G speeds, latency, and cell tower telemetry directly with NetScope Android App.">
+  <meta name="keywords" content="NetScope India, mobile network map India, 5G speed test, RSRP SINR analyzer, Jio 5G vs Airtel 5G, cell tower locator Android, mobile signal strength app, dead zone report India">
+  <meta name="author" content="NetScope India">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://github.com/bhavingarg121-glitch/NetScope">
+  <meta property="og:title" content="NetScope India – Explore on Web, Measure with App">
+  <meta property="og:description" content="Interactive India mobile network coverage map, telecom engineering analytics dashboard, and smart Android network analyzer.">
+
+  <!-- Leaflet CSS for Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Leaflet JS & Chart.js -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "NetScope India",
+    "operatingSystem": "Android",
+    "applicationCategory": "UtilitiesApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+    "description": "Smart mobile network analytics companion and interactive India coverage intelligence platform."
+  }
+  </script>
+</head>
+<body>
+  <div class="cyber-grid-bg"></div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">📶</div>
+        <span>NetScope<span class="text-gradient">India</span></span>
+        <span class="brand-tag">v1.0.0</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#network-map" class="nav-link">Network Map 🗺️</a></li>
+        <li><a href="#telecom-dashboard" class="nav-link">Telecom Dashboard 📊</a></li>
+        <li><a href="#metric-explorer" class="nav-link">Metrics (RSRP) 🔍</a></li>
+        <li><a href="#city-networks" class="nav-link">City Stats 🏙️</a></li>
+        <li><a href="#features" class="nav-link">App Features</a></li>
+        <li><a href="#knowledge" class="nav-link">Knowledge 📚</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#download" class="btn btn-primary btn-sm">
+          <span>📱 Download APK</span>
+        </a>
+        <button class="mobile-toggle" aria-label="Toggle Navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 1. Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="section-badge">
+          <span class="live-indicator"></span>
+          <span>Know Your Network. Explore on Web, Measure with NetScope.</span>
+        </div>
+        <h1 class="hero-title">
+          India's Mobile Network <br>
+          <span class="text-gradient">Intelligence & Analytics Platform</span>
+        </h1>
+        <p class="hero-description">
+          Analyze mobile network performance, signal strength (dBm/RSRP), 5G latency, speed, and cell tower telemetry across India — explore live regional maps on the web, and measure directly from your Android device.
+        </p>
+        <div class="hero-actions">
+          <a href="#download" class="btn btn-primary btn-lg">
+            <span>📱 Download Android App</span>
+          </a>
+          <a href="#network-map" class="btn btn-secondary btn-lg">
+            <span>🗺️ Explore India Network Map ↓</span>
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number text-gradient">78% / 96%</span>
+            <span class="stat-label">India 5G / 4G Coverage</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number text-gradient">184+ Cities</span>
+            <span class="stat-label">Regional Telemetry</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number text-gradient">100% Free</span>
+            <span class="stat-label">Open-Source APK</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dual Phone Mockup (Image 1 Style) -->
+      <div class="hero-visual">
+        <div class="dual-phone-container">
+          
+          <!-- Back Phone: Cell Site Map View -->
+          <div class="phone-back">
+            <div class="phone-device">
+              <div class="phone-screen-content" style="height: 380px;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #94a3b8; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 4px;">
+                  <span>👤 SuperUser (Senior Eng.)</span>
+                  <span>📶 5G 71%</span>
+                </div>
+                <div class="phone-subnav">
+                  <span class="active">Home</span>
+                  <span>Operation</span>
+                  <span>Planning</span>
+                  <span>Spot Analysis</span>
+                </div>
+                <!-- Simulated Mini Map Pins -->
+                <div style="background: radial-gradient(circle, rgba(0,242,254,0.1) 0%, #060a17 80%); height: 260px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; padding: 10px;">
+                  <div style="font-size: 0.75rem; font-weight: bold; color: #00f2fe;">📍 Delhi NCR Cluster (gNodeB Mesh)</div>
+                  
+                  <div style="position: absolute; top: 40px; left: 40px; font-size: 14px;">🟢 <span style="font-size: 8px; color: #fff;">DEL-01</span></div>
+                  <div style="position: absolute; top: 70px; right: 50px; font-size: 14px;">🟢 <span style="font-size: 8px; color: #fff;">DEL-04</span></div>
+                  <div style="position: absolute; top: 130px; left: 90px; font-size: 14px;">🟡 <span style="font-size: 8px; color: #fff;">DEL-09</span></div>
+                  <div style="position: absolute; bottom: 50px; right: 70px; font-size: 14px;">🔴 <span style="font-size: 8px; color: #fff;">DEL-14</span></div>
+
+                  <div style="background: rgba(10,15,36,0.9); padding: 4px 8px; border-radius: 6px; font-size: 0.65rem; color: #94a3b8;">
+                    Projection: <span style="color: #00f5a0;">🟢 ≥100%</span> | <span style="color: #f59e0b;">🟡 90%</span> | <span style="color: #f43f5e;">🔴 &lt;90%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Front Phone: Cell Site Engineering & Traffic Insights -->
+          <div class="phone-front">
+            <div class="phone-device">
+              <div class="phone-screen-content">
+                <div class="phone-site-header">
+                  <div>
+                    <div style="font-weight: 800; font-size: 0.95rem; display: flex; align-items: center; gap: 6px;">
+                      <span>JKU059</span>
+                      <span class="site-badge-gold">GOLD</span>
+                      <span class="site-badge-up">Up</span>
+                    </div>
+                    <div style="font-size: 0.68rem; color: #94a3b8;">33.44 Mio · MOM: -5.43%</div>
+                  </div>
+                  <div style="font-size: 1.2rem;">🗼</div>
+                </div>
+
+                <div class="phone-subnav">
+                  <span class="active">Site Info</span>
+                  <span>Network Insight</span>
+                  <span>Sales</span>
+                  <span>Subs</span>
+                </div>
+
+                <!-- Traffic Chart Simulation -->
+                <div class="phone-chart-box">
+                  <div class="phone-chart-header">
+                    <strong>MTD Traffic (Erlang)</strong>
+                    <span style="color: #00f5a0; font-size: 0.65rem;">MOM -5.43%</span>
+                  </div>
+                  <svg viewBox="0 0 200 65" width="100%" height="65">
+                    <line x1="10" y1="55" x2="190" y2="55" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                    <line x1="10" y1="30" x2="190" y2="30" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                    <!-- Trend line -->
+                    <path d="M 10 55 Q 60 40 100 25 T 190 10" fill="none" stroke="#00f2fe" stroke-width="2.5"/>
+                    <path d="M 10 55 Q 60 44 100 32 T 190 18" fill="none" stroke="#00f5a0" stroke-width="1.8" stroke-dasharray="3 3"/>
+                  </svg>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.62rem; color: #64748b; margin-top: 2px;">
+                    <span>— DEC</span>
+                    <span>--- JAN</span>
+                    <span>● PRED</span>
+                  </div>
+                </div>
+
+                <!-- Site Index KPI -->
+                <div class="phone-site-index">
+                  <div>
+                    <div style="color: #64748b; font-size: 0.6rem;">Site Index</div>
+                    <div style="font-weight: bold; color: #00f2fe;">0.734</div>
+                  </div>
+                  <div>
+                    <div style="color: #64748b; font-size: 0.6rem;">Radius</div>
+                    <div style="font-weight: bold; color: #f8fafc;">5.00 km</div>
+                  </div>
+                  <div>
+                    <div style="color: #64748b; font-size: 0.6rem;">Coverage</div>
+                    <div style="font-weight: bold; color: #f8fafc;">0.40 km²</div>
+                  </div>
+                </div>
+
+                <a href="#download" class="btn btn-primary btn-sm" style="padding: 6px; font-size: 0.75rem; border-radius: 8px;">
+                  ⚡ Test My Mobile Site
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. The 3-Layer NetScope Architecture -->
+  <section id="architecture" style="padding: 40px 0 80px;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Platform Architecture</span>
+        <h2 class="section-title">How NetScope Works Across 3 Layers</h2>
+        <p class="section-subtitle">
+          Bridging personal hardware diagnostic measurements on Android with national network intelligence on the web.
+        </p>
+      </div>
+
+      <div class="strategy-grid">
+        <!-- Layer 1: App -->
+        <div class="strategy-card layer-app">
+          <span class="strategy-badge">🟦 LAYER 1 · MEASURE</span>
+          <h3 class="strategy-title">NetScope Android App</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">
+            Your phone collects precise hardware telemetry with zero ads or tracking:
+          </p>
+          <ul class="strategy-list">
+            <li>📶 Real-time Signal Strength (dBm & ASU)</li>
+            <li>⚡ Download & Upload Speed Benchmarking</li>
+            <li>🌐 Latency, Jitter & Packet Loss</li>
+            <li>📍 Cell Tower ID, TAC, MNC, Frequency Band</li>
+            <li>📱 Dual-SIM & Modem Hardware Telemetry</li>
+          </ul>
+        </div>
+
+        <!-- Layer 2: Web -->
+        <div class="strategy-card layer-web">
+          <span class="strategy-badge">🟩 LAYER 2 · UNDERSTAND</span>
+          <h3 class="strategy-title">NetScope Web Platform</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">
+            Open web portal to visualize regional network performance across India:
+          </p>
+          <ul class="strategy-list">
+            <li>🗺️ Interactive India Network Coverage Map</li>
+            <li>📊 Telecom Performance & Voice Quality Dashboard</li>
+            <li>🏙️ City-by-City Cellular Benchmarks</li>
+            <li>🔍 RF Metric Explorer (RSRP, RSRQ, SINR, CQI)</li>
+            <li>📚 Comprehensive Telecom Knowledge Center</li>
+          </ul>
+        </div>
+
+        <!-- Layer 3: Data -->
+        <div class="strategy-card layer-data">
+          <span class="strategy-badge">🟧 LAYER 3 · LEARN</span>
+          <h3 class="strategy-title">Crowdsourced Intelligence</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">
+            Anonymized community measurements create public network insights:
+          </p>
+          <ul class="strategy-list">
+            <li>🚨 Community Dead-Zone & Drop-Call Reporting</li>
+            <li>📡 Operator Comparison (Jio vs Airtel vs Vi vs BSNL)</li>
+            <li>🏆 National Mobile Network Ranking Reports</li>
+            <li>📈 Historical Stability & 5G Rollout Trends</li>
+            <li>🛡️ Transparent Public Cellular Datasets</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Interactive India Network Map (BIGGEST FEATURE) -->
+  <section id="network-map">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Interactive Map</span>
+        <h2 class="section-title">🗺️ India Mobile Network Coverage Map</h2>
+        <p class="section-subtitle">
+          Explore mobile network availability, download speeds, and signal quality across major Indian cities and telecom circles.
+        </p>
+      </div>
+
+      <div class="map-section-wrapper">
+        <!-- Control Bar -->
+        <div class="map-control-bar">
+          <div class="filter-group">
+            <span class="filter-label">Operator:</span>
+            <div class="filter-btn-cluster">
+              <button class="filter-pill active" data-filter-group="operator" data-filter-val="all">All</button>
+              <button class="filter-pill" data-filter-group="operator" data-filter-val="jio">Jio</button>
+              <button class="filter-pill" data-filter-group="operator" data-filter-val="airtel">Airtel</button>
+              <button class="filter-pill" data-filter-group="operator" data-filter-val="vi">Vi</button>
+              <button class="filter-pill" data-filter-group="operator" data-filter-val="bsnl">BSNL</button>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <span class="filter-label">Generation:</span>
+            <div class="filter-btn-cluster">
+              <button class="filter-pill active" data-filter-group="gen" data-filter-val="all">All Tech</button>
+              <button class="filter-pill" data-filter-group="gen" data-filter-val="5g">5G NR</button>
+              <button class="filter-pill" data-filter-group="gen" data-filter-val="4g">4G LTE</button>
+            </div>
+          </div>
+
+          <div>
+            <a href="#deadzone-section" class="btn btn-accent btn-sm btn-open-deadzone-modal">
+              <span>🚨 Report Dead Zone</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Leaflet Map Container -->
+        <div class="map-canvas-container">
+          <div id="india-network-map"></div>
+
+          <!-- Floating Legend -->
+          <div class="map-floating-legend">
+            <div style="font-weight: bold; margin-bottom: 8px; color: #f8fafc;">Signal Quality</div>
+            <div class="legend-row">
+              <span class="legend-dot green"></span>
+              <span>Excellent (5G NR / &gt; -80 dBm)</span>
+            </div>
+            <div class="legend-row">
+              <span class="legend-dot yellow"></span>
+              <span>Good / Fair (4G LTE / -85 to -95 dBm)</span>
+            </div>
+            <div class="legend-row">
+              <span class="legend-dot red"></span>
+              <span>Poor / Congested (&lt; -105 dBm)</span>
+            </div>
+            <div style="font-size: 0.72rem; color: #64748b; margin-top: 6px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 4px;">
+              *Initial calibration dataset. Contribute with NetScope App.
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Banner -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; flex-wrap: wrap; gap: 14px; background: rgba(0,0,0,0.3); padding: 14px 20px; border-radius: 12px;">
+          <div>
+            <strong style="color: #00f2fe;">Want to test your exact building or street?</strong>
+            <span style="color: #94a3b8; margin-left: 6px;">The website shows regional data. NetScope Android measures directly from your device.</span>
+          </div>
+          <a href="#download" class="btn btn-primary btn-sm">
+            <span>📱 Measure with NetScope</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Telecom Engineering Performance Dashboard (Image 2 Style) -->
+  <section id="telecom-dashboard">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Engineering Telemetry</span>
+        <h2 class="section-title">📊 India Mobile Network Performance Dashboard</h2>
+        <p class="section-subtitle">
+          Real-time service availability, Mean Opinion Score (MOS) for voice calls, 24-hour latency curves, and dropped services overview.
+        </p>
+      </div>
+
+      <div class="telecom-dashboard-container">
+        <!-- Top Controls -->
+        <div class="dashboard-top-bar">
+          <div class="dash-title-group">
+            <span style="font-size: 1.4rem;">🗼</span>
+            <div>
+              <div class="dash-main-title">Network Performance Dashboard</div>
+              <div style="font-size: 0.8rem; color: #64748b;">Live Telemetry & QoS Monitoring</div>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <label style="font-size: 0.85rem; color: #94a3b8;" for="telecom-region-select">Select Region:</label>
+            <select class="region-select" id="telecom-region-select">
+              <option value="all">🇮🇳 All India (Aggregated)</option>
+              <option value="delhi">Delhi NCR</option>
+              <option value="mumbai">Mumbai</option>
+              <option value="bengaluru">Bengaluru</option>
+              <option value="nagpur">Nagpur</option>
+              <option value="latur">Latur</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Dashboard Grid Layout -->
+        <div class="telecom-dash-grid">
+          
+          <!-- Left Column: Gauges & Metrics -->
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            
+            <div class="dash-widget-card">
+              <div class="gauge-row-grid">
+                <!-- Gauge 1: Bandwidth -->
+                <div class="gauge-box-center">
+                  <div style="font-size: 0.78rem; color: #94a3b8;">Network Bandwidth</div>
+                  <div class="gauge-val-big text-gradient" id="dash-bandwidth-val">18.4 Mbps</div>
+                  <div style="font-size: 0.72rem; color: #64748b;">Avg Line Throughput</div>
+                </div>
+
+                <!-- Gauge 2: Availability -->
+                <div class="gauge-box-center">
+                  <div style="font-size: 0.78rem; color: #94a3b8;">Availability Rate</div>
+                  <div class="gauge-val-big" style="color: #00f5a0;" id="dash-avail-val">97.2 %</div>
+                  <div style="font-size: 0.72rem; color: #64748b;">Uptime QoS</div>
+                </div>
+
+                <!-- Gauge 3: Server Response -->
+                <div class="gauge-box-center">
+                  <div style="font-size: 0.78rem; color: #94a3b8;">Avg Response Time</div>
+                  <div class="gauge-val-big" style="color: #38bdf8;" id="dash-resp-val">38.2 ms</div>
+                  <div style="font-size: 0.72rem; color: #64748b;">Edge Handshake</div>
+                </div>
+              </div>
+
+              <!-- Total vs Dropped Services -->
+              <div class="kpi-stat-subgrid">
+                <div class="kpi-card-mini">
+                  <div style="font-size: 0.8rem; color: #94a3b8;">Total Monitored Nodes</div>
+                  <div class="kpi-mini-num" id="dash-total-serv">184</div>
+                </div>
+                <div class="kpi-card-mini" style="border-color: rgba(244,63,94,0.3);">
+                  <div style="font-size: 0.8rem; color: #f43f5e;">Degraded / Dropped Nodes</div>
+                  <div class="kpi-mini-num" style="color: #f43f5e;" id="dash-drop-serv">8</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 24h Delay Timeline Chart -->
+            <div class="dash-widget-card">
+              <div class="dash-widget-title">
+                <span>📈 24-Hour Network Delay & Latency Trend (ms)</span>
+              </div>
+              <div style="height: 180px; width: 100%;">
+                <canvas id="chart-latency-delay"></canvas>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: MOS Voice Quality & Satisfaction -->
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            
+            <!-- MOS Donut Chart -->
+            <div class="dash-widget-card" style="height: 270px; display: flex; flex-direction: column;">
+              <div class="dash-widget-title">
+                <span>📞 Mean Opinion Score (MOS) for Voice Quality</span>
+              </div>
+              <div style="flex: 1; position: relative;">
+                <canvas id="chart-voice-quality"></canvas>
+              </div>
+            </div>
+
+            <!-- Regional Satisfaction Breakdown -->
+            <div class="dash-widget-card">
+              <div class="dash-widget-title">
+                <span>🏆 Customer Experience & Call Quality Index</span>
+              </div>
+              <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <div style="flex: 1; background: rgba(0,245,160,0.12); border: 1px solid rgba(0,245,160,0.3); border-radius: 8px; padding: 14px; text-align: center;">
+                  <div style="font-size: 0.78rem; color: #00f5a0; font-weight: bold;">Good Quality</div>
+                  <div style="font-size: 1.4rem; font-weight: 800; color: #fff;">74%</div>
+                </div>
+                <div style="flex: 1; background: rgba(56,189,248,0.12); border: 1px solid rgba(56,189,248,0.3); border-radius: 8px; padding: 14px; text-align: center;">
+                  <div style="font-size: 0.78rem; color: #38bdf8; font-weight: bold;">Average</div>
+                  <div style="font-size: 1.4rem; font-weight: 800; color: #fff;">19%</div>
+                </div>
+                <div style="flex: 1; background: rgba(244,63,94,0.12); border: 1px solid rgba(244,63,94,0.3); border-radius: 8px; padding: 14px; text-align: center;">
+                  <div style="font-size: 0.78rem; color: #f43f5e; font-weight: bold;">Degraded</div>
+                  <div style="font-size: 1.4rem; font-weight: 800; color: #fff;">7%</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Network Metric Explorer Tool (RSRP, RSRQ, SINR, CQI) -->
+  <section id="metric-explorer">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">RF Engineering Tool</span>
+        <h2 class="section-title">🔍 Interactive Network Metric Explorer</h2>
+        <p class="section-subtitle">
+          Understand what raw radio frequency parameters (RSRP, RSRQ, SINR, CQI) mean and how they dictate your mobile speed and call reliability.
+        </p>
+      </div>
+
+      <div class="metric-explorer-wrapper">
+        <div class="metric-tabs">
+          <button class="metric-tab-btn active" data-metric="rsrp">📶 RSRP (Signal Power)</button>
+          <button class="metric-tab-btn" data-metric="rsrq">📡 RSRQ (Signal Quality)</button>
+          <button class="metric-tab-btn" data-metric="sinr">🔄 SINR (Signal-to-Noise)</button>
+          <button class="metric-tab-btn" data-metric="cqi">🎚️ CQI (Channel Index)</button>
+        </div>
+
+        <div class="metric-display-panel">
+          <div>
+            <h3 id="metric-panel-title" style="font-size: 1.6rem; margin-bottom: 8px;" class="text-gradient">
+              RSRP (Reference Signal Received Power)
+            </h3>
+            <p id="metric-panel-desc" style="color: var(--text-secondary); font-size: 1.02rem; line-height: 1.7; margin-bottom: 24px;">
+              The fundamental RF measurement in 4G LTE & 5G NR indicating received power from cell tower reference signals. Measured in dBm.
+            </p>
+
+            <div style="background: rgba(15,23,42,0.8); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <label style="font-size: 0.9rem; font-weight: bold; color: var(--text-primary);">Test Parameter Slider:</label>
+                <span id="metric-slider-live-val" class="mono" style="font-size: 1.2rem; font-weight: 800; color: #00f2fe;">-82 dBm</span>
+              </div>
+              <input type="range" id="metric-interactive-slider" min="-140" max="-40" value="-82" style="width: 100%; accent-color: #00f2fe;">
+            </div>
+
+            <!-- Scale Tiers -->
+            <div class="threshold-scale-grid">
+              <div class="threshold-card exc">
+                <div style="font-size: 0.75rem; font-weight: bold; color: #00f5a0;">🟢 EXCELLENT</div>
+                <div id="tier-val-exc" style="font-size: 0.8rem; margin-top: 4px; color: #f8fafc;">&gt;-80 dBm</div>
+              </div>
+              <div class="threshold-card good">
+                <div style="font-size: 0.75rem; font-weight: bold; color: #38bdf8;">🔵 GOOD</div>
+                <div id="tier-val-good" style="font-size: 0.8rem; margin-top: 4px; color: #f8fafc;">-80 to -90 dBm</div>
+              </div>
+              <div class="threshold-card fair">
+                <div style="font-size: 0.75rem; font-weight: bold; color: #f59e0b;">🟡 FAIR</div>
+                <div id="tier-val-fair" style="font-size: 0.8rem; margin-top: 4px; color: #f8fafc;">-90 to -105 dBm</div>
+              </div>
+              <div class="threshold-card poor">
+                <div style="font-size: 0.75rem; font-weight: bold; color: #f43f5e;">🔴 POOR</div>
+                <div id="tier-val-poor" style="font-size: 0.8rem; margin-top: 4px; color: #f8fafc;">&lt;-110 dBm</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: rgba(8,12,28,0.8); border: 1px solid rgba(0,242,254,0.25); border-radius: var(--radius-lg); padding: 28px; text-align: center;">
+            <div style="font-size: 2.2rem; margin-bottom: 12px;">📱</div>
+            <h4 style="font-size: 1.25rem; margin-bottom: 10px;">Measure Your Actual RSRP</h4>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 20px;">
+              Your Android phone modem constantly calculates RSRP, RSRQ, and SINR. NetScope reveals these values without entering complex USSD dialer codes.
+            </p>
+            <a href="#download" class="btn btn-primary btn-sm" style="width: 100%;">
+              <span>Download NetScope APK</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. City Network Pages & Hub -->
+  <section id="city-networks">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Regional Coverage</span>
+        <h2 class="section-title">🏙️ Mobile Network Performance by City</h2>
+        <p class="section-subtitle">
+          Compare mobile speed benchmarks, 5G availability, and latency across top Indian cities.
+        </p>
+      </div>
+
+      <div class="city-cards-grid">
+        <!-- Delhi -->
+        <div class="city-card">
+          <div class="city-card-header">
+            <span class="city-name">Delhi NCR</span>
+            <span class="city-5g-score">5G · 342 Mbps</span>
+          </div>
+          <div class="city-stat-row"><span>Top Operator:</span> <strong>Jio 5G True / Airtel</strong></div>
+          <div class="city-stat-row"><span>Avg Latency:</span> <strong>17 ms</strong></div>
+          <div class="city-stat-row"><span>Signal Index:</span> <strong>-76 dBm (Excellent)</strong></div>
+          <a href="#download" style="display: block; margin-top: 14px; color: #00f2fe; font-size: 0.85rem; font-weight: bold;">
+            Test connection in Delhi →
+          </a>
+        </div>
+
+        <!-- Mumbai -->
+        <div class="city-card">
+          <div class="city-card-header">
+            <span class="city-name">Mumbai</span>
+            <span class="city-5g-score">5G · 318 Mbps</span>
+          </div>
+          <div class="city-stat-row"><span>Top Operator:</span> <strong>Airtel 5G Plus / Jio</strong></div>
+          <div class="city-stat-row"><span>Avg Latency:</span> <strong>19 ms</strong></div>
+          <div class="city-stat-row"><span>Signal Index:</span> <strong>-79 dBm (Excellent)</strong></div>
+          <a href="#download" style="display: block; margin-top: 14px; color: #00f2fe; font-size: 0.85rem; font-weight: bold;">
+            Test connection in Mumbai →
+          </a>
+        </div>
+
+        <!-- Bengaluru -->
+        <div class="city-card">
+          <div class="city-card-header">
+            <span class="city-name">Bengaluru</span>
+            <span class="city-5g-score">5G · 385 Mbps</span>
+          </div>
+          <div class="city-stat-row"><span>Top Operator:</span> <strong>Jio 5G SA / Airtel</strong></div>
+          <div class="city-stat-row"><span>Avg Latency:</span> <strong>14 ms</strong></div>
+          <div class="city-stat-row"><span>Signal Index:</span> <strong>-72 dBm (Optimal)</strong></div>
+          <a href="#download" style="display: block; margin-top: 14px; color: #00f2fe; font-size: 0.85rem; font-weight: bold;">
+            Test connection in Bengaluru →
+          </a>
+        </div>
+
+        <!-- Nagpur -->
+        <div class="city-card">
+          <div class="city-card-header">
+            <span class="city-name">Nagpur</span>
+            <span class="city-5g-score">5G · 220 Mbps</span>
+          </div>
+          <div class="city-stat-row"><span>Top Operator:</span> <strong>Airtel / Jio</strong></div>
+          <div class="city-stat-row"><span>Avg Latency:</span> <strong>28 ms</strong></div>
+          <div class="city-stat-row"><span>Signal Index:</span> <strong>-88 dBm (Good)</strong></div>
+          <a href="#download" style="display: block; margin-top: 14px; color: #00f2fe; font-size: 0.85rem; font-weight: bold;">
+            Test connection in Nagpur →
+          </a>
+        </div>
+
+        <!-- Latur -->
+        <div class="city-card">
+          <div class="city-card-header">
+            <span class="city-name">Latur</span>
+            <span class="city-5g-score" style="background: rgba(245,158,11,0.15); color: #f59e0b;">4G/5G · 48 Mbps</span>
+          </div>
+          <div class="city-stat-row"><span>Top Operator:</span> <strong>Vi / Jio / Airtel</strong></div>
+          <div class="city-stat-row"><span>Avg Latency:</span> <strong>42 ms</strong></div>
+          <div class="city-stat-row"><span>Signal Index:</span> <strong>-94 dBm (Fair)</strong></div>
+          <a href="#download" style="display: block; margin-top: 14px; color: #00f2fe; font-size: 0.85rem; font-weight: bold;">
+            Test connection in Latur →
+          </a>
+        </div>
+
+        <!-- Hyderabad -->
+        <div class="city-card">
+          <div class="city-card-header">
+            <span class="city-name">Hyderabad</span>
+            <span class="city-5g-score">5G · 295 Mbps</span>
+          </div>
+          <div class="city-stat-row"><span>Top Operator:</span> <strong>Airtel / Jio 5G</strong></div>
+          <div class="city-stat-row"><span>Avg Latency:</span> <strong>21 ms</strong></div>
+          <div class="city-stat-row"><span>Signal Index:</span> <strong>-82 dBm (Excellent)</strong></div>
+          <a href="#download" style="display: block; margin-top: 14px; color: #00f2fe; font-size: 0.85rem; font-weight: bold;">
+            Test connection in Hyderabad →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Community Dead-Zone Reporter Section & Modal -->
+  <section id="deadzone-section">
+    <div class="container">
+      <div class="deadzone-banner-card">
+        <div style="max-width: 600px;">
+          <span style="font-size: 0.85rem; font-weight: bold; color: #f43f5e; text-transform: uppercase;">🚨 Community Telemetry</span>
+          <h3 style="font-size: 2.1rem; margin: 8px 0 12px;">Found a Mobile Dead Zone?</h3>
+          <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6;">
+            Encountered frequent call drops, zero 5G reception, or buffering spots? Submit a quick report to help build India's independent mobile connectivity map.
+          </p>
+        </div>
+        <div>
+          <button class="btn btn-accent btn-lg btn-open-deadzone-modal">
+            <span>🚨 Submit Dead Zone Report</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dead-Zone Modal Dialog -->
+  <div class="modal-overlay" id="deadzone-modal">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="deadzone-modal-close">✕</button>
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+        <span style="font-size: 1.4rem;">🚨</span>
+        <h3 style="font-size: 1.4rem; color: #f8fafc;">Report a Network Issue</h3>
+      </div>
+      <p style="font-size: 0.88rem; color: #94a3b8; margin-bottom: 20px;">
+        Help the NetScope community map cellular blackspots across India.
+      </p>
+
+      <form id="deadzone-report-form">
+        <div class="form-group">
+          <label class="form-label">City / Locality:</label>
+          <input type="text" class="form-input" placeholder="e.g. Nagpur (Dharampeth), Delhi (Connaught Place)" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Mobile Operator:</label>
+          <select class="form-select">
+            <option value="jio">Reliance Jio</option>
+            <option value="airtel">Bharti Airtel</option>
+            <option value="vi">Vodafone Idea (Vi)</option>
+            <option value="bsnl">BSNL</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Network Technology:</label>
+          <select class="form-select">
+            <option value="5g">5G NR</option>
+            <option value="4g">4G LTE</option>
+            <option value="3g">3G / 2G</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Issue Experienced:</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" checked> No Signal / Dead Zone</label>
+            <label><input type="checkbox"> Sluggish Internet</label>
+            <label><input type="checkbox"> Frequent Call Drops</label>
+            <label><input type="checkbox"> 5G Disconnection</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-accent" style="width: 100%; margin-top: 10px;">
+          <span>Submit Community Report</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 8. Network Knowledge Center & SEO Articles -->
+  <section id="knowledge">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Knowledge Center</span>
+        <h2 class="section-title">📚 Mobile Network Engineering Guides</h2>
+        <p class="section-subtitle">
+          Clear, educational guides explaining cellular RF physics, speed optimization, and network diagnostics.
+        </p>
+      </div>
+
+      <div class="articles-grid">
+        <div class="article-card">
+          <div>
+            <div class="article-read-time">⏱️ 4 min read · RF Fundamentals</div>
+            <h3 class="article-title">What Does dBm Mean in Cellular Signal?</h3>
+            <p class="article-excerpt">
+              Why mobile signal is measured in negative decibel-milliwatts (dBm), how to interpret -80 dBm vs -105 dBm, and why phone signal bars can be misleading.
+            </p>
+          </div>
+          <a href="features.html#dbm" class="article-cta">Read Full Article →</a>
+        </div>
+
+        <div class="article-card">
+          <div>
+            <div class="article-read-time">⏱️ 5 min read · 5G Deep Dive</div>
+            <h3 class="article-title">Why Is My 5G Slow Despite Full Signal Bars?</h3>
+            <p class="article-excerpt">
+              Understanding cell tower backhaul congestion, 5G Non-Standalone (NSA) anchor band limits, low SINR noise interference, and indoor penetration loss.
+            </p>
+          </div>
+          <a href="features.html#5g-slow" class="article-cta">Read Full Article →</a>
+        </div>
+
+        <div class="article-card">
+          <div>
+            <div class="article-read-time">⏱️ 6 min read · RF Metrics</div>
+            <h3 class="article-title">RSRP vs RSRQ vs SINR: The Telecom Trinity</h3>
+            <p class="article-excerpt">
+              How base stations evaluate signal power, signal quality, and signal-to-noise ratio to allocate modulation rates like 256-QAM.
+            </p>
+          </div>
+          <a href="features.html#rsrp-sinr" class="article-cta">Read Full Article →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. App Features Section -->
+  <section id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Android App Tools</span>
+        <h2 class="section-title">Key NetScope App Capabilities</h2>
+        <p class="section-subtitle">
+          Included in the free NetScope Android APK for on-device diagnostics.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-wrap">📶</div>
+          <h3 class="feature-title">Signal Strength (dBm)</h3>
+          <p class="feature-desc">Real-time decibel power readings and ASU levels from your modem.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-wrap">⚡</div>
+          <h3 class="feature-title">Network Speed Test</h3>
+          <p class="feature-desc">Direct socket download and upload bandwidth benchmarking with live curves.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-wrap">🌐</div>
+          <h3 class="feature-title">Latency & Jitter</h3>
+          <p class="feature-desc">Round-trip response time in ms, packet jitter, and packet loss rate.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-wrap">📡</div>
+          <h3 class="feature-title">Network Generation</h3>
+          <p class="feature-desc">Identifies 5G Standalone (SA), 5G NSA, 4G LTE-Advanced, and VoLTE.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-wrap">📍</div>
+          <h3 class="feature-title">Cell Tower Info</h3>
+          <p class="feature-desc">Inspect MCC, MNC, TAC, eNodeB/gNodeB Cell IDs, and active radio frequency.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-wrap">📱</div>
+          <h3 class="feature-title">Dual SIM Support</h3>
+          <p class="feature-desc">Monitor SIM 1 (e.g. Jio) and SIM 2 (e.g. Airtel) simultaneously with one tap.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Download Section -->
+  <section id="download">
+    <div class="container">
+      <div class="download-hub-card">
+        <span class="section-badge">Direct APK Download</span>
+        <h2 class="download-title">Download NetScope India</h2>
+        <p class="download-desc">
+          Get the standalone Android application package and start analyzing your mobile network with full privacy.
+        </p>
+
+        <div class="download-btn-cluster">
+          <a href="https://github.com/bhavingarg121-glitch/net_scope/releases/download/v1.0.0/app-debug.apk" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
+            <span>⬇️ Download NetScope APK (v1.0.0)</span>
+          </a>
+          <button class="btn btn-secondary btn-lg" onclick="copyDownloadLink()">
+            <span>📋 Copy Download Link</span>
+          </button>
+        </div>
+
+        <div class="spec-pills">
+          <div class="spec-pill"><span>📦 Package:</span> <strong>app-debug.apk</strong></div>
+          <div class="spec-pill"><span>🏷️ Version:</span> <strong>1.0.0</strong></div>
+          <div class="spec-pill"><span>🤖 Platform:</span> <strong>Android 8.0+ (Oreo & above)</strong></div>
+          <div class="spec-pill"><span>⚖️ License:</span> <strong>MIT Open Source / Free</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. FAQ Section -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Got Questions?</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Common questions about NetScope India, maps, and Android compatibility.</p>
+      </div>
+
+      <div class="faq-search-box">
+        <span class="faq-search-icon">🔍</span>
+        <input type="text" class="faq-input" id="faq-search-input" placeholder="Search questions (e.g. 5G, map, Jio, APK, permissions)...">
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-item active">
+          <button class="faq-question">
+            <span>What is NetScope India?</span>
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              NetScope India is a mobile network analytics platform consisting of an Android application for on-device hardware signal & speed measurements, and an interactive web portal for regional coverage maps and telecom intelligence.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How does the India Network Map work?</span>
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              The India Network Map visualizes regional 5G/4G coverage, speeds, and signal quality across Indian cities. Initially populated with calibrated baseline datasets, it is designed to ingest anonymized crowdsourced measurements from the NetScope Android community.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Does NetScope work with Jio, Airtel, Vi, and BSNL?</span>
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Yes, NetScope directly interfaces with the Android TelephonyManager framework and is compatible with all Indian cellular carriers across 5G SA, 5G NSA, 4G LTE, 3G, and 2G.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Is NetScope free? Are there advertisements?</span>
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              NetScope is 100% free, open-source, and contains zero advertisements or user tracking trackers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="brand-logo">
+            <div class="brand-icon">📶</div>
+            <span>NetScope<span class="text-gradient">India</span></span>
+          </a>
+          <p class="footer-brand-desc">
+            Explore your network on the web. Measure it with NetScope. Open-source mobile network analytics for India.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-link-list">
+            <li><a href="#network-map" class="footer-link">India Network Map</a></li>
+            <li><a href="#telecom-dashboard" class="footer-link">Telecom Dashboard</a></li>
+            <li><a href="#metric-explorer" class="footer-link">Metric Explorer (RSRP)</a></li>
+            <li><a href="#city-networks" class="footer-link">City Statistics</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Resources & Legal</h4>
+          <ul class="footer-link-list">
+            <li><a href="features.html" class="footer-link">Features Guide</a></li>
+            <li><a href="privacy.html" class="footer-link">Privacy Policy</a></li>
+            <li><a href="download.html" class="footer-link">Download APK</a></li>
+            <li><a href="faq.html" class="footer-link">FAQ & Help</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Open Source</h4>
+          <ul class="footer-link-list">
+            <li><a href="https://github.com/bhavingarg121-glitch/NetScope" class="footer-link" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+            <li><a href="https://github.com/bhavingarg121-glitch/net_scope/releases/tag/v1.0.0" class="footer-link" target="_blank">Releases (v1.0.0)</a></li>
+            <li><a href="https://github.com/bhavingarg121-glitch/net_scope/releases/download/v1.0.0/app-debug.apk" class="footer-link" target="_blank">Direct APK Link</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 NetScope India. Open-source mobile network analytics.</div>
+        <div style="display: flex; gap: 20px;">
+          <a href="privacy.html" class="footer-link">Privacy</a>
+          <a href="download.html" class="footer-link">Download</a>
+          <a href="https://github.com/bhavingarg121-glitch/NetScope" class="footer-link" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
