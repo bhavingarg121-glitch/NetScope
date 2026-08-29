@@ -25,32 +25,48 @@
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
-    "@type":"WebSite",
-    "name":"NetScope India",
-    "url":"https://bhavingarg121-glitch.github.io/NetScope/",
-    "description":"Mobile network intelligence, diagnostics and educational resources for India."
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"SoftwareApplication",
-    "name":"NetScope India",
-    "applicationCategory":"UtilitiesApplication",
-    "operatingSystem":"Android",
-    "downloadUrl":"https://github.com/bhavingarg121-glitch/net_scope/releases/download/v1.0.0/app-debug.apk",
-    "offers":{"@type":"Offer","price":"0","priceCurrency":"INR"}
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"What is NetScope India?","acceptedAnswer":{"@type":"Answer","text":"NetScope India is a web and Android platform for exploring mobile network performance and measuring network information from an Android device."}},
-      {"@type":"Question","name":"What do RSRP, RSRQ and SINR mean?","acceptedAnswer":{"@type":"Answer","text":"RSRP represents reference signal received power, RSRQ represents reference signal received quality, and SINR represents signal-to-interference-plus-noise ratio."}},
-      {"@type":"Question","name":"Does NetScope support Jio, Airtel, Vi and BSNL?","acceptedAnswer":{"@type":"Answer","text":"The platform is designed around Indian cellular networks and the Android app can read supported cellular information exposed by the device."}},
-      {"@type":"Question","name":"Is the NetScope Android app free?","acceptedAnswer":{"@type":"Answer","text":"The current Android APK is provided as a free download."}}
+    "@graph":[
+      {
+        "@type":"Organization",
+        "@id":"https://bhavingarg121-glitch.github.io/NetScope/#organization",
+        "name":"NetScope India",
+        "url":"https://bhavingarg121-glitch.github.io/NetScope/",
+        "logo":"https://bhavingarg121-glitch.github.io/NetScope/assets/app_overview.jpg",
+        "sameAs":[
+          "https://github.com/bhavingarg121-glitch/NetScope",
+          "https://github.com/bhavingarg121-glitch/net_scope"
+        ]
+      },
+      {
+        "@type":"WebSite",
+        "@id":"https://bhavingarg121-glitch.github.io/NetScope/#website",
+        "name":"NetScope India",
+        "url":"https://bhavingarg121-glitch.github.io/NetScope/",
+        "description":"India's mobile network intelligence platform: 5G coverage, speed testing, dBm signal diagnostics, and Android telemetry.",
+        "publisher":{"@id":"https://bhavingarg121-glitch.github.io/NetScope/#organization"},
+        "inLanguage":"en-IN"
+      },
+      {
+        "@type":"SoftwareApplication",
+        "@id":"https://bhavingarg121-glitch.github.io/NetScope/#software",
+        "name":"NetScope Android",
+        "applicationCategory":"UtilitiesApplication",
+        "operatingSystem":"Android 8.0+",
+        "softwareVersion":"1.0.0",
+        "fileSize":"12.1MB",
+        "downloadUrl":"https://github.com/bhavingarg121-glitch/net_scope/releases/download/v1.0.0/app-debug.apk",
+        "offers":{"@type":"Offer","price":"0","priceCurrency":"INR"}
+      },
+      {
+        "@type":"FAQPage",
+        "@id":"https://bhavingarg121-glitch.github.io/NetScope/#faq",
+        "mainEntity":[
+          {"@type":"Question","name":"What is NetScope India?","acceptedAnswer":{"@type":"Answer","text":"NetScope India is a web and Android platform for exploring mobile network performance and measuring network information from an Android device."}},
+          {"@type":"Question","name":"What do RSRP, RSRQ and SINR mean?","acceptedAnswer":{"@type":"Answer","text":"RSRP represents reference signal received power, RSRQ represents reference signal received quality, and SINR represents signal-to-interference-plus-noise ratio."}},
+          {"@type":"Question","name":"Does NetScope support Jio, Airtel, Vi and BSNL?","acceptedAnswer":{"@type":"Answer","text":"The platform is designed around Indian cellular networks and the Android app can read supported cellular information exposed by the device."}},
+          {"@type":"Question","name":"Is the NetScope Android app free?","acceptedAnswer":{"@type":"Answer","text":"The current Android APK is provided as a free download from official GitHub releases."}}
+        ]
+      }
     ]
   }
   </script>

@@ -1,12 +1,89 @@
-<!doctype html>
+ï»¿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Frequently Asked Questions | NetScope India</title>
-  <meta name="description" content="Frequently asked questions about NetScope India: 5G compatibility, mobile network metrics, APK installation, and coverage map data sources.">
+  <title>Frequently Asked Questions | NetScope India Mobile Network Analytics</title>
+  <meta name="description" content="Find answers to common questions about NetScope India: 5G compatibility with Jio and Airtel, RF signal parameters (RSRP/SINR/dBm), APK security, and permissions.">
+  <meta name="keywords" content="NetScope FAQ, how to check mobile signal strength, Jio 5G speed test FAQ, Airtel 5G parameters, NetScope APK download help">
   <meta name="author" content="NetScope India">
+  <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#2563eb">
+  <link rel="canonical" href="https://bhavingarg121-glitch.github.io/NetScope/faq.html">
+  <link rel="manifest" href="manifest.json">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Frequently Asked Questions | NetScope India">
+  <meta property="og:description" content="Everything you need to know about NetScope India mobile network diagnostics, RF metrics, and APK downloads.">
+  <meta property="og:url" content="https://bhavingarg121-glitch.github.io/NetScope/faq.html">
+  <meta property="og:site_name" content="NetScope India">
+  <meta property="og:locale" content="en_IN">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"FAQPage",
+        "@id":"https://bhavingarg121-glitch.github.io/NetScope/faq.html#faq",
+        "mainEntity":[
+          {
+            "@type":"Question",
+            "name":"What is NetScope India?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"NetScope India is an open-source mobile network analytics and diagnostics platform for inspecting 5G and 4G LTE cellular telemetry, signal strength in dBm, and socket speed."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"What do RSRP, RSRQ and SINR mean?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"RSRP represents reference signal received power (carrier strength), RSRQ represents reference signal received quality (interference level), and SINR represents signal-to-interference-plus-noise ratio (channel clarity)."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Can I use NetScope with Jio, Airtel, Vi and BSNL?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Yes, NetScope is optimized for all Indian cellular carriers including Reliance Jio (5G Standalone), Bharti Airtel (5G NSA), Vodafone Idea (Vi GigaNet), and BSNL 4G."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Is the NetScope Android app free and safe?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Yes, NetScope is 100% free and open-source without ads, trackers, or commercial monetization SDKs. Download verified builds directly from GitHub."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Does NetScope require root access?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"No root is required. NetScope uses standard Android TelephonyManager and NetworkCapabilities APIs available on Android 8.0 and above."
+            }
+          }
+        ]
+      },
+      {
+        "@type":"BreadcrumbList",
+        "@id":"https://bhavingarg121-glitch.github.io/NetScope/faq.html#breadcrumb",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://bhavingarg121-glitch.github.io/NetScope/"},
+          {"@type":"ListItem","position":2,"name":"FAQ","item":"https://bhavingarg121-glitch.github.io/NetScope/faq.html"}
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -42,11 +119,30 @@
   <section style="background:#ffffff;">
     <div class="container" style="max-width: 800px;">
       <div class="faq">
-        <details open><summary>What is NetScope India?</summary><p>NetScope India is a web and Android platform for exploring mobile network performance and measuring network information from an Android device.</p></details>
-        <details><summary>What do RSRP, RSRQ and SINR mean?</summary><p>RSRP describes reference signal received power, RSRQ describes reference signal received quality, and SINR describes signal-to-interference-plus-noise ratio.</p></details>
-        <details><summary>Can I use NetScope with Jio, Airtel, Vi and BSNL?</summary><p>The platform is designed for Indian cellular networks. Actual metrics available depend on the Android device, modem and carrier APIs exposed by the operating system.</p></details>
-        <details><summary>Is the Android app free?</summary><p>The current NetScope APK is provided as a free download. Always download the APK from the project's official GitHub release page.</p></details>
-        <details><summary>How are map metrics gathered?</summary><p>The mapping system combines regional base station telemetry, operator deployment parameters, and on-device measurement contributions from the NetScope Android application.</p></details>
+        <details open>
+          <summary>What is NetScope India?</summary>
+          <p>NetScope India is an open-source mobile network analytics and diagnostics platform for exploring mobile network performance on the web and measuring cellular hardware telemetry on Android devices. Learn more in our <a href="academy.html" style="color:var(--blue);font-weight:600;">Network Academy</a>.</p>
+        </details>
+        
+        <details>
+          <summary>What do RSRP, RSRQ and SINR mean?</summary>
+          <p>RSRP describes reference signal received power, RSRQ describes reference signal received quality, and SINR describes signal-to-interference-plus-noise ratio. Learn the physics behind these in our <a href="academy.html" style="color:var(--blue);font-weight:600;">RF Engineering Guide</a>.</p>
+        </details>
+        
+        <details>
+          <summary>Can I use NetScope with Jio, Airtel, Vi and BSNL?</summary>
+          <p>Yes. The platform is designed for Indian cellular networks. NetScope supports Reliance Jio 5G Standalone, Bharti Airtel 5G Non-Standalone, Vodafone Idea 4G LTE-A, and BSNL Bharat 4G.</p>
+        </details>
+        
+        <details>
+          <summary>Is the Android app free and open-source?</summary>
+          <p>The current NetScope APK is provided as a free download. Always download the APK directly from the official <a href="download.html" style="color:var(--blue);font-weight:600;">Download Hub</a> or GitHub Releases.</p>
+        </details>
+        
+        <details>
+          <summary>Does NetScope require root access?</summary>
+          <p>No root access is required. NetScope uses standard Android TelephonyManager APIs available on Android 8.0 Oreo through Android 15.</p>
+        </details>
       </div>
     </div>
   </section>
@@ -57,7 +153,7 @@
     <div class="footer-grid">
       <div>
         <h4>NetScope India</h4>
-        <p>Mobile network intelligence for India — explore on the web, measure on Android, and learn how cellular networks work.</p>
+        <p>Mobile network intelligence for India â€” explore on the web, measure on Android, and learn how cellular networks work.</p>
       </div>
       <div>
         <h4>Explore</h4>
@@ -90,7 +186,7 @@
       </div>
     </div>
     <div class="copyright">
-      <span>© 2026 NetScope India</span>
+      <span>Â© 2026 NetScope India</span>
       <span>Built for network visibility across India.</span>
     </div>
   </div>

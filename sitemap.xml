@@ -1,63 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+    <loc>https://bhavingarg121-glitch.github.io/NetScope/</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
   <url>
     <loc>https://bhavingarg121-glitch.github.io/NetScope/index.html</loc>
-    <priority>1.0</priority>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>daily</changefreq>
-  </url>
-  <url>
-    <loc>https://bhavingarg121-glitch.github.io/NetScope/academy.html</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://bhavingarg121-glitch.github.io/NetScope/features.html</loc>
-    <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://bhavingarg121-glitch.github.io/NetScope/download.html</loc>
-    <priority>0.9</priority>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://bhavingarg121-glitch.github.io/NetScope/privacy.html</loc>
-    <priority>0.5</priority>
-    <changefreq>monthly</changefreq>
+    <loc>https://bhavingarg121-glitch.github.io/NetScope/academy.html</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bhavingarg121-glitch.github.io/NetScope/features.html</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://bhavingarg121-glitch.github.io/NetScope/faq.html</loc>
-    <priority>0.7</priority>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://bhavingarg121-glitch.github.io/NetScope/nagpur.html</loc>
     <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://bhavingarg121-glitch.github.io/NetScope/latur.html</loc>
-    <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://bhavingarg121-glitch.github.io/NetScope/delhi.html</loc>
-    <priority>0.8</priority>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://bhavingarg121-glitch.github.io/NetScope/mumbai.html</loc>
-    <priority>0.8</priority>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://bhavingarg121-glitch.github.io/NetScope/bengaluru.html</loc>
-    <priority>0.8</priority>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://bhavingarg121-glitch.github.io/NetScope/hyderabad.html</loc>
-    <priority>0.8</priority>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://bhavingarg121-glitch.github.io/NetScope/nagpur.html</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://bhavingarg121-glitch.github.io/NetScope/latur.html</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://bhavingarg121-glitch.github.io/NetScope/privacy.html</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

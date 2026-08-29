@@ -1,13 +1,59 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Network Academy | NetScope India</title>
-  <meta name="description" content="Learn what dBm, RSRP, RSRQ, SINR, and CQI mean. Understand why 5G is slow, 5G SA vs NSA, and how to optimize your mobile internet in India with NetScope.">
-  <meta name="keywords" content="what is dBm, what is RSRP, what is SINR, why is my 5G slow, 5G SA vs NSA, check mobile signal strength, Jio 5G vs Airtel 5G">
+  <title>Network Academy | Understanding dBm, RSRP, SINR & 5G SA vs NSA – NetScope India</title>
+  <meta name="description" content="Comprehensive RF engineering guide: Learn what dBm, RSRP, RSRQ, SINR, and CQI mean. Understand why 5G is slow, 5G SA vs NSA, and optimize mobile internet in India.">
+  <meta name="keywords" content="what is dBm, what is RSRP, what is SINR, why is my 5G slow, 5G SA vs NSA, check mobile signal strength, Jio 5G vs Airtel 5G, CQI channel quality, 4G LTE signal metrics">
   <meta name="author" content="NetScope India">
+  <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#2563eb">
+  <link rel="canonical" href="https://bhavingarg121-glitch.github.io/NetScope/academy.html">
+  <link rel="manifest" href="manifest.json">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Network Academy | Understanding dBm, RSRP, SINR & 5G SA vs NSA">
+  <meta property="og:description" content="Everything you need to know about cellular RF engineering, signal strength in dBm, RSRP, SINR, and 5G network architectures.">
+  <meta property="og:url" content="https://bhavingarg121-glitch.github.io/NetScope/academy.html">
+  <meta property="og:site_name" content="NetScope India">
+  <meta property="og:locale" content="en_IN">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"TechArticle",
+        "@id":"https://bhavingarg121-glitch.github.io/NetScope/academy.html#article",
+        "headline":"Understanding Cellular Radio Metrics: dBm, RSRP, RSRQ, SINR & 5G Architecture",
+        "description":"Comprehensive educational guide explaining mobile network metrics, RF signal parameters, and troubleshooting 5G performance in India.",
+        "author":{"@type":"Organization","name":"NetScope India"},
+        "publisher":{
+          "@type":"Organization",
+          "name":"NetScope India",
+          "url":"https://bhavingarg121-glitch.github.io/NetScope/"
+        },
+        "datePublished":"2026-08-25",
+        "dateModified":"2026-08-30",
+        "inLanguage":"en-IN",
+        "mainEntityOfPage":"https://bhavingarg121-glitch.github.io/NetScope/academy.html"
+      },
+      {
+        "@type":"BreadcrumbList",
+        "@id":"https://bhavingarg121-glitch.github.io/NetScope/academy.html#breadcrumb",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://bhavingarg121-glitch.github.io/NetScope/"},
+          {"@type":"ListItem","position":2,"name":"Network Academy","item":"https://bhavingarg121-glitch.github.io/NetScope/academy.html"}
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -47,7 +93,7 @@
         <span class="card-badge">Radio Physics</span>
         <h2>1. Why do signal bars lie?</h2>
         <p>
-          The signal bars at the top of your phone screen are not standardized. Android manufacturers set arbitrary thresholds for 4 or 5 bars. Your phone might show 5 bars of 4G LTE with severe network congestion, resulting in near-zero download speeds. To know your real connection quality, you must look at raw <strong>dBm (Signal Power)</strong> and <strong>SINR (Signal Quality)</strong>.
+          The signal bars at the top of your phone screen are not standardized. Android manufacturers set arbitrary thresholds for 4 or 5 bars. Your phone might show 5 bars of 4G LTE with severe network congestion, resulting in near-zero download speeds. To know your real connection quality, you must look at raw <strong>dBm (Signal Power)</strong> and <strong>SINR (Signal Quality)</strong>. Learn how to verify your carrier metrics with the <a href="download.html" style="color:var(--blue);font-weight:700;">NetScope Android App</a>.
         </p>
       </div>
 
@@ -58,7 +104,7 @@
           • <strong>dBm (Decibel-milliwatts):</strong> A logarithmic scale of cellular power. Since it is below 1 milliwatt, values are negative (e.g. -75 dBm is excellent, -115 dBm is very weak).
         </p>
         <p style="margin-bottom:10px">
-          • <strong>RSRP (Reference Signal Received Power):</strong> The core RF metric in 4G and 5G measuring carrier power from cell towers.
+          • <strong>RSRP (Reference Signal Received Power):</strong> The core RF metric in 4G LTE and 5G NR measuring carrier power from cell towers. Compare typical levels in <a href="delhi.html" style="color:var(--blue);font-weight:600;">Delhi NCR</a> and <a href="mumbai.html" style="color:var(--blue);font-weight:600;">Mumbai</a>.
         </p>
         <p>
           • <strong>RSRQ (Reference Signal Received Quality):</strong> Measures the proportion of interference vs pure carrier signal.
@@ -69,7 +115,7 @@
         <span class="card-badge">Throughput Optimization</span>
         <h2>3. What is SINR and CQI?</h2>
         <p style="margin-bottom:10px">
-          • <strong>SINR (Signal-to-Interference-plus-Noise Ratio):</strong> The ultimate benchmark of clean transmission. Values above +20 dB allow your phone to use 256-QAM modulation for gigabit speeds.
+          • <strong>SINR (Signal-to-Interference-plus-Noise Ratio):</strong> The ultimate benchmark of clean transmission. Values above +20 dB allow your phone to use 256-QAM modulation for gigabit speeds in high-density corridors like <a href="bengaluru.html" style="color:var(--blue);font-weight:600;">Bengaluru</a> and <a href="hyderabad.html" style="color:var(--blue);font-weight:600;">Hyderabad</a>.
         </p>
         <p>
           • <strong>CQI (Channel Quality Indicator):</strong> A value from 1 to 15 that tells the cellular base station which modulation rate your phone can sustain without packet errors.
@@ -86,7 +132,7 @@
           2. <strong>Tower Congestion:</strong> High density of users on the same sector.
         </p>
         <p>
-          3. <strong>Building Wall Penetration:</strong> 3.5 GHz signals struggle to pass through concrete walls.
+          3. <strong>Building Wall Penetration:</strong> 3.5 GHz signals struggle to pass through concrete walls. Regional rollouts in cities like <a href="nagpur.html" style="color:var(--blue);font-weight:600;">Nagpur</a> and <a href="latur.html" style="color:var(--blue);font-weight:600;">Latur</a> are actively addressing this with small-cell densification.
         </p>
       </div>
 
@@ -120,7 +166,7 @@
     <div class="footer-grid">
       <div>
         <h4>NetScope India</h4>
-        <p>Mobile network intelligence for India � explore on the web, measure on Android, and learn how cellular networks work.</p>
+        <p>Mobile network intelligence for India — explore on the web, measure on Android, and learn how cellular networks work.</p>
       </div>
       <div>
         <h4>Explore</h4>
@@ -153,7 +199,7 @@
       </div>
     </div>
     <div class="copyright">
-      <span>� 2026 NetScope India</span>
+      <span>© 2026 NetScope India</span>
       <span>Built for network visibility across India.</span>
     </div>
   </div>

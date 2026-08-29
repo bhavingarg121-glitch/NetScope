@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
+
+# Direct Sitemap location for search crawlers
 Sitemap: https://bhavingarg121-glitch.github.io/NetScope/sitemap.xml
