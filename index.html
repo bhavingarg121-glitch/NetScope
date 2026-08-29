@@ -158,7 +158,7 @@
     .tag{display:inline-block;margin-top:14px;color:var(--blue);font-size:11px;font-weight:800;letter-spacing:.05em}
     
     /* ==========================================
-       App Showcase Section (Replacing Map)
+       Razor-Sharp Retina App Showcase Studio
        ========================================== */
     .showcase-shell{border:1px solid var(--line);border-radius:24px;background:#ffffff;box-shadow:var(--shadow);overflow:hidden}
     .showcase-toolbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding:16px 24px;border-bottom:1px solid var(--line);background:var(--bg2)}
@@ -166,7 +166,7 @@
     .showcase-tab{border:1px solid var(--line-strong);background:#ffffff;color:var(--muted);padding:8px 16px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:700;transition:.18s}
     .showcase-tab.active{background:var(--blue);border-color:var(--blue);color:#ffffff;box-shadow:0 2px 8px rgba(37,99,235,.25)}
     
-    .showcase-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;padding:40px;align-items:center}
+    .showcase-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;padding:40px;align-items:center}
     .showcase-desc-box{display:flex;flex-direction:column;gap:16px}
     .showcase-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:6px;background:var(--blue-bg);color:var(--blue);font-size:12px;font-weight:800;letter-spacing:.06em}
     .showcase-heading{font-size:28px;font-weight:800;color:var(--text);letter-spacing:-.03em;line-height:1.2}
@@ -176,9 +176,24 @@
     .showcase-pill small{display:block;font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase}
     .showcase-pill b{display:block;font-size:16px;color:var(--text);margin-top:2px}
     
-    .showcase-phone-frame{position:relative;width:100%;max-width:340px;margin:0 auto;background:#ffffff;border:8px solid #0f172a;border-radius:36px;box-shadow:0 20px 50px rgba(0,0,0,.15);overflow:hidden}
-    .phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:110px;height:18px;background:#0f172a;border-bottom-left-radius:12px;border-bottom-right-radius:12px;z-index:20}
-    .phone-img{width:100%;height:auto;display:block;object-fit:cover;transition:opacity .3s ease}
+    /* Razor-Sharp Vector Device Mockup Frame */
+    .device-mockup{position:relative;width:100%;max-width:320px;margin:0 auto;background:#0f172a;border:10px solid #0f172a;border-radius:40px;box-shadow:0 24px 60px rgba(0,0,0,.15);overflow:hidden}
+    .device-screen{background:#f8fafc;min-height:540px;border-radius:30px;overflow:hidden;display:flex;flex-direction:column}
+    .device-statusbar{height:30px;background:#0f172a;color:#ffffff;display:flex;justify-content:space-between;align-items:center;padding:0 20px;font-size:10px;font-weight:700;font-family:'JetBrains Mono',monospace}
+    .device-app-header{background:#ffffff;padding:14px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+    .device-app-title{font-size:14px;font-weight:800;color:#0f172a;display:flex;align-items:center;gap:6px}
+    .device-app-body{padding:16px;flex:1;display:flex;flex-direction:column;gap:12px;background:#f8fafc}
+    
+    /* Screen UI Components */
+    .app-card{background:#ffffff;border:1px solid var(--line);border-radius:12px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,.03)}
+    .app-card-title{font-size:11px;font-weight:700;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:6px;display:flex;justify-content:space-between}
+    .app-big-stat{font-size:28px;font-weight:800;color:var(--text);line-height:1}
+    .app-big-stat span{font-size:13px;color:var(--muted);font-weight:600}
+    .app-bar-wrap{height:6px;background:var(--panel2);border-radius:99px;overflow:hidden;margin:8px 0 4px}
+    .app-bar-fill{height:100%;border-radius:99px}
+    .app-row{display:flex;justify-content:space-between;align-items:center;font-size:12px;padding:6px 0;border-bottom:1px solid #f1f5f9}
+    .app-row:last-child{border-bottom:0}
+    .app-badge-pill{font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;background:var(--blue-bg);color:var(--blue)}
     
     /* Compare & Checker */
     .compare{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
@@ -353,7 +368,7 @@
 </section>
 
 <!-- ====================================================
-     Interactive App Screenshots Showcase Studio
+     Razor-Sharp High-Definition App Showcase Studio
      ==================================================== -->
 <section id="showcase" class="reveal">
   <div class="container">
@@ -363,20 +378,20 @@
         <h2 class="section-title">Android App Diagnostic Showcase</h2>
       </div>
       <p class="section-copy">
-        NetScope reads hardware-level telephony telemetry to expose raw RF signals, low-overhead socket speeds, and cellular identifiers.
+        NetScope reads hardware-level telephony telemetry to expose raw RF signals, low-overhead socket speeds, and cellular identifiers with zero blur.
       </p>
     </div>
 
     <div class="showcase-shell">
       <div class="showcase-toolbar">
         <div class="showcase-tabs" role="tablist">
-          <button class="showcase-tab active" data-view="overview">1. Live Dashboard</button>
+          <button class="showcase-tab active" data-view="dashboard">1. Live Dashboard</button>
           <button class="showcase-tab" data-view="diagnostics">2. RF Diagnostics</button>
           <button class="showcase-tab" data-view="speedtest">3. Socket Speed Test</button>
-          <button class="showcase-tab" data-view="dashboard">4. Cell & Tower Telemetry</button>
+          <button class="showcase-tab" data-view="telemetry">4. Cell & Tower Telemetry</button>
         </div>
         <div>
-          <a href="#download" class="btn btn-primary" style="padding:7px 14px;font-size:12px;">Get App Free</a>
+          <a href="#download" class="btn btn-primary" style="padding:7px 14px;font-size:12px;">Download APK</a>
         </div>
       </div>
 
@@ -415,11 +430,27 @@
           </div>
         </div>
 
-        <!-- Phone Mockup Frame Displaying Real Screenshot -->
+        <!-- Razor-Sharp Vector Device Mockup Screen (Zero Blurriness) -->
         <div>
-          <div class="showcase-phone-frame">
-            <div class="phone-notch"></div>
-            <img src="assets/app_overview.jpg" alt="NetScope Android App Screenshot" class="phone-img" id="sc-img">
+          <div class="device-mockup">
+            <div class="device-screen">
+              <div class="device-statusbar">
+                <span>12:45</span>
+                <span>5G · 100%</span>
+              </div>
+              <div class="device-app-header">
+                <div class="device-app-title">
+                  <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--blue);"></span>
+                  NetScope Telemetry
+                </div>
+                <span class="app-badge-pill" id="screen-badge">LIVE 5G</span>
+              </div>
+
+              <!-- Dynamic Screen Content -->
+              <div class="device-app-body" id="screen-body">
+                <!-- Injected via JavaScript for 100% sharp rendering -->
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -597,88 +628,201 @@
     });
   }
 
-  // Interactive Showcase Tab Logic
-  const showcaseViews = {
-    overview: {
+  // Razor-Sharp Screen Content Templates (100% Vector Quality & Zero Blurriness)
+  const screens = {
+    dashboard: {
       badge: 'REAL-TIME SIGNAL DASHBOARD',
       title: 'Live Signal & Network Overview',
       desc: 'Instantly view active carrier generation (5G Standalone / NSA / 4G LTE), signal strength in dBm, connected frequency band, and SIM state directly from Android\'s hardware modem.',
-      img: 'assets/app_overview.jpg',
+      badgeText: 'LIVE 5G SA',
       pills: [
         { label: 'Signal Power', val: '−78 dBm (Optimal)', color: 'var(--green)' },
         { label: 'Network Generation', val: '5G Standalone (NR)', color: 'var(--blue)' },
         { label: 'Frequency Band', val: 'n78 (3500 MHz)', color: 'var(--text)' },
         { label: 'Active SIM Slot', val: 'SIM 1 · Primary Data', color: 'var(--text)' }
-      ]
+      ],
+      html: `
+        <div class="app-card">
+          <div class="app-card-title">
+            <span>Carrier Connection</span>
+            <span style="color:var(--green);font-weight:700;">CONNECTED</span>
+          </div>
+          <div style="font-size:16px;font-weight:800;color:#0f172a;margin-bottom:2px;">Reliance Jio 5G</div>
+          <div style="font-size:11px;color:var(--muted);">Band n78 (3500 MHz) · 5G Standalone</div>
+        </div>
+
+        <div class="app-card">
+          <div class="app-card-title">
+            <span>Primary Signal Power</span>
+            <span style="color:var(--green);">EXCELLENT</span>
+          </div>
+          <div class="app-big-stat" style="color:var(--green);">−78 <span>dBm</span></div>
+          <div class="app-bar-wrap"><div class="app-bar-fill" style="width:84%;background:var(--green);"></div></div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-top:4px;">
+            <span>ASU: 62</span><span>Quality: 92%</span>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div class="app-card-title"><span>SIM Card Slot Status</span></div>
+          <div class="app-row">
+            <span>SIM 1: Jio True 5G</span>
+            <span class="app-badge-pill">ACTIVE DATA</span>
+          </div>
+          <div class="app-row">
+            <span>SIM 2: Airtel 4G</span>
+            <span style="font-size:11px;color:var(--muted);">STANDBY</span>
+          </div>
+        </div>
+      `
     },
+
     diagnostics: {
       badge: 'RF RADIO DIAGNOSTICS',
       title: 'Deep RF Metric Inspection',
       desc: 'Look beyond misleading signal bars. Inspect raw RSRP carrier power, RSRQ signal quality, SINR transmission clarity, and CQI modulation channel indicators.',
-      img: 'assets/app_diagnostics.jpg',
+      badgeText: 'RF DIAGNOSTICS',
       pills: [
         { label: 'Carrier RSRP', val: '−82 dBm', color: 'var(--blue)' },
         { label: 'Carrier RSRQ', val: '−10 dB (Good)', color: 'var(--green)' },
         { label: 'Radio SINR', val: '+24.5 dB (Clean)', color: 'var(--green)' },
         { label: 'CQI Index', val: '14 (256-QAM Active)', color: 'var(--amber)' }
-      ]
+      ],
+      html: `
+        <div class="app-card">
+          <div class="app-card-title"><span>RSRP (Carrier Power)</span><span style="color:var(--blue);">−82 dBm</span></div>
+          <div class="app-bar-wrap"><div class="app-bar-fill" style="width:78%;background:var(--blue);"></div></div>
+          <div style="font-size:10px;color:var(--muted);">Reference Signal Received Power</div>
+        </div>
+
+        <div class="app-card">
+          <div class="app-card-title"><span>RSRQ (Signal Quality)</span><span style="color:var(--green);">−10 dB</span></div>
+          <div class="app-bar-wrap"><div class="app-bar-fill" style="width:82%;background:var(--green);"></div></div>
+          <div style="font-size:10px;color:var(--muted);">Low interference from neighboring sectors</div>
+        </div>
+
+        <div class="app-card">
+          <div class="app-card-title"><span>SINR (Carrier Clarity)</span><span style="color:var(--green);">+24.5 dB</span></div>
+          <div class="app-bar-wrap"><div class="app-bar-fill" style="width:88%;background:var(--green);"></div></div>
+          <div style="font-size:10px;color:var(--muted);">Clean signal supporting high throughput</div>
+        </div>
+
+        <div class="app-card">
+          <div class="app-row"><span>Channel Quality (CQI)</span><strong>14 (256-QAM)</strong></div>
+          <div class="app-row"><span>Timing Advance (TA)</span><strong>1 (≈ 78m distance)</strong></div>
+        </div>
+      `
     },
+
     speedtest: {
       badge: 'LOW-OVERHEAD SPEED TEST',
       title: 'Raw Socket Download & Ping',
       desc: 'Benchmark your connection without bloated ads or ISP-sponsored speed boosts. Measures download throughput, upload rate, HTTP round-trip latency, and jitter.',
-      img: 'assets/app_speedtest.jpg',
+      badgeText: 'SPEED TEST',
       pills: [
         { label: 'Downlink Peak', val: '384.2 Mbps', color: 'var(--blue)' },
         { label: 'Uplink Throughput', val: '42.8 Mbps', color: 'var(--text)' },
         { label: 'Server Ping', val: '14 ms (Low Jitter)', color: 'var(--green)' },
         { label: 'Socket Buffer', val: '0% Packet Loss', color: 'var(--green)' }
-      ]
+      ],
+      html: `
+        <div class="app-card" style="text-align:center;padding:20px 14px;">
+          <div class="app-card-title" style="justify-content:center;"><span>DOWNLOAD THROUGHPUT</span></div>
+          <div class="app-big-stat" style="color:var(--blue);font-size:36px;margin:6px 0;">384.2 <span>Mbps</span></div>
+          <div style="font-size:11px;color:var(--green);font-weight:700;">Socket Link Active · Gigabit Route</div>
+        </div>
+
+        <div class="app-card">
+          <div class="app-row">
+            <span>Upload Speed</span>
+            <strong style="color:var(--text);">42.8 Mbps</strong>
+          </div>
+          <div class="app-row">
+            <span>Round-Trip Latency</span>
+            <strong style="color:var(--green);">14 ms</strong>
+          </div>
+          <div class="app-row">
+            <span>Jitter Buffer</span>
+            <strong style="color:var(--green);">1.8 ms</strong>
+          </div>
+          <div class="app-row">
+            <span>Packet Loss</span>
+            <strong style="color:var(--green);">0.0%</strong>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div class="app-card-title"><span>Test Server Endpoint</span></div>
+          <div style="font-size:12px;font-weight:700;color:#0f172a;">NetScope Edge Server · Mumbai</div>
+        </div>
+      `
     },
-    dashboard: {
+
+    telemetry: {
       badge: 'CELL TOWER TELEMETRY',
       title: 'Serving Cell Tower Identifiers',
       desc: 'Identify the exact cellular base station serving your handset with Serving Cell ID (CID), Tracking Area Code (TAC), Physical Cell ID (PCI), and NR-ARFCN.',
-      img: 'assets/app_dashboard.jpg',
+      badgeText: 'TOWER TELEMETRY',
       pills: [
         { label: 'Serving Cell ID', val: 'CID 2489104', color: 'var(--text)' },
         { label: 'Tracking Area', val: 'TAC 4108', color: 'var(--text)' },
         { label: 'Physical Cell (PCI)', val: 'PCI 284', color: 'var(--blue)' },
         { label: 'Channel Frequency', val: 'ARFCN 627340', color: 'var(--text)' }
-      ]
+      ],
+      html: `
+        <div class="app-card">
+          <div class="app-card-title"><span>Serving Base Station</span><span class="app-badge-pill">L1 / NR</span></div>
+          <div style="font-size:16px;font-weight:800;color:#0f172a;margin-bottom:2px;">Cell ID: 2489104</div>
+          <div style="font-size:11px;color:var(--muted);">eNB / gNodeB Sector: 14</div>
+        </div>
+
+        <div class="app-card">
+          <div class="app-row"><span>Physical Cell ID (PCI)</span><strong>284</strong></div>
+          <div class="app-row"><span>Tracking Area Code (TAC)</span><strong>4108</strong></div>
+          <div class="app-row"><span>NR-ARFCN Channel</span><strong>627340 (3.5 GHz)</strong></div>
+          <div class="app-row"><span>Mobile Country Code</span><strong>404 (India)</strong></div>
+          <div class="app-row"><span>Mobile Network Code</span><strong>45 (Reliance Jio)</strong></div>
+        </div>
+
+        <div class="app-card">
+          <div class="app-card-title"><span>Neighboring Cells Detected</span></div>
+          <div class="app-row" style="font-size:11px;"><span>PCI 285 (Sector B)</span><span style="color:var(--muted);">−86 dBm</span></div>
+          <div class="app-row" style="font-size:11px;"><span>PCI 286 (Sector C)</span><span style="color:var(--muted);">−94 dBm</span></div>
+        </div>
+      `
     }
   };
+
+  function updateShowcase(viewKey) {
+    const data = screens[viewKey];
+    if(!data) return;
+
+    document.getElementById('sc-badge').textContent = data.badge;
+    document.getElementById('sc-title').textContent = data.title;
+    document.getElementById('sc-desc').textContent = data.desc;
+    document.getElementById('screen-badge').textContent = data.badgeText;
+    document.getElementById('screen-body').innerHTML = data.html;
+
+    const pillsWrap = document.getElementById('sc-pills');
+    pillsWrap.innerHTML = '';
+    data.pills.forEach(p => {
+      const pEl = document.createElement('div');
+      pEl.className = 'showcase-pill';
+      pEl.innerHTML = `<small>${p.label}</small><b style="color:${p.color}">${p.val}</b>`;
+      pillsWrap.appendChild(pEl);
+    });
+  }
 
   document.querySelectorAll('[data-view]').forEach(tab => {
     tab.addEventListener('click', () => {
       document.querySelectorAll('[data-view]').forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
-
-      const viewKey = tab.dataset.view;
-      const data = showcaseViews[viewKey];
-      if(!data) return;
-
-      document.getElementById('sc-badge').textContent = data.badge;
-      document.getElementById('sc-title').textContent = data.title;
-      document.getElementById('sc-desc').textContent = data.desc;
-      
-      const imgEl = document.getElementById('sc-img');
-      imgEl.style.opacity = '0.4';
-      setTimeout(() => {
-        imgEl.src = data.img;
-        imgEl.style.opacity = '1';
-      }, 150);
-
-      const pillsWrap = document.getElementById('sc-pills');
-      pillsWrap.innerHTML = '';
-      data.pills.forEach(p => {
-        const pEl = document.createElement('div');
-        pEl.className = 'showcase-pill';
-        pEl.innerHTML = `<small>${p.label}</small><b style="color:${p.color}">${p.val}</b>`;
-        pillsWrap.appendChild(pEl);
-      });
+      updateShowcase(tab.dataset.view);
     });
   });
+
+  // Initial load
+  updateShowcase('dashboard');
 </script>
 </body>
 </html>
