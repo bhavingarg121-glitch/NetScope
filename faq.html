@@ -3,56 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Frequently Asked Questions (FAQ) – NetScope India</title>
-  <meta name="description" content="Common questions and answers about NetScope India, Android cellular network monitoring, 5G signal strength in dBm, APK downloads, and permissions.">
+  <title>FAQ – NetScope India Mobile Network Analytics</title>
+  <meta name="description" content="Frequently asked questions about NetScope India: 5G compatibility, mobile network metrics, APK installation, and coverage map data sources.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="cyber-grid-bg"></div>
 
-  <!-- Header -->
   <header class="site-header">
     <div class="container nav-container">
       <a href="index.html" class="brand-logo">
-        <div class="brand-icon">📶</div>
+        <div class="brand-logo-mark">NS</div>
         <span>NetScope<span class="text-gradient">India</span></span>
       </a>
 
       <ul class="nav-links">
         <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="features.html" class="nav-link">Features</a></li>
-        <li><a href="download.html" class="nav-link">Download APK</a></li>
-        <li><a href="privacy.html" class="nav-link">Privacy</a></li>
+        <li><a href="index.html#network-map" class="nav-link">Coverage Map</a></li>
+        <li><a href="academy.html" class="nav-link">Academy</a></li>
         <li><a href="faq.html" class="nav-link active">FAQ</a></li>
+        <li><a href="download.html" class="nav-link">Download</a></li>
       </ul>
 
       <div class="nav-actions">
         <a href="download.html" class="btn btn-primary btn-sm">
-          <span>📱 Download APK</span>
+          <span>Download APK</span>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="page-hero">
-    <div class="container">
+  <section class="hero-section" style="padding-top: calc(var(--header-height) + 30px); padding-bottom: 50px;">
+    <div class="container" style="text-align: center; max-width: 800px;">
       <span class="section-badge">Knowledge Base</span>
-      <h1 class="page-hero-title">Help & <span class="text-gradient">FAQ</span></h1>
-      <p class="page-hero-subtitle">
-        Everything you need to know about NetScope India, cellular network testing, and app setup.
+      <h1 class="hero-title" style="font-size: 2.6rem;">Frequently Asked <span class="text-gradient">Questions</span></h1>
+      <p class="hero-description">
+        Answers to common questions regarding cellular metrics, India network coverage, and Android device compatibility.
       </p>
     </div>
   </section>
 
-  <!-- FAQ Section -->
-  <section style="padding-top: 20px;">
-    <div class="container">
-      <div class="faq-search-box">
-        <span class="faq-search-icon">🔍</span>
-        <input type="text" class="faq-input" id="faq-search-input" placeholder="Type keywords to search (e.g., 5G, APK, speed test, Jio, privacy)...">
-      </div>
-
+  <section style="padding-top: 40px; background: #ffffff;">
+    <div class="container" style="max-width: 800px;">
       <div class="faq-container">
         <div class="faq-item active">
           <button class="faq-question">
@@ -61,91 +52,43 @@
           </button>
           <div class="faq-answer">
             <p>
-              NetScope India is a lightweight, high-precision Android mobile application designed to analyze cellular network performance, signal strength (in dBm and ASU), 5G/4G bandwidth speeds, latency, and hardware telemetry.
+              NetScope India is a mobile network intelligence platform consisting of an Android application for on-device hardware signal & speed measurements, and an interactive web portal for regional coverage maps and telecom intelligence.
             </p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">
-            <span>Is NetScope India completely free?</span>
+            <span>How does the India Network Map work?</span>
             <span class="faq-chevron">▼</span>
           </button>
           <div class="faq-answer">
             <p>
-              Yes, NetScope India is 100% free with no in-app purchases, no subscription tiers, and no advertisements.
+              The India Network Map visualizes regional 5G/4G coverage, speeds, and signal quality across Indian cities. Initially populated with calibrated baseline datasets, it is designed to ingest anonymized crowdsourced measurements from the NetScope Android community.
             </p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">
-            <span>Does NetScope work with 5G Standalone (SA) and Non-Standalone (NSA)?</span>
+            <span>Does NetScope work with Jio, Airtel, Vi, and BSNL?</span>
             <span class="faq-chevron">▼</span>
           </button>
           <div class="faq-answer">
             <p>
-              Yes. NetScope queries the Android Telephony API to report the exact 5G NR status, differentiating between 5G Standalone (e.g. Jio True 5G) and 5G Non-Standalone (e.g. Airtel 5G Plus).
+              Yes, NetScope directly interfaces with the Android TelephonyManager framework and is compatible with all Indian cellular carriers across 5G SA, 5G NSA, 4G LTE, 3G, and 2G.
             </p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">
-            <span>Which Indian network operators are supported?</span>
+            <span>Is NetScope free? Are there advertisements?</span>
             <span class="faq-chevron">▼</span>
           </button>
           <div class="faq-answer">
             <p>
-              NetScope supports all Indian telecom carriers including Reliance Jio, Bharti Airtel, Vodafone Idea (Vi), and BSNL across 5G, 4G LTE, 3G, and 2G networks.
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Why does signal strength show negative numbers (like -85 dBm)?</span>
-            <span class="faq-chevron">▼</span>
-          </button>
-          <div class="faq-answer">
-            <p>
-              Cellular RF signal is measured in decibel-milliwatts (dBm), which represents signal power relative to 1 milliwatt. Because received mobile signals are tiny fractions of a milliwatt, values are expressed as negative numbers. The closer the number is to zero, the stronger the signal (e.g. -75 dBm is much stronger than -105 dBm).
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Can I use NetScope without an internet connection?</span>
-            <span class="faq-chevron">▼</span>
-          </button>
-          <div class="faq-answer">
-            <p>
-              Yes! All cellular radio diagnostics (Signal dBm, ASU, Cell Tower ID, Frequency Band, Carrier name) function offline directly with your device's cellular modem. An active internet connection is only needed when running speed tests.
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Why is Location Permission required?</span>
-            <span class="faq-chevron">▼</span>
-          </button>
-          <div class="faq-answer">
-            <p>
-              Google Android's security policy classifies cell tower metadata (eNodeB ID, TAC, signal power) as potential location indicators. Therefore, Android requires the <code>ACCESS_FINE_LOCATION</code> permission before apps can query raw cellular telephony information. NetScope never logs or shares your GPS coordinates.
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Where can I download the APK file?</span>
-            <span class="faq-chevron">▼</span>
-          </button>
-          <div class="faq-answer">
-            <p>
-              You can download the APK file on our <a href="download.html" style="color: var(--accent-cyan); text-decoration: underline;">Download Page</a> or from the official <a href="https://github.com/bhavingarg121-glitch/net_scope/releases/download/v1.0.0/app-debug.apk" target="_blank" style="color: var(--accent-cyan); text-decoration: underline;">GitHub Release v1.0.0</a>.
+              NetScope is 100% free, open-source, and contains zero advertisements or user tracking trackers.
             </p>
           </div>
         </div>
@@ -153,16 +96,14 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-bottom">
         <div>© 2026 NetScope India. Open-source mobile network analytics.</div>
         <div style="display: flex; gap: 20px;">
           <a href="index.html" class="footer-link">Home</a>
-          <a href="features.html" class="footer-link">Features</a>
+          <a href="academy.html" class="footer-link">Academy</a>
           <a href="download.html" class="footer-link">Download</a>
-          <a href="privacy.html" class="footer-link">Privacy</a>
           <a href="https://github.com/bhavingarg121-glitch/NetScope" class="footer-link" target="_blank">GitHub</a>
         </div>
       </div>

@@ -9,107 +9,81 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="cyber-grid-bg"></div>
 
-  <!-- Header -->
   <header class="site-header">
     <div class="container nav-container">
       <a href="index.html" class="brand-logo">
-        <div class="brand-icon">📶</div>
+        <div class="brand-logo-mark">NS</div>
         <span>NetScope<span class="text-gradient">India</span></span>
       </a>
 
       <ul class="nav-links">
         <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="index.html#network-map" class="nav-link">Network Map</a></li>
+        <li><a href="index.html#network-map" class="nav-link">Coverage Map</a></li>
         <li><a href="academy.html" class="nav-link">Academy</a></li>
-        <li><a href="download.html" class="nav-link">Download APK</a></li>
+        <li><a href="download.html" class="nav-link">Download</a></li>
       </ul>
 
       <div class="nav-actions">
         <a href="download.html" class="btn btn-primary btn-sm">
-          <span>📱 Download APK</span>
+          <span>Download APK</span>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Page Hero -->
-  <section class="page-hero">
-    <div class="container">
+  <section class="hero-section" style="padding-top: calc(var(--header-height) + 30px); padding-bottom: 50px;">
+    <div class="container" style="text-align: center; max-width: 800px;">
       <span class="section-badge">City Telemetry</span>
-      <h1 class="page-hero-title">Mobile Network Performance in <span class="text-gradient">Nagpur</span></h1>
-      <p class="page-hero-subtitle">
-        Comprehensive cellular signal metrics, 5G rollout analysis, and operator comparisons across Nagpur, Maharashtra.
+      <h1 class="hero-title" style="font-size: 2.6rem;">Mobile Network Performance in <span class="text-gradient">Nagpur</span></h1>
+      <p class="hero-description">
+        Cellular signal metrics, 5G deployment analysis, and operator comparisons across Nagpur, Maharashtra.
       </p>
     </div>
   </section>
 
-  <!-- City Content -->
-  <section style="padding-top: 20px;">
+  <section style="padding-top: 40px; background: #ffffff;">
     <div class="container" style="max-width: 900px;">
-      
-      <!-- Key Stats Grid -->
       <div class="locality-result-box" style="margin-bottom: 40px;">
         <div class="locality-stat-pill">
-          <div style="font-size: 0.8rem; color: #94a3b8;">5G Coverage</div>
-          <div style="font-size: 1.5rem; font-weight: 800; color: #00f5a0;">84%</div>
+          <div style="font-size: 0.8rem; color: #64748b;">5G Coverage</div>
+          <div style="font-size: 1.5rem; font-weight: 800; color: #059669;">84%</div>
         </div>
         <div class="locality-stat-pill">
-          <div style="font-size: 0.8rem; color: #94a3b8;">Average 5G Speed</div>
-          <div style="font-size: 1.5rem; font-weight: 800; color: #00f2fe;">220 Mbps</div>
+          <div style="font-size: 0.8rem; color: #64748b;">Average 5G Speed</div>
+          <div style="font-size: 1.5rem; font-weight: 800; color: #2563eb;">220 Mbps</div>
         </div>
         <div class="locality-stat-pill">
-          <div style="font-size: 0.8rem; color: #94a3b8;">Average Latency</div>
-          <div style="font-size: 1.5rem; font-weight: 800; color: #38bdf8;">28 ms</div>
+          <div style="font-size: 0.8rem; color: #64748b;">Average Latency</div>
+          <div style="font-size: 1.5rem; font-weight: 800; color: #0284c7;">28 ms</div>
         </div>
         <div class="locality-stat-pill">
-          <div style="font-size: 0.8rem; color: #94a3b8;">Average Signal</div>
-          <div style="font-size: 1.5rem; font-weight: 800; color: #f59e0b;">-88 dBm</div>
+          <div style="font-size: 0.8rem; color: #64748b;">Average Signal</div>
+          <div style="font-size: 1.5rem; font-weight: 800; color: #d97706;">-88 dBm</div>
         </div>
       </div>
 
-      <!-- Operator Comparison in Nagpur -->
-      <div class="comp-card netscope" style="margin-bottom: 30px;">
-        <h2 style="font-size: 1.4rem; margin-bottom: 16px;" class="text-gradient">Nagpur Operator Performance: Jio vs Airtel vs Vi</h2>
-        <div style="display: flex; flex-direction: column; gap: 14px; font-size: 0.95rem;">
-          <div>
-            <strong style="color: #00f2fe;">1. Reliance Jio (5G SA):</strong> Strong presence across Dharampeth, Ramdaspeth, IT Park, and MIHAN with avg speeds around 245 Mbps.
-          </div>
-          <div>
-            <strong style="color: #38bdf8;">2. Bharti Airtel (5G NSA):</strong> Reliable indoor penetration in Sitabuldi, Sadar, and Civil Lines with avg speeds around 218 Mbps.
-          </div>
-          <div>
-            <strong style="color: #f59e0b;">3. Vodafone Idea (Vi):</strong> High 4G LTE stability along Wardha Road and Medical Square with avg speeds around 65 Mbps.
-          </div>
+      <div style="background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 24px; margin-bottom: 24px;">
+        <h2 style="font-size: 1.3rem; margin-bottom: 14px; color: #0f172a;">Nagpur Operator Performance: Jio vs Airtel vs Vi</h2>
+        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem; color: var(--text-secondary);">
+          <div><strong>1. Reliance Jio (5G SA):</strong> Strong presence across Dharampeth, Ramdaspeth, IT Park, and MIHAN with avg speeds around 245 Mbps.</div>
+          <div><strong>2. Bharti Airtel (5G NSA):</strong> Reliable indoor coverage in Sitabuldi, Sadar, and Civil Lines with avg speeds around 218 Mbps.</div>
+          <div><strong>3. Vodafone Idea (Vi):</strong> High 4G LTE stability along Wardha Road and Medical Square with avg speeds around 65 Mbps.</div>
         </div>
       </div>
 
-      <!-- Locality Breakdown -->
-      <div class="comp-card traditional" style="margin-bottom: 30px;">
-        <h2 style="font-size: 1.4rem; margin-bottom: 16px; color: var(--accent-cyan);">Nagpur Locality Breakdown</h2>
-        <ul class="point-list">
-          <li class="point-item"><span>📍 <strong>Dharampeth & West Nagpur:</strong> 5G Available · High throughput (n78 band active).</span></li>
-          <li class="point-item"><span>📍 <strong>Sitabuldi & Central Commercial:</strong> High network density · Peak evening congestion.</span></li>
-          <li class="point-item"><span>📍 <strong>MIHAN & IT Corridor:</strong> Excellent corporate 5G standalone cell site density.</span></li>
-        </ul>
-      </div>
-
-      <!-- CTA -->
-      <div style="text-align: center; padding: 30px; background: rgba(0,242,254,0.08); border-radius: 16px; border: 1px solid rgba(0,242,254,0.25);">
-        <h3 style="font-size: 1.3rem; margin-bottom: 8px;">Want to test your exact location in Nagpur?</h3>
-        <p style="color: #94a3b8; font-size: 0.92rem; margin-bottom: 18px;">
+      <div style="text-align: center; padding: 32px; background: #eff6ff; border-radius: var(--radius-xl); border: 1px solid #bfdbfe;">
+        <h3 style="font-size: 1.3rem; margin-bottom: 8px; color: #0f172a;">Want to test your exact location in Nagpur?</h3>
+        <p style="color: #475569; font-size: 0.92rem; margin-bottom: 18px;">
           Download NetScope for Android and measure your real signal in dBm, RSRP, and download speed.
         </p>
         <a href="download.html" class="btn btn-primary btn-lg">
-          <span>📱 Download NetScope APK (Free)</span>
+          <span>Download NetScope APK (Free)</span>
         </a>
       </div>
-
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-bottom">

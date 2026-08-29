@@ -9,59 +9,60 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="cyber-grid-bg"></div>
 
+  <!-- Header -->
   <header class="site-header">
     <div class="container nav-container">
       <a href="index.html" class="brand-logo">
-        <div class="brand-icon">📶</div>
+        <div class="brand-logo-mark">NS</div>
         <span>NetScope<span class="text-gradient">India</span></span>
       </a>
 
       <ul class="nav-links">
         <li><a href="index.html" class="nav-link">Home</a></li>
         <li><a href="index.html#network-checker" class="nav-link">Check Network</a></li>
-        <li><a href="index.html#network-map" class="nav-link">Map</a></li>
+        <li><a href="index.html#network-map" class="nav-link">Coverage Map</a></li>
         <li><a href="academy.html" class="nav-link active">Academy</a></li>
         <li><a href="download.html" class="nav-link">Download APK</a></li>
       </ul>
 
       <div class="nav-actions">
         <a href="download.html" class="btn btn-primary btn-sm">
-          <span>📱 Download APK</span>
+          <span>Download APK</span>
         </a>
       </div>
     </div>
   </header>
 
-  <section class="page-hero">
-    <div class="container">
+  <!-- Page Hero -->
+  <section class="hero-section" style="padding-top: calc(var(--header-height) + 30px); padding-bottom: 50px;">
+    <div class="container" style="text-align: center; max-width: 800px;">
       <span class="section-badge">Educational Hub</span>
-      <h1 class="page-hero-title">NetScope <span class="text-gradient">Network Academy</span></h1>
-      <p class="page-hero-subtitle">
+      <h1 class="hero-title" style="font-size: 2.6rem;">NetScope <span class="text-gradient">Network Academy</span></h1>
+      <p class="hero-description">
         Everything you need to know about cellular RF engineering, 5G architecture, signal strength metrics, and troubleshooting slow mobile internet.
       </p>
     </div>
   </section>
 
   <!-- Academy Content -->
-  <section style="padding-top: 20px;">
-    <div class="container" style="max-width: 960px;">
+  <section style="padding-top: 40px; background: #ffffff;">
+    <div class="container" style="max-width: 900px;">
       
       <!-- Section 1: Beginner Fundamentals -->
       <div style="margin-bottom: 50px;">
-        <h2 style="font-size: 1.8rem; margin-bottom: 20px; color: #00f2fe;">🟢 1. Beginner RF Fundamentals</h2>
+        <h2 style="font-size: 1.6rem; margin-bottom: 20px; color: var(--accent-primary);">1. Beginner RF Fundamentals</h2>
         
-        <div style="display: flex; flex-direction: column; gap: 20px;">
-          <div class="comp-card netscope">
-            <h3 style="font-size: 1.25rem; color: #fff; margin-bottom: 8px;">Why do signal bars lie?</h3>
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 24px;">
+            <h3 style="font-size: 1.2rem; color: #0f172a; margin-bottom: 8px;">Why do signal bars lie?</h3>
             <p style="color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem;">
               The signal bars at the top of your phone screen are not standardized. Android manufacturers set arbitrary thresholds for 4 or 5 bars. Your phone might show 5 bars of 4G LTE with severe network congestion, resulting in near-zero download speeds. To know your real connection quality, you must look at raw <strong>dBm (Signal Power)</strong> and <strong>SINR (Signal Quality)</strong>.
             </p>
           </div>
 
-          <div class="comp-card netscope">
-            <h3 style="font-size: 1.25rem; color: #fff; margin-bottom: 8px;">What is dBm, RSRP, and RSRQ?</h3>
+          <div style="background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 24px;">
+            <h3 style="font-size: 1.2rem; color: #0f172a; margin-bottom: 8px;">What is dBm, RSRP, and RSRQ?</h3>
             <p style="color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem;">
               • <strong>dBm (Decibel-milliwatts):</strong> A logarithmic scale of cellular power. Since it is below 1 milliwatt, values are negative (e.g. -75 dBm is excellent, -115 dBm is very weak).<br>
               • <strong>RSRP (Reference Signal Received Power):</strong> The core RF metric in 4G and 5G measuring carrier power from cell towers.<br>
@@ -69,8 +70,8 @@
             </p>
           </div>
 
-          <div class="comp-card netscope">
-            <h3 style="font-size: 1.25rem; color: #fff; margin-bottom: 8px;">What is SINR and CQI?</h3>
+          <div style="background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 24px;">
+            <h3 style="font-size: 1.2rem; color: #0f172a; margin-bottom: 8px;">What is SINR and CQI?</h3>
             <p style="color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem;">
               • <strong>SINR (Signal-to-Interference-plus-Noise Ratio):</strong> The ultimate benchmark of clean transmission. Values above +20 dB allow your phone to use 256-QAM modulation for gigabit speeds.<br>
               • <strong>CQI (Channel Quality Indicator):</strong> A value from 1 to 15 that tells the cellular base station which modulation rate your phone can sustain without packet errors.
@@ -81,20 +82,20 @@
 
       <!-- Section 2: Troubleshooting Guides -->
       <div style="margin-bottom: 50px;">
-        <h2 style="font-size: 1.8rem; margin-bottom: 20px; color: #f59e0b;">🛠️ 2. Troubleshooting & Diagnostics</h2>
+        <h2 style="font-size: 1.6rem; margin-bottom: 20px; color: var(--accent-primary);">2. Troubleshooting & Diagnostics</h2>
 
-        <div style="display: flex; flex-direction: column; gap: 20px;">
-          <div class="comp-card traditional">
-            <h3 style="font-size: 1.25rem; color: #fff; margin-bottom: 8px;">Why is my 5G slow?</h3>
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 24px;">
+            <h3 style="font-size: 1.2rem; color: #0f172a; margin-bottom: 8px;">Why is my 5G slow?</h3>
             <p style="color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem;">
-              1. <strong>Sub-6 vs mmWave / C-Band:</strong> 5G encompasses low-band (700 MHz, slower but long range) and mid-band (3.5 GHz n78, ultra-fast). If your phone is connected to low-band 5G, speeds may be similar to 4G LTE.<br>
-              2. <strong>Tower Backhaul Congestion:</strong> High density of users downloading video on the same sector.<br>
-              3. <strong>Building Wall Penetration:</strong> 3.5 GHz signals struggle to pass through reinforced concrete and metal foil insulation.
+              1. <strong>Sub-6 vs C-Band:</strong> 5G encompasses low-band (700 MHz, slower but long range) and mid-band (3.5 GHz n78, ultra-fast). If connected to low-band 5G, speeds may be similar to 4G LTE.<br>
+              2. <strong>Tower Congestion:</strong> High density of users on the same sector.<br>
+              3. <strong>Building Wall Penetration:</strong> 3.5 GHz signals struggle to pass through concrete walls.
             </p>
           </div>
 
-          <div class="comp-card traditional">
-            <h3 style="font-size: 1.25rem; color: #fff; margin-bottom: 8px;">Why does my phone switch from 5G to 4G?</h3>
+          <div style="background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 24px;">
+            <h3 style="font-size: 1.2rem; color: #0f172a; margin-bottom: 8px;">Why does my phone switch from 5G to 4G?</h3>
             <p style="color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem;">
               In 5G Non-Standalone (NSA) architectures, the 5G data link is anchored to a 4G LTE control channel. If the 4G anchor signal degrades, or if the phone enters smart battery saving mode during screen idle, Android will automatically fall back to 4G LTE.
             </p>
@@ -102,12 +103,12 @@
         </div>
       </div>
 
-      <!-- Section 3: India Telecom Architecture -->
+      <!-- Section 3: Indian Telecom Architecture -->
       <div style="margin-bottom: 50px;">
-        <h2 style="font-size: 1.8rem; margin-bottom: 20px; color: #00f5a0;">🇮🇳 3. Indian Telecom Architecture: Jio vs Airtel 5G</h2>
+        <h2 style="font-size: 1.6rem; margin-bottom: 20px; color: var(--accent-primary);">3. Indian Telecom Architecture: Jio vs Airtel 5G</h2>
 
-        <div class="comp-card netscope">
-          <h3 style="font-size: 1.25rem; color: #fff; margin-bottom: 8px;">5G Standalone (SA) vs 5G Non-Standalone (NSA)</h3>
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 24px;">
+          <h3 style="font-size: 1.2rem; color: #0f172a; margin-bottom: 8px;">5G Standalone (SA) vs 5G Non-Standalone (NSA)</h3>
           <p style="color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem;">
             • <strong>Reliance Jio:</strong> Built on a pure 5G Standalone (SA) core network utilizing 700 MHz (n28), 3300 MHz (n78), and 26 GHz (n258). Delivers ultra-low latency and true network slicing.<br>
             • <strong>Bharti Airtel:</strong> Built on 5G Non-Standalone (NSA) utilizing existing 4G LTE core infrastructure with 3300 MHz (n78). Offers rapid deployment and broad device compatibility without requiring new SIM profiles.
@@ -116,13 +117,13 @@
       </div>
 
       <!-- CTA -->
-      <div style="text-align: center; padding: 34px; background: rgba(0,242,254,0.08); border-radius: 16px; border: 1px solid rgba(0,242,254,0.25);">
-        <h3 style="font-size: 1.4rem; margin-bottom: 8px;">Measure these metrics live on your Android device</h3>
-        <p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">
+      <div style="text-align: center; padding: 36px; background: #eff6ff; border-radius: var(--radius-xl); border: 1px solid #bfdbfe; margin-bottom: 40px;">
+        <h3 style="font-size: 1.35rem; margin-bottom: 8px; color: #0f172a;">Measure these metrics live on Android</h3>
+        <p style="color: #475569; font-size: 0.95rem; margin-bottom: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">
           NetScope Android exposes real-time RSRP, RSRQ, SINR, CQI, and cell IDs directly on your screen without requiring root access.
         </p>
         <a href="download.html" class="btn btn-primary btn-lg">
-          <span>📱 Download NetScope APK (v1.0.0)</span>
+          <span>Download NetScope APK (v1.0.0)</span>
         </a>
       </div>
 

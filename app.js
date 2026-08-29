@@ -1,6 +1,6 @@
 /**
  * NetScope India — Complete Telecom Intelligence & Map Engine
- * Vanilla ES6+ Interactive Controls, Live Geolocation Speed Radar, Leaflet & Chart.js
+ * Bright Corporate Architecture, Clean Leaflet & Chart.js Visualizations
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -27,7 +27,7 @@ function initPWA() {
 }
 
 /* ==========================================
-   2. Navbar & Mobile Menu (No Overwrite)
+   2. Navbar & Mobile Menu
    ========================================== */
 function initNavbar() {
   const header = document.querySelector('.site-header');
@@ -35,7 +35,7 @@ function initNavbar() {
   const navLinks = document.querySelector('.nav-links');
 
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 30) {
+    if (window.scrollY > 20) {
       header?.classList.add('scrolled');
     } else {
       header?.classList.remove('scrolled');
@@ -45,20 +45,20 @@ function initNavbar() {
   if (toggleBtn && navLinks) {
     toggleBtn.addEventListener('click', () => {
       navLinks.classList.toggle('open');
-      toggleBtn.innerHTML = navLinks.classList.contains('open') ? '✕' : '☰';
+      toggleBtn.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
     });
 
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('open');
-        toggleBtn.innerHTML = '☰';
+        toggleBtn.textContent = '☰';
       });
     });
   }
 }
 
 /* ==========================================
-   3. Interactive India Network Map (Leaflet)
+   3. Interactive India Network Map (Bright Light Tiles)
    ========================================== */
 let mapInstance = null;
 let mapMarkers = [];
@@ -98,7 +98,8 @@ function initIndiaNetworkMap() {
     attributionControl: false
   });
 
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  // Bright Clean Voyager Tile Layer
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
     maxZoom: 19,
     subdomains: 'abcd'
   }).addTo(mapInstance);
@@ -120,52 +121,44 @@ function renderMapMarkers() {
   });
 
   filtered.forEach(city => {
-    let color = '#00f5a0';
-    if (city.status === 'fair') color = '#f59e0b';
-    if (city.status === 'poor') color = '#f43f5e';
+    let color = '#059669';
+    if (city.status === 'fair') color = '#d97706';
+    if (city.status === 'poor') color = '#dc2626';
 
     const customIcon = L.divIcon({
       className: 'custom-map-pin',
       html: `
         <div style="
-          width: 24px;
-          height: 24px;
+          width: 18px;
+          height: 18px;
           background: ${color};
           border-radius: 50%;
-          border: 3px solid #060913;
-          box-shadow: 0 0 16px ${color};
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 11px;
-          font-weight: bold;
-          color: #000;
-        ">
-          📡
-        </div>
+          border: 2px solid #ffffff;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+        "></div>
       `,
-      iconSize: [24, 24],
-      iconAnchor: [12, 12]
+      iconSize: [18, 18],
+      iconAnchor: [9, 9]
     });
 
     const marker = L.marker([city.lat, city.lng], { icon: customIcon }).addTo(mapInstance);
 
     const popupContent = `
-      <div style="font-family: Outfit, sans-serif; padding: 6px; min-width: 200px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 4px;">
-          <strong style="font-size: 1.1rem; color: #f8fafc;">${city.name}</strong>
-          <span style="font-size: 0.75rem; padding: 2px 6px; border-radius: 4px; background: rgba(0,242,254,0.2); color: #00f2fe; text-transform: uppercase; font-weight: bold;">
+      <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px; min-width: 200px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px;">
+          <strong style="font-size: 1.05rem; color: #0f172a;">${city.name}</strong>
+          <span style="font-size: 0.72rem; padding: 2px 6px; border-radius: 4px; background: #eff6ff; color: #2563eb; text-transform: uppercase; font-weight: 700;">
             ${city.operator.toUpperCase()} · ${city.gen.toUpperCase()}
           </span>
         </div>
-        <div style="font-size: 0.85rem; color: #94a3b8; display: flex; flex-direction: column; gap: 4px;">
-          <div>⚡ <strong>Avg Speed:</strong> <span style="color: #00f2fe;">${city.speed} Mbps</span></div>
-          <div>📶 <strong>Signal:</strong> <span style="color: #00f5a0;">${city.signal} dBm</span></div>
-          <div>🌐 <strong>Latency:</strong> <span style="color: #f8fafc;">${city.latency} ms</span></div>
-          <div>🗼 <strong>Active Cells:</strong> ${city.towers.toLocaleString()} nodes</div>
+        <div style="font-size: 0.84rem; color: #475569; display: flex; flex-direction: column; gap: 4px;">
+          <div><strong>Average Speed:</strong> <span style="color: #2563eb; font-weight: 700;">${city.speed} Mbps</span></div>
+          <div><strong>Signal (RSRP):</strong> <span style="color: #059669; font-weight: 700;">${city.signal} dBm</span></div>
+          <div><strong>Latency:</strong> ${city.latency} ms</div>
+          <div><strong>Active Nodes:</strong> ${city.towers.toLocaleString()} cells</div>
         </div>
-        <a href="#download" style="display: block; margin-top: 10px; padding: 6px; text-align: center; background: #00f2fe; color: #050814; border-radius: 6px; font-weight: bold; font-size: 0.78rem; text-decoration: none;">
-          Measure with NetScope APK
+        <a href="#download" style="display: block; margin-top: 10px; padding: 6px; text-align: center; background: #2563eb; color: #ffffff; border-radius: 6px; font-weight: 600; font-size: 0.78rem; text-decoration: none;">
+          Measure with Android App
         </a>
       </div>
     `;
@@ -192,7 +185,7 @@ function initMapFilterControls() {
 }
 
 /* ==========================================
-   4. Live Geolocation & Free Speed Test on Map
+   4. Live Geolocation & Speed Test on Map
    ========================================== */
 function initLiveGeolocationSpeed() {
   const locateBtns = document.querySelectorAll('.btn-locate-my-speed');
@@ -204,10 +197,9 @@ function initLiveGeolocationSpeed() {
         return;
       }
 
-      btn.textContent = '📍 Locating GPS & Pinging Network...';
+      btn.textContent = 'Locating GPS and testing connection...';
 
       const startTime = performance.now();
-      // Free ping probe
       fetch('https://cloudflare.com/cdn-cgi/trace', { cache: 'no-store', mode: 'no-cors' })
         .catch(() => {})
         .finally(() => {
@@ -216,9 +208,8 @@ function initLiveGeolocationSpeed() {
           navigator.geolocation.getCurrentPosition(
             (pos) => {
               const { latitude, longitude } = pos.coords;
-              btn.textContent = '📍 Live Location Found!';
+              btn.textContent = 'Location Found';
 
-              // Scroll to map
               document.getElementById('network-map')?.scrollIntoView({ behavior: 'smooth' });
 
               if (mapInstance && typeof L !== 'undefined') {
@@ -226,60 +217,52 @@ function initLiveGeolocationSpeed() {
                   mapInstance.removeLayer(userLocationMarker);
                 }
 
-                // Estimated live speed benchmark
                 const estSpeed = Math.floor(Math.random() * 80) + 140;
 
                 const livePulseIcon = L.divIcon({
                   className: 'live-gps-pin',
                   html: `
                     <div style="
-                      width: 28px;
-                      height: 28px;
-                      background: #00f2fe;
+                      width: 22px;
+                      height: 22px;
+                      background: #2563eb;
                       border-radius: 50%;
                       border: 3px solid #ffffff;
-                      box-shadow: 0 0 25px #00f2fe;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      font-size: 14px;
-                      animation: pulse-dot 1.5s infinite;
-                    ">
-                      📍
-                    </div>
+                      box-shadow: 0 2px 8px rgba(37,99,235,0.5);
+                    "></div>
                   `,
-                  iconSize: [28, 28],
-                  iconAnchor: [14, 14]
+                  iconSize: [22, 22],
+                  iconAnchor: [11, 11]
                 });
 
                 userLocationMarker = L.marker([latitude, longitude], { icon: livePulseIcon }).addTo(mapInstance);
                 mapInstance.setView([latitude, longitude], 11);
 
                 const livePopup = `
-                  <div style="font-family: Outfit, sans-serif; padding: 6px; min-width: 220px;">
-                    <div style="font-size: 1.05rem; font-weight: bold; color: #00f2fe; margin-bottom: 6px;">
-                      📍 Your Exact Location
+                  <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px; min-width: 210px;">
+                    <div style="font-size: 1rem; font-weight: 700; color: #2563eb; margin-bottom: 6px;">
+                      Current Location
                     </div>
-                    <div style="font-size: 0.86rem; color: #cbd5e1; display: flex; flex-direction: column; gap: 4px;">
-                      <div>⚡ <strong>Current Speed:</strong> <span style="color: #00f5a0; font-weight: bold;">~${estSpeed} Mbps</span></div>
-                      <div>🌐 <strong>Live Edge Ping:</strong> <span style="color: #38bdf8;">${ping < 300 ? ping : 24} ms</span></div>
-                      <div>📶 <strong>Estimated RSRP:</strong> -83 dBm</div>
-                      <div>🏢 <strong>Top Operator:</strong> Jio 5G / Airtel 5G</div>
+                    <div style="font-size: 0.84rem; color: #475569; display: flex; flex-direction: column; gap: 4px;">
+                      <div><strong>Estimated Speed:</strong> <span style="color: #059669; font-weight: 700;">~${estSpeed} Mbps</span></div>
+                      <div><strong>Edge Latency:</strong> ${ping < 300 ? ping : 24} ms</div>
+                      <div><strong>Estimated RSRP:</strong> -83 dBm</div>
+                      <div><strong>Leading Carrier:</strong> Jio 5G / Airtel 5G</div>
                     </div>
                     <div style="margin-top: 10px;">
-                      <a href="#download" style="display: block; padding: 6px; text-align: center; background: #00f2fe; color: #050814; border-radius: 6px; font-weight: bold; font-size: 0.78rem; text-decoration: none;">
-                        Measure Real HW Telemetry with NetScope APK
+                      <a href="#download" style="display: block; padding: 6px; text-align: center; background: #2563eb; color: #ffffff; border-radius: 6px; font-weight: 600; font-size: 0.78rem; text-decoration: none;">
+                        Measure Exact Telemetry via APK
                       </a>
                     </div>
                   </div>
                 `;
 
                 userLocationMarker.bindPopup(livePopup).openPopup();
-                showToast(`📍 Live Location Detected! Lat: ${latitude.toFixed(2)}, Lng: ${longitude.toFixed(2)}`);
+                showToast(`Location detected: Lat ${latitude.toFixed(2)}, Lng ${longitude.toFixed(2)}`);
               }
             },
             () => {
-              btn.textContent = '📍 Locate Me on Map';
+              btn.textContent = 'Locate on Map';
               showToast('Location permission denied or unavailable.');
             },
             { timeout: 10000 }
@@ -290,7 +273,7 @@ function initLiveGeolocationSpeed() {
 }
 
 /* ==========================================
-   5. "Check My Network" Locality Search Tool
+   5. Locality Search Tool
    ========================================== */
 const LOCALITY_DATA = {
   nagpur: { name: 'Nagpur, Maharashtra', avail5g: '84%', speed: '220 Mbps', latency: '28 ms', signal: '-88 dBm', bestOp: 'Airtel 5G Plus', tech: '5G / 4G' },
@@ -313,12 +296,12 @@ function initLocalitySearch() {
   function runSearch() {
     const query = searchInput.value.toLowerCase().trim();
     if (!query) {
-      showToast('Please enter a city or locality name (e.g., Nagpur, Delhi, Mumbai, Latur).');
+      showToast('Please enter a city or locality name (e.g. Nagpur, Delhi, Mumbai, Latur).');
       return;
     }
 
     let matchKey = Object.keys(LOCALITY_DATA).find(k => query.includes(k));
-    if (!matchKey) matchKey = 'nagpur'; // fallback sample
+    if (!matchKey) matchKey = 'nagpur';
 
     const data = LOCALITY_DATA[matchKey];
 
@@ -349,7 +332,7 @@ function initLocalitySearch() {
 }
 
 /* ==========================================
-   6. Telecom Engineering Dashboard (Image 2)
+   6. Telecom Performance Dashboard
    ========================================== */
 let voiceQualityChart = null;
 let latencyTimelineChart = null;
@@ -404,7 +387,6 @@ function updateTelecomUI(regionKey) {
 function initTelecomCharts() {
   if (typeof Chart === 'undefined') return;
 
-  // 1. MOS Voice Quality Pie Chart
   const ctxMOS = document.getElementById('chart-voice-quality')?.getContext('2d');
   if (ctxMOS) {
     voiceQualityChart = new Chart(ctxMOS, {
@@ -413,8 +395,8 @@ function initTelecomCharts() {
         labels: ['Best (30.84%)', 'High (22.31%)', 'Medium (20.72%)', 'Low (13.28%)', 'Poor (12.85%)'],
         datasets: [{
           data: REGION_STATS.all.mos,
-          backgroundColor: ['#4338ca', '#1e3a8a', '#06b6d4', '#eab308', '#881337'],
-          borderWidth: 1.5,
+          backgroundColor: ['#312e81', '#1e40af', '#0284c7', '#d97706', '#991b1b'],
+          borderWidth: 2,
           borderColor: '#ffffff'
         }]
       },
@@ -424,14 +406,13 @@ function initTelecomCharts() {
         plugins: {
           legend: {
             position: 'top',
-            labels: { boxWidth: 10, font: { family: 'Outfit', size: 10 }, color: '#334155' }
+            labels: { boxWidth: 10, font: { family: 'Plus Jakarta Sans', size: 10 }, color: '#475569' }
           }
         }
       }
     });
   }
 
-  // 2. 24-Hour Delay Latency Timeline Chart
   const ctxDelay = document.getElementById('chart-latency-delay')?.getContext('2d');
   if (ctxDelay) {
     const timeLabels = [
@@ -449,20 +430,20 @@ function initTelecomCharts() {
           {
             label: 'Delay (ms)',
             data: REGION_STATS.all.latencyTrend,
-            borderColor: '#3b82f6',
-            backgroundColor: 'rgba(59, 130, 246, 0.05)',
+            borderColor: '#2563eb',
+            backgroundColor: 'rgba(37, 99, 235, 0.05)',
             fill: false,
             tension: 0.3,
-            pointRadius: 3,
-            pointBackgroundColor: '#1e3a8a',
-            pointBorderColor: '#3b82f6',
+            pointRadius: 2.5,
+            pointBackgroundColor: '#1e40af',
+            pointBorderColor: '#2563eb',
             borderWidth: 1.5
           },
           {
             label: 'Trend Average',
             data: new Array(timeLabels.length).fill(115),
             borderColor: '#94a3b8',
-            borderDash: [5, 5],
+            borderDash: [4, 4],
             borderWidth: 1,
             pointRadius: 0,
             fill: false
@@ -491,43 +472,43 @@ function initTelecomCharts() {
 }
 
 /* ==========================================
-   7. Interactive Network Troubleshooter
+   7. Network Troubleshooter
    ========================================== */
 const TROUBLE_DATA = {
   slow: {
-    title: '🐌 Slow Internet Speed Diagnosis',
+    title: 'Slow Internet Speed Diagnosis',
     causes: [
-      '<strong>Tower Bandwidth Congestion:</strong> High number of users connected to the same cell sector.',
-      '<strong>Low SINR (Noise Ratio):</strong> Signal is experiencing heavy cross-talk or physical building interference.',
-      '<strong>Fallback to Saturated 4G:</strong> Phone dropped off 5G NR band due to indoor wall attenuation.'
+      '<strong>Tower Bandwidth Congestion:</strong> High density of active connections in the serving cell sector.',
+      '<strong>Low SINR (Noise Ratio):</strong> Severe interference from adjacent cell towers or structural shielding.',
+      '<strong>Fallback to 4G LTE:</strong> Connection dropped from high-frequency 5G NR band due to indoor wall attenuation.'
     ],
-    fix: 'Check your real-time RSRP and SINR with NetScope Android. Moving closer to a window or toggling Airplane Mode can reconnect you to a cleaner frequency band.'
+    fix: 'Use NetScope to check real-time RSRP and SINR metrics. Moving closer to windows or cycling airplane mode helps latch onto cleaner frequency bands.'
   },
   '5g-drop': {
-    title: '🔄 5G Keeps Switching to 4G',
+    title: '5G Reverting to 4G LTE',
     causes: [
       '<strong>5G NSA Anchor Loss:</strong> 5G Non-Standalone relies on a 4G LTE anchor band. If the LTE link degrades, 5G drops.',
       '<strong>Battery Optimization Throttling:</strong> Android smart 5G mode automatically switches to 4G during idle usage.',
       '<strong>High Frequency C-Band Attenuation:</strong> 3.5 GHz (n78) signals have shorter range and weaker indoor penetration.'
     ],
-    fix: 'Use NetScope to check whether your connection is 5G Standalone (SA) or NSA, and verify whether the n78 band is within reachable range.'
+    fix: 'Verify whether the carrier operates 5G Standalone (SA) or NSA, and check whether the n78 band is within reachable range.'
   },
   'poor-signal': {
-    title: '📶 Poor Signal Strength (1-2 Bars)',
+    title: 'Weak Cellular Signal (1-2 Bars)',
     causes: [
-      '<strong>Distance from Tower:</strong> Your location is at the boundary edge of the serving base station.',
+      '<strong>Distance from Tower:</strong> Location is situated near the boundary edge of the serving base station.',
       '<strong>Dense Concrete / Low-E Glass:</strong> Modern architecture dampens high-frequency cellular RF.',
-      '<strong>Wrong Antenna Orientation:</strong> Phone internal antennas blocked by metallic covers.'
+      '<strong>Antenna Obstruction:</strong> Phone internal antennas obstructed by thick metallic cases.'
     ],
-    fix: 'Use NetScope to measure raw dBm. Anything worse than -105 dBm indicates boundary cell edge. Remove thick metallic phone cases.'
+    fix: 'Measure raw dBm values using NetScope. Readings worse than -105 dBm indicate cell edge conditions.'
   },
   'call-drops': {
-    title: '📵 Frequent Call Drops / Silent Calls',
+    title: 'Frequent Call Drops / Voice Gaps',
     causes: [
-      '<strong>VoLTE / VoNR Handover Failure:</strong> Call fails when transitioning between cell towers during travel.',
+      '<strong>VoLTE / VoNR Handover Failure:</strong> Failure during rapid cell sector transitions while travelling.',
       '<strong>High Packet Loss / Jitter:</strong> Audio UDP packets dropping due to unstable RF link.'
     ],
-    fix: 'Verify VoLTE provisioning and latency jitter. NetScope tests round-trip response to evaluate voice packet reliability.'
+    fix: 'Check VoLTE provisioning and latency jitter. NetScope tests round-trip response to evaluate voice packet reliability.'
   }
 };
 
@@ -699,7 +680,7 @@ function initDeadZoneReporter() {
     e.preventDefault();
     modal?.classList.remove('active');
     form.reset();
-    showToast('✅ Thank you! Dead-zone report recorded in the NetScope community telemetry database.');
+    showToast('Report recorded in the NetScope community telemetry dataset.');
   });
 }
 
@@ -745,7 +726,7 @@ function initFAQSearch() {
 window.copyDownloadLink = function() {
   const apkUrl = 'https://github.com/bhavingarg121-glitch/net_scope/releases/download/v1.0.0/app-debug.apk';
   navigator.clipboard.writeText(apkUrl).then(() => {
-    showToast('Direct APK download link copied to clipboard!');
+    showToast('Direct APK download link copied to clipboard.');
   }).catch(() => {
     showToast('Download link: ' + apkUrl);
   });
@@ -760,18 +741,18 @@ function showToast(message) {
       position: fixed;
       bottom: 24px;
       right: 24px;
-      background: rgba(10, 15, 36, 0.96);
-      border: 1px solid #00f2fe;
-      color: #f8fafc;
-      padding: 12px 22px;
-      border-radius: 100px;
-      font-size: 0.9rem;
-      font-family: Outfit, sans-serif;
-      box-shadow: 0 10px 30px rgba(0, 242, 254, 0.35);
+      background: #0f172a;
+      border: 1px solid #334155;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
       z-index: 9999;
-      transition: all 0.3s ease;
+      transition: all 0.25s ease;
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(15px);
     `;
     document.body.appendChild(toast);
   }
@@ -782,6 +763,6 @@ function showToast(message) {
 
   setTimeout(() => {
     toast.style.opacity = '0';
-    toast.style.transform = 'translateY(20px)';
-  }, 3500);
+    toast.style.transform = 'translateY(15px)';
+  }, 3200);
 }

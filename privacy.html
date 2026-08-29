@@ -3,111 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy & Android Permissions – NetScope India</title>
-  <meta name="description" content="Learn how NetScope India handles privacy, why Android permissions (Location, Phone State) are needed for network analytics, and our zero-data collection guarantee.">
+  <title>Privacy Policy & Telemetry Transparency – NetScope India</title>
+  <meta name="description" content="NetScope India privacy policy: Zero user tracking, zero advertisements, and complete transparency on Android telephony and location permissions.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="cyber-grid-bg"></div>
 
-  <!-- Header -->
   <header class="site-header">
     <div class="container nav-container">
       <a href="index.html" class="brand-logo">
-        <div class="brand-icon">📶</div>
+        <div class="brand-logo-mark">NS</div>
         <span>NetScope<span class="text-gradient">India</span></span>
       </a>
 
       <ul class="nav-links">
         <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="features.html" class="nav-link">Features</a></li>
-        <li><a href="download.html" class="nav-link">Download APK</a></li>
-        <li><a href="privacy.html" class="nav-link active">Privacy</a></li>
-        <li><a href="faq.html" class="nav-link">FAQ</a></li>
+        <li><a href="index.html#network-map" class="nav-link">Coverage Map</a></li>
+        <li><a href="academy.html" class="nav-link">Academy</a></li>
+        <li><a href="download.html" class="nav-link">Download</a></li>
       </ul>
 
       <div class="nav-actions">
         <a href="download.html" class="btn btn-primary btn-sm">
-          <span>📱 Download APK</span>
+          <span>Download APK</span>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="page-hero">
-    <div class="container">
-      <span class="section-badge">Privacy First</span>
-      <h1 class="page-hero-title">Privacy Policy & <span class="text-gradient">Permissions</span></h1>
-      <p class="page-hero-subtitle">
-        Complete transparency on how NetScope India interacts with your Android device hardware.
+  <section class="hero-section" style="padding-top: calc(var(--header-height) + 30px); padding-bottom: 50px;">
+    <div class="container" style="text-align: center; max-width: 800px;">
+      <span class="section-badge">Privacy & Permissions</span>
+      <h1 class="hero-title" style="font-size: 2.6rem;">Privacy & <span class="text-gradient">Data Transparency</span></h1>
+      <p class="hero-description">
+        NetScope operates under a strict privacy-first principle: no third-party trackers, no accounts, and on-device processing.
       </p>
     </div>
   </section>
 
-  <!-- Detailed Policy Content -->
-  <section style="padding-top: 20px;">
-    <div class="container" style="max-width: 860px;">
-      
-      <div class="comp-card netscope" style="margin-bottom: 30px;">
-        <h2 style="font-size: 1.5rem; margin-bottom: 12px;" class="text-gradient">1. Our Privacy Commitment</h2>
-        <p style="color: var(--text-secondary); line-height: 1.8;">
-          NetScope India is built as an open utility for everyday users and network enthusiasts. <strong>We do not collect, sell, lease, or monetize your personal data.</strong> All network speed tests and cellular signal measurements remain processed locally on your smartphone.
-        </p>
-      </div>
-
-      <div class="comp-card traditional" id="permissions" style="margin-bottom: 30px; border-color: rgba(0, 242, 254, 0.2);">
-        <h2 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--accent-cyan);">2. Why Does NetScope Require Permissions?</h2>
-        
-        <div style="margin-bottom: 20px;">
-          <h3 style="font-size: 1.15rem; margin-bottom: 6px; color: var(--text-primary);">📞 READ_PHONE_STATE</h3>
-          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
-            <strong>Purpose:</strong> Required by the Android OS <code>TelephonyManager</code> API to detect active SIM cards, operator carrier names (Jio, Airtel, Vi, BSNL), network roaming state, and connection generation (5G NR, 4G LTE, 3G, 2G).<br>
-            <strong>What we DO NOT do:</strong> We do NOT access phone call history, contacts, or make phone calls.
+  <section style="padding-top: 40px; background: #ffffff;">
+    <div class="container" style="max-width: 800px;">
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 24px;">
+          <h3 style="font-size: 1.2rem; color: #0f172a; margin-bottom: 8px;">1. Telephony & RF Data</h3>
+          <p style="color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem;">
+            NetScope reads hardware signal properties (dBm, RSRP, RSRQ, SINR, and cell tower IDs) through Android's TelephonyManager APIs. This data is computed locally on your device to display live diagnostics.
           </p>
         </div>
 
-        <div style="margin-bottom: 20px;">
-          <h3 style="font-size: 1.15rem; margin-bottom: 6px; color: var(--text-primary);">📍 ACCESS_FINE_LOCATION / ACCESS_COARSE_LOCATION</h3>
-          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
-            <strong>Purpose:</strong> Under Android's security architecture, cell tower information (Cell ID, TAC, RSRP, SINR, Signal dBm) is classified as location-derived metadata. Android requires apps to request location permission to read cell tower signal strength.<br>
-            <strong>What we DO NOT do:</strong> NetScope does NOT log GPS coordinates or transmit your location to any remote servers.
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 24px;">
+          <h3 style="font-size: 1.2rem; color: #0f172a; margin-bottom: 8px;">2. Location Permissions</h3>
+          <p style="color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem;">
+            Android OS requires location permission (ACCESS_FINE_LOCATION) to access cellular tower identifiers. NetScope does not track your continuous physical movement or upload personal location logs.
           </p>
         </div>
 
-        <div>
-          <h3 style="font-size: 1.15rem; margin-bottom: 6px; color: var(--text-primary);">🌐 INTERNET & ACCESS_NETWORK_STATE</h3>
-          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
-            <strong>Purpose:</strong> Used exclusively to run on-demand download/upload network speed tests, ping checks, and DNS resolution diagnostics when requested by the user.
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 24px;">
+          <h3 style="font-size: 1.2rem; color: #0f172a; margin-bottom: 8px;">3. No Advertisements or Third-Party SDKs</h3>
+          <p style="color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem;">
+            NetScope is an open-source utility without marketing trackers, analytics SDKs, or ad monetization frameworks.
           </p>
         </div>
       </div>
-
-      <div class="comp-card traditional" style="margin-bottom: 30px;">
-        <h2 style="font-size: 1.5rem; margin-bottom: 12px; color: var(--text-primary);">3. Third-Party Analytics & Tracking</h2>
-        <p style="color: var(--text-secondary); line-height: 1.8;">
-          NetScope contains <strong>zero third-party advertising SDKs</strong>. There are no tracking pixels or cross-app identifier beacons embedded inside the application package.
-        </p>
-      </div>
-
-      <div class="comp-card traditional">
-        <h2 style="font-size: 1.5rem; margin-bottom: 12px; color: var(--text-primary);">4. Open Source & Auditability</h2>
-        <p style="color: var(--text-secondary); line-height: 1.8;">
-          The NetScope project is open source and accessible on GitHub at <a href="https://github.com/bhavingarg121-glitch/NetScope" style="color: var(--accent-cyan); text-decoration: underline;" target="_blank">github.com/bhavingarg121-glitch/NetScope</a>. Anyone is welcome to inspect the source code to verify our privacy standards.
-        </p>
-      </div>
-
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-bottom">
         <div>© 2026 NetScope India. Open-source mobile network analytics.</div>
         <div style="display: flex; gap: 20px;">
           <a href="index.html" class="footer-link">Home</a>
-          <a href="features.html" class="footer-link">Features</a>
+          <a href="academy.html" class="footer-link">Academy</a>
           <a href="download.html" class="footer-link">Download</a>
           <a href="https://github.com/bhavingarg121-glitch/NetScope" class="footer-link" target="_blank">GitHub</a>
         </div>
