@@ -1,101 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Features – NetScope India Mobile Network Analytics</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Features | NetScope India</title>
   <meta name="description" content="Explore NetScope's technical capabilities: real-time RF signal diagnostics, socket speed testing, cell tower telemetry, and interactive India coverage maps.">
+  <meta name="author" content="NetScope India">
+  <meta name="theme-color" content="#2563eb">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="container nav-container">
-      <a href="index.html" class="brand-logo">
-        <div class="brand-logo-mark">NS</div>
-        <span>NetScope<span class="text-gradient">India</span></span>
-      </a>
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="index.html" aria-label="NetScope India home">
+      <span class="brand-mark">NS</span>
+      <span>NetScope <small>India · Network Intelligence</small></span>
+    </a>
+    <nav class="navlinks" id="navlinks">
+      <a href="index.html#map">Map</a>
+      <a href="index.html#compare">Compare</a>
+      <a href="index.html#metrics">Metrics</a>
+      <a href="academy.html">Academy</a>
+      <a href="download.html" class="nav-cta">Download App</a>
+    </nav>
+    <button class="menu" id="menu" aria-label="Open navigation">☰</button>
+  </div>
+</header>
 
-      <ul class="nav-links">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="index.html#network-map" class="nav-link">Coverage Map</a></li>
-        <li><a href="features.html" class="nav-link active">Features</a></li>
-        <li><a href="academy.html" class="nav-link">Academy</a></li>
-        <li><a href="download.html" class="nav-link">Download</a></li>
-      </ul>
-
-      <div class="nav-actions">
-        <a href="download.html" class="btn btn-primary btn-sm">
-          <span>Download APK</span>
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <section class="hero-section" style="padding-top: calc(var(--header-height) + 30px); padding-bottom: 50px;">
-    <div class="container" style="text-align: center; max-width: 800px;">
-      <span class="section-badge">Platform Capabilities</span>
-      <h1 class="hero-title" style="font-size: 2.6rem;">Engineering-Grade <span class="text-gradient">Network Telemetry</span></h1>
-      <p class="hero-description">
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow">Platform Capabilities</div>
+      <h1 class="page-title">Engineering-Grade <span class="gradient">Network Diagnostics</span></h1>
+      <p class="page-subtitle">
         NetScope combines hardware-level cellular diagnostic APIs on Android with an aggregated web exploration engine.
       </p>
     </div>
   </section>
 
-  <section style="padding-top: 40px; background: #ffffff;">
+  <section style="background:#ffffff;">
     <div class="container" style="max-width: 900px;">
-      <div style="display: flex; flex-direction: column; gap: 20px;">
-        <div style="background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 28px;">
-          <h3 style="font-size: 1.25rem; color: #0f172a; margin-bottom: 8px;">1. Real-Time Signal Power & Quality</h3>
-          <p style="color: var(--text-secondary); line-height: 1.7;">
-            Measure raw RF signal metrics directly from your phone's modem, including dBm, ASU, RSRP, RSRQ, and SINR across 5G NR and 4G LTE.
-          </p>
-        </div>
+      <div class="cards" style="grid-template-columns: 1fr 1fr; margin-bottom: 30px;">
+        <article class="card">
+          <span class="card-badge">RF Diagnostics</span>
+          <h3>1. Real-Time Signal Power & Quality</h3>
+          <p>Measure raw RF signal metrics directly from your phone's modem, including dBm, ASU, RSRP, RSRQ, and SINR across 5G NR and 4G LTE.</p>
+        </article>
 
-        <div style="background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 28px;">
-          <h3 style="font-size: 1.25rem; color: #0f172a; margin-bottom: 8px;">2. Low-Overhead Socket Speed Testing</h3>
-          <p style="color: var(--text-secondary); line-height: 1.7;">
-            Measure true bandwidth without ad bloat or server routing biases. NetScope evaluates socket throughput, HTTP ping, and jitter.
-          </p>
-        </div>
+        <article class="card">
+          <span class="card-badge">Speed & Latency</span>
+          <h3>2. Low-Overhead Socket Speed Testing</h3>
+          <p>Measure true bandwidth without ad bloat or server routing biases. NetScope evaluates socket throughput, HTTP ping, and jitter.</p>
+        </article>
 
-        <div style="background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 28px;">
-          <h3 style="font-size: 1.25rem; color: #0f172a; margin-bottom: 8px;">3. Base Station & Tower Telemetry</h3>
-          <p style="color: var(--text-secondary); line-height: 1.7;">
-            Exposes serving cell identity: Cell ID, Tracking Area Code (TAC), Physical Cell ID (PCI), and Radio Frequency Channel Number (EARFCN/NR-ARFCN).
-          </p>
-        </div>
+        <article class="card">
+          <span class="card-badge">Cell Telemetry</span>
+          <h3>3. Base Station & Tower Identifiers</h3>
+          <p>Exposes serving cell identity: Cell ID, Tracking Area Code (TAC), Physical Cell ID (PCI), and Radio Frequency Channel Number (EARFCN/NR-ARFCN).</p>
+        </article>
 
-        <div style="background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 28px;">
-          <h3 style="font-size: 1.25rem; color: #0f172a; margin-bottom: 8px;">4. Dual SIM Simultaneous Telemetry</h3>
-          <p style="color: var(--text-secondary); line-height: 1.7;">
-            Independent diagnostic monitoring for phones running dual active SIMs (e.g. SIM 1 Jio 5G + SIM 2 Airtel 4G).
-          </p>
-        </div>
+        <article class="card">
+          <span class="card-badge">Multi-Carrier</span>
+          <h3>4. Dual SIM Simultaneous Telemetry</h3>
+          <p>Independent diagnostic monitoring for phones running dual active SIMs (e.g. SIM 1 Jio 5G + SIM 2 Airtel 4G).</p>
+        </article>
       </div>
 
-      <div style="text-align: center; margin-top: 40px;">
-        <a href="download.html" class="btn btn-primary btn-lg">
-          <span>Download NetScope APK</span>
+      <div style="text-align: center; padding: 36px; background: var(--blue-bg); border-radius: var(--radius); border: 1px solid #bfdbfe;">
+        <h3 style="font-size: 1.25rem; margin-bottom: 8px; color: var(--text);">Ready to measure your connection?</h3>
+        <p style="color: var(--muted); font-size: 14px; margin-bottom: 18px;">
+          Download the standalone APK and inspect your network hardware telemetry.
+        </p>
+        <a href="download.html" class="btn btn-primary">
+          <span>Download NetScope APK (Free)</span>
         </a>
       </div>
     </div>
   </section>
+</main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-bottom">
-        <div>© 2026 NetScope India. Open-source mobile network analytics.</div>
-        <div style="display: flex; gap: 20px;">
-          <a href="index.html" class="footer-link">Home</a>
-          <a href="academy.html" class="footer-link">Academy</a>
-          <a href="download.html" class="footer-link">Download</a>
-          <a href="https://github.com/bhavingarg121-glitch/NetScope" class="footer-link" target="_blank">GitHub</a>
-        </div>
-      </div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div><h4>NetScope India</h4><p>Mobile network intelligence for India — explore on the web, measure on Android, and learn how cellular networks work.</p></div>
+      <div><h4>Explore</h4><a href="index.html#map">Network Map</a><a href="index.html#compare">Compare Operators</a><a href="index.html#metrics">RF Metrics</a><a href="academy.html">Network Academy</a></div>
+      <div><h4>App</h4><a href="download.html">Download APK</a><a href="https://github.com/bhavingarg121-glitch/net_scope/releases" target="_blank">GitHub Releases</a><a href="privacy.html">Privacy</a><a href="faq.html">FAQ</a></div>
+      <div><h4>City Insights</h4><a href="delhi.html">Delhi NCR</a><a href="mumbai.html">Mumbai</a><a href="bengaluru.html">Bengaluru</a><a href="nagpur.html">Nagpur</a></div>
     </div>
-  </footer>
+    <div class="copyright"><span>© 2026 NetScope India</span><span>Built for network visibility across India.</span></div>
+  </div>
+</footer>
 
-  <script src="app.js"></script>
+<script>
+  const menu=document.getElementById('menu'), nav=document.getElementById('navlinks');
+  if(menu && nav){
+    menu.addEventListener('click',()=>nav.classList.toggle('open'));
+    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+  }
+</script>
 </body>
 </html>

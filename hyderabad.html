@@ -1,100 +1,104 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mobile Network Performance in Hyderabad – NetScope India</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mobile Network Performance in Hyderabad | NetScope India</title>
   <meta name="description" content="Check Jio 5G, Airtel 5G, Vi and BSNL mobile network speeds, latency, and signal strength across Hyderabad (HITEC City, Gachibowli, Banjara Hills, Secunderabad).">
+  <meta name="keywords" content="Hyderabad 5G speed, Jio 5G Hyderabad, Airtel 5G Hyderabad, HITEC City 5G">
+  <meta name="author" content="NetScope India">
+  <meta name="theme-color" content="#2563eb">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="container nav-container">
-      <a href="index.html" class="brand-logo">
-        <div class="brand-logo-mark">NS</div>
-        <span>NetScope<span class="text-gradient">India</span></span>
-      </a>
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="index.html" aria-label="NetScope India home">
+      <span class="brand-mark">NS</span>
+      <span>NetScope <small>India · Network Intelligence</small></span>
+    </a>
+    <nav class="navlinks" id="navlinks">
+      <a href="index.html#map">Map</a>
+      <a href="index.html#compare">Compare</a>
+      <a href="index.html#metrics">Metrics</a>
+      <a href="academy.html">Academy</a>
+      <a href="download.html" class="nav-cta">Download App</a>
+    </nav>
+    <button class="menu" id="menu" aria-label="Open navigation">☰</button>
+  </div>
+</header>
 
-      <ul class="nav-links">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="index.html#network-map" class="nav-link">Coverage Map</a></li>
-        <li><a href="academy.html" class="nav-link">Academy</a></li>
-        <li><a href="download.html" class="nav-link">Download</a></li>
-      </ul>
-
-      <div class="nav-actions">
-        <a href="download.html" class="btn btn-primary btn-sm">
-          <span>Download APK</span>
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <section class="hero-section" style="padding-top: calc(var(--header-height) + 30px); padding-bottom: 50px;">
-    <div class="container" style="text-align: center; max-width: 800px;">
-      <span class="section-badge">City Telemetry</span>
-      <h1 class="hero-title" style="font-size: 2.6rem;">Mobile Network Performance in <span class="text-gradient">Hyderabad</span></h1>
-      <p class="hero-description">
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow">City Telemetry</div>
+      <h1 class="page-title">Mobile Network Performance in <span class="gradient">Hyderabad</span></h1>
+      <p class="page-subtitle">
         5G speed benchmarks, latency measurements, and carrier signal insights across Hyderabad, Telangana.
       </p>
     </div>
   </section>
 
-  <section style="padding-top: 40px; background: #ffffff;">
+  <section style="background:#ffffff;">
     <div class="container" style="max-width: 900px;">
-      <div class="locality-result-box" style="margin-bottom: 40px;">
-        <div class="locality-stat-pill">
-          <div style="font-size: 0.8rem; color: #64748b;">5G Coverage</div>
-          <div style="font-size: 1.5rem; font-weight: 800; color: #059669;">89%</div>
+      <div class="city-stat-grid">
+        <div class="city-stat-box">
+          <span>5G Coverage</span>
+          <b style="color:var(--green)">89%</b>
         </div>
-        <div class="locality-stat-pill">
-          <div style="font-size: 0.8rem; color: #64748b;">Average 5G Speed</div>
-          <div style="font-size: 1.5rem; font-weight: 800; color: #2563eb;">295 Mbps</div>
+        <div class="city-stat-box">
+          <span>Average 5G Speed</span>
+          <b style="color:var(--blue)">295 Mbps</b>
         </div>
-        <div class="locality-stat-pill">
-          <div style="font-size: 0.8rem; color: #64748b;">Average Latency</div>
-          <div style="font-size: 1.5rem; font-weight: 800; color: #0284c7;">21 ms</div>
+        <div class="city-stat-box">
+          <span>Average Latency</span>
+          <b style="color:var(--cyan)">21 ms</b>
         </div>
-        <div class="locality-stat-pill">
-          <div style="font-size: 0.8rem; color: #64748b;">Average Signal</div>
-          <div style="font-size: 1.5rem; font-weight: 800; color: #059669;">-82 dBm</div>
+        <div class="city-stat-box">
+          <span>Average Signal</span>
+          <b style="color:var(--green)">−82 dBm</b>
         </div>
       </div>
 
-      <div style="background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 24px; margin-bottom: 24px;">
-        <h2 style="font-size: 1.3rem; margin-bottom: 14px; color: #0f172a;">Hyderabad Carrier Performance</h2>
-        <p style="color: var(--text-secondary); line-height: 1.7;">
-          HITEC City, Gachibowli, and Madhapur have comprehensive 5G NR deployment. Airtel 5G Plus and Reliance Jio deliver steady performance with minimal jitter, ideal for cloud applications and gaming.
+      <div class="content-panel">
+        <h2>Hyderabad Carrier Performance</h2>
+        <p>
+          HITEC City, Gachibowli, and Madhapur have comprehensive 5G NR deployment. Airtel 5G Plus and Reliance Jio deliver steady performance with minimal jitter, ideal for cloud applications and streaming.
         </p>
       </div>
 
-      <div style="text-align: center; padding: 32px; background: #eff6ff; border-radius: var(--radius-xl); border: 1px solid #bfdbfe;">
-        <h3 style="font-size: 1.3rem; margin-bottom: 8px; color: #0f172a;">Measure your connection in Hyderabad</h3>
-        <p style="color: #475569; font-size: 0.92rem; margin-bottom: 18px;">
+      <div style="text-align: center; padding: 36px; background: var(--blue-bg); border-radius: var(--radius); border: 1px solid #bfdbfe;">
+        <h3 style="font-size: 1.25rem; margin-bottom: 8px; color: var(--text);">Measure your connection in Hyderabad</h3>
+        <p style="color: var(--muted); font-size: 14px; margin-bottom: 18px;">
           Download NetScope to measure your cellular signal and speeds on Android.
         </p>
-        <a href="download.html" class="btn btn-primary btn-lg">
+        <a href="download.html" class="btn btn-primary">
           <span>Download NetScope APK</span>
         </a>
       </div>
     </div>
   </section>
+</main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-bottom">
-        <div>© 2026 NetScope India. Open-source mobile network analytics.</div>
-        <div style="display: flex; gap: 20px;">
-          <a href="index.html" class="footer-link">Home</a>
-          <a href="academy.html" class="footer-link">Academy</a>
-          <a href="download.html" class="footer-link">Download</a>
-          <a href="https://github.com/bhavingarg121-glitch/NetScope" class="footer-link" target="_blank">GitHub</a>
-        </div>
-      </div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div><h4>NetScope India</h4><p>Mobile network intelligence for India — explore on the web, measure on Android, and learn how cellular networks work.</p></div>
+      <div><h4>Explore</h4><a href="index.html#map">Network Map</a><a href="index.html#compare">Compare Operators</a><a href="index.html#metrics">RF Metrics</a><a href="academy.html">Network Academy</a></div>
+      <div><h4>App</h4><a href="download.html">Download APK</a><a href="https://github.com/bhavingarg121-glitch/net_scope/releases" target="_blank">GitHub Releases</a><a href="privacy.html">Privacy</a><a href="faq.html">FAQ</a></div>
+      <div><h4>City Insights</h4><a href="delhi.html">Delhi NCR</a><a href="mumbai.html">Mumbai</a><a href="bengaluru.html">Bengaluru</a><a href="nagpur.html">Nagpur</a></div>
     </div>
-  </footer>
+    <div class="copyright"><span>© 2026 NetScope India</span><span>Built for network visibility across India.</span></div>
+  </div>
+</footer>
 
-  <script src="app.js"></script>
+<script>
+  const menu=document.getElementById('menu'), nav=document.getElementById('navlinks');
+  if(menu && nav){
+    menu.addEventListener('click',()=>nav.classList.toggle('open'));
+    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+  }
+</script>
 </body>
 </html>
