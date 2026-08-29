@@ -134,7 +134,7 @@ a {
   z-index: 1;
 }
 
-/* Generous Section Spacing (No Header Overwrite) */
+/* Generous Section Spacing */
 section {
   padding: 95px 0;
   position: relative;
@@ -177,7 +177,7 @@ section {
 }
 
 /* ==========================================================================
-   Header & Navbar (Clean, Solid, No Taskbar Overwrite)
+   Header & Navbar
    ========================================================================== */
 .site-header {
   position: fixed;
@@ -243,7 +243,7 @@ section {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 20px;
   list-style: none;
 }
 
@@ -348,11 +348,11 @@ section {
 .btn-lg { padding: 16px 32px; font-size: 1.08rem; border-radius: var(--radius-md); }
 
 /* ==========================================================================
-   Hero Section
+   Hero Section (User-Focused)
    ========================================================================== */
 .hero-section {
-  padding-top: calc(var(--header-height) + 60px);
-  padding-bottom: 85px;
+  padding-top: calc(var(--header-height) + 50px);
+  padding-bottom: 80px;
   min-height: calc(100vh - var(--header-height));
   display: flex;
   align-items: center;
@@ -362,13 +362,13 @@ section {
 .hero-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 50px;
+  gap: 40px;
   align-items: center;
 }
 
 .hero-title {
-  font-size: 3.4rem;
-  margin-bottom: 20px;
+  font-size: 3.3rem;
+  margin-bottom: 18px;
   letter-spacing: -0.03em;
 }
 
@@ -376,21 +376,21 @@ section {
   font-size: 1.18rem;
   color: var(--text-secondary);
   line-height: 1.75;
-  margin-bottom: 34px;
+  margin-bottom: 30px;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 38px;
+  gap: 14px;
+  margin-bottom: 34px;
 }
 
 .hero-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding-top: 26px;
+  gap: 18px;
+  padding-top: 24px;
   border-top: 1px solid var(--border-subtle);
 }
 
@@ -427,7 +427,6 @@ section {
   height: 570px;
 }
 
-/* Back Phone: Map & Cluster Pins */
 .phone-back {
   position: absolute;
   top: 0;
@@ -445,7 +444,6 @@ section {
   z-index: 3;
 }
 
-/* Front Phone: Site Diagnostics & MTD Traffic */
 .phone-front {
   position: absolute;
   bottom: 0;
@@ -542,7 +540,6 @@ section {
   color: var(--accent-cyan);
 }
 
-/* Site Details Top Bar */
 .phone-site-header {
   display: flex;
   align-items: center;
@@ -633,182 +630,186 @@ section {
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* ==========================================================================
-   3-Layer Architecture Strategy Cards
-   ========================================================================== */
-.strategy-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 40px;
+/* ==========================================
+   Check My Network / Locality Search Card
+   ========================================== */
+.locality-search-wrapper {
+  background: linear-gradient(180deg, rgba(16, 25, 54, 0.9) 0%, rgba(10, 15, 36, 0.95) 100%);
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  box-shadow: 0 20px 50px -10px rgba(0, 242, 254, 0.15);
+  margin-bottom: 60px;
 }
 
-.strategy-card {
-  background: var(--bg-card);
+.locality-input-cluster {
+  display: flex;
+  gap: 12px;
+  max-width: 680px;
+  margin: 0 auto 24px;
+  flex-wrap: wrap;
+}
+
+.locality-input {
+  flex: 1;
+  min-width: 260px;
+  padding: 14px 20px;
+  background: rgba(8, 13, 28, 0.85);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 32px 24px;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
+  border-radius: 12px;
+  color: #f8fafc;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  outline: none;
 }
 
-.strategy-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 35px -10px rgba(0, 242, 254, 0.2);
+.locality-input:focus {
+  border-color: var(--accent-cyan);
 }
 
-.strategy-card.layer-app { border-top: 4px solid #38bdf8; }
-.strategy-card.layer-web { border-top: 4px solid #00f5a0; }
-.strategy-card.layer-data { border-top: 4px solid #f59e0b; }
-
-.strategy-badge {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 6px;
-  margin-bottom: 16px;
-  display: inline-block;
+.locality-result-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-top: 24px;
 }
 
-.layer-app .strategy-badge { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
-.layer-web .strategy-badge { background: rgba(0, 245, 160, 0.15); color: #00f5a0; }
-.layer-data .strategy-badge { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
-
-.strategy-title {
-  font-size: 1.4rem;
-  margin-bottom: 12px;
+.locality-stat-pill {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
 }
 
-.strategy-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 16px;
-  font-size: 0.92rem;
-  color: var(--text-secondary);
-}
-
-.strategy-list li {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-/* ==========================================================================
-   1. Interactive India Network Map Section
-   ========================================================================== */
-.map-section-wrapper {
+/* ==========================================
+   Operator Comparison Table (Jio vs Airtel vs Vi vs BSNL)
+   ========================================== */
+.operator-table-wrapper {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-xl);
-  padding: 30px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9);
+  padding: 32px;
+  overflow-x: auto;
 }
 
-.map-control-bar {
+.op-compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.op-compare-table th {
+  padding: 14px 18px;
+  font-family: var(--font-main);
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.op-compare-table td {
+  padding: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.95rem;
+}
+
+.op-compare-table tr:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* ==========================================
+   Network Troubleshooter / Problem Solver
+   ========================================== */
+.troubleshooter-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 32px;
+}
+
+.issue-selector-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.issue-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.25s ease;
+}
+
+.issue-btn:hover, .issue-btn.active {
+  background: rgba(0, 242, 254, 0.12);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  transform: translateX(6px);
+}
+
+.solution-display-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(0, 242, 254, 0.25);
+  border-radius: var(--radius-lg);
+  padding: 34px;
+}
+
+/* ==========================================
+   See NetScope in Action (5 App Screenshot Mockups)
+   ========================================== */
+.screenshot-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.app-screen-card {
+  background: #02050f;
+  border: 3px solid #1e293b;
+  border-radius: 28px;
+  padding: 14px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+  transition: transform 0.3s ease;
+}
+
+.app-screen-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-cyan);
+}
+
+.app-screen-header {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #38bdf8;
+  margin-bottom: 8px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid var(--border-subtle);
 }
 
-.filter-group {
+.app-screen-body {
+  background: #080d1d;
+  border-radius: 18px;
+  padding: 14px;
+  min-height: 260px;
   display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
-
-.filter-label {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-muted);
-}
-
-.filter-btn-cluster {
-  display: flex;
-  gap: 6px;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 4px;
-  border-radius: 10px;
-  border: 1px solid var(--border-subtle);
-}
-
-.filter-pill {
-  background: none;
-  border: none;
-  padding: 6px 14px;
-  border-radius: 6px;
-  font-family: var(--font-main);
-  font-size: 0.84rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.filter-pill.active {
-  background: rgba(0, 242, 254, 0.2);
-  color: var(--accent-cyan);
-  border: 1px solid rgba(0, 242, 254, 0.3);
-}
-
-.map-canvas-container {
-  height: 520px;
-  width: 100%;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 1px solid var(--border-subtle);
-  position: relative;
-  background: #070c1d;
-}
-
-#india-network-map {
-  height: 100%;
-  width: 100%;
-  background: #070c1d;
-}
-
-.map-floating-legend {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  background: rgba(8, 13, 29, 0.92);
-  border: 1px solid var(--border-subtle);
-  padding: 14px 18px;
-  border-radius: var(--radius-md);
-  backdrop-filter: blur(12px);
-  z-index: 500;
-  font-size: 0.82rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
-}
-
-.legend-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 6px;
-}
-
-.legend-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-.legend-dot.green { background: #00f5a0; box-shadow: 0 0 8px #00f5a0; }
-.legend-dot.yellow { background: #f59e0b; box-shadow: 0 0 8px #f59e0b; }
-.legend-dot.red { background: #f43f5e; box-shadow: 0 0 8px #f43f5e; }
 
 /* ==========================================================================
-   2. Telecom Engineering Dashboard (Exact Image 2 Reproduction)
+   Telecom Engineering Dashboard (Exact Image 2 Reproduction)
    ========================================================================== */
 .telecom-dashboard-container {
   background: #ffffff;
@@ -920,7 +921,117 @@ section {
 }
 
 /* ==========================================================================
-   3. Network Metric Explorer Tool
+   Interactive Map Controls
+   ========================================================================== */
+.map-section-wrapper {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 30px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9);
+}
+
+.map-control-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.filter-btn-cluster {
+  display: flex;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 4px;
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
+}
+
+.filter-pill {
+  background: none;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-family: var(--font-main);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-pill.active {
+  background: rgba(0, 242, 254, 0.2);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(0, 242, 254, 0.3);
+}
+
+.map-canvas-container {
+  height: 520px;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  position: relative;
+  background: #070c1d;
+}
+
+#india-network-map {
+  height: 100%;
+  width: 100%;
+  background: #070c1d;
+}
+
+.map-floating-legend {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(8, 13, 29, 0.92);
+  border: 1px solid var(--border-subtle);
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(12px);
+  z-index: 500;
+  font-size: 0.82rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+}
+
+.legend-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.legend-dot.green { background: #00f5a0; box-shadow: 0 0 8px #00f5a0; }
+.legend-dot.yellow { background: #f59e0b; box-shadow: 0 0 8px #f59e0b; }
+.legend-dot.red { background: #f43f5e; box-shadow: 0 0 8px #f43f5e; }
+
+/* ==========================================================================
+   Network Metric Explorer Tool
    ========================================================================== */
 .metric-explorer-wrapper {
   background: var(--bg-card);
@@ -982,7 +1093,7 @@ section {
 .threshold-card.poor { background: rgba(244, 63, 94, 0.1); border-color: rgba(244, 63, 94, 0.3); }
 
 /* ==========================================================================
-   4. City Network Directory Hub
+   City Network Directory Hub
    ========================================================================== */
 .city-cards-grid {
   display: grid;
@@ -1035,7 +1146,7 @@ section {
 }
 
 /* ==========================================================================
-   5. Community Dead-Zone Reporter Modal & Card
+   Community Dead-Zone Reporter Modal & Card
    ========================================================================== */
 .deadzone-banner-card {
   background: radial-gradient(circle at 100% 50%, rgba(244, 63, 94, 0.15) 0%, rgba(13, 20, 44, 0.9) 60%);
@@ -1099,7 +1210,7 @@ section {
 .checkbox-group { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.88rem; color: var(--text-secondary); }
 
 /* ==========================================================================
-   6. Comprehensive 5-Column Footer with Quick Links & Copyright
+   Comprehensive 5-Column Footer with Quick Links & Copyright
    ========================================================================== */
 .site-footer {
   background: #03060f;
@@ -1165,7 +1276,7 @@ section {
 /* Responsive Media Queries */
 @media (max-width: 1100px) {
   .footer-top { grid-template-columns: 1fr 1fr 1fr; }
-  .telecom-dash-grid { grid-template-columns: 1fr; }
+  .telecom-dash-grid, .troubleshooter-grid { grid-template-columns: 1fr; }
   .hero-grid { grid-template-columns: 1fr; }
   .dual-phone-container { margin: 0 auto; width: 340px; height: 500px; }
   .phone-back { display: none; }
@@ -1188,5 +1299,4 @@ section {
   .mobile-toggle { display: block; }
   .footer-top { grid-template-columns: 1fr 1fr; }
   .hero-title { font-size: 2.3rem; }
-  .strategy-grid { grid-template-columns: 1fr; }
 }

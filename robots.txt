@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bhavingarg121-glitch.github.io/NetScope/sitemap.xml
