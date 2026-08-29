@@ -161,6 +161,17 @@
   </section>
 </main>
 
+<!-- Sticky Mobile Funnel Action Pill -->
+<div class="sticky-install-bar" id="stickyInstall">
+  <span class="brand-mark" style="width:30px;height:30px;font-size:12px;border-radius:8px;">NS</span>
+  <div class="sticky-install-info">
+    <strong>NetScope for Android</strong>
+    <span>v1.0.0 · Free Cellular Analyzer</span>
+  </div>
+  <a href="https://github.com/bhavingarg121-glitch/net_scope/releases/download/v1.0.0/app-debug.apk" class="sticky-install-btn">
+    Get APK
+  </a>
+</div>
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -211,6 +222,14 @@
     menu.addEventListener('click',()=>nav.classList.toggle('open'));
     nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
   }
+  // Sticky Funnel Pill
+  const stickyPill = document.getElementById('stickyInstall');
+  if(stickyPill){
+    window.addEventListener('scroll', () => {
+      stickyPill.classList.toggle('visible', window.scrollY > 300);
+    });
+  }
 </script>
 </body>
 </html>
+

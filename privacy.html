@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -15,7 +15,7 @@
   <div class="container nav">
     <a class="brand" href="index.html" aria-label="NetScope India home">
       <span class="brand-mark">NS</span>
-      <span>NetScope <small>India · Network Intelligence</small></span>
+      <span>NetScope <small>India Â· Network Intelligence</small></span>
     </a>
     <nav class="navlinks" id="navlinks">
       <a href="index.html#showcase">App Showcase</a>
@@ -24,7 +24,7 @@
       <a href="academy.html">Academy</a>
       <a href="download.html" class="nav-cta">Download App</a>
     </nav>
-    <button class="menu" id="menu" aria-label="Open navigation">☰</button>
+    <button class="menu" id="menu" aria-label="Open navigation">â˜°</button>
   </div>
 </header>
 
@@ -67,12 +67,23 @@
   </section>
 </main>
 
+<!-- Sticky Mobile Funnel Action Pill -->
+<div class="sticky-install-bar" id="stickyInstall">
+  <span class="brand-mark" style="width:30px;height:30px;font-size:12px;border-radius:8px;">NS</span>
+  <div class="sticky-install-info">
+    <strong>NetScope for Android</strong>
+    <span>v1.0.0 · Free Cellular Analyzer</span>
+  </div>
+  <a href="https://github.com/bhavingarg121-glitch/net_scope/releases/download/v1.0.0/app-debug.apk" class="sticky-install-btn">
+    Get APK
+  </a>
+</div>
 <footer>
   <div class="container">
     <div class="footer-grid">
       <div>
         <h4>NetScope India</h4>
-        <p>Mobile network intelligence for India � explore on the web, measure on Android, and learn how cellular networks work.</p>
+        <p>Mobile network intelligence for India — explore on the web, measure on Android, and learn how cellular networks work.</p>
       </div>
       <div>
         <h4>Explore</h4>
@@ -105,7 +116,7 @@
       </div>
     </div>
     <div class="copyright">
-      <span>� 2026 NetScope India</span>
+      <span>© 2026 NetScope India</span>
       <span>Built for network visibility across India.</span>
     </div>
   </div>
@@ -117,6 +128,14 @@
     menu.addEventListener('click',()=>nav.classList.toggle('open'));
     nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
   }
+  // Sticky Funnel Pill
+  const stickyPill = document.getElementById('stickyInstall');
+  if(stickyPill){
+    window.addEventListener('scroll', () => {
+      stickyPill.classList.toggle('visible', window.scrollY > 300);
+    });
+  }
 </script>
 </body>
 </html>
+
